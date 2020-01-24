@@ -1,0 +1,10 @@
+title: Documents Advanced Search
+description: Perform faceted search queries against the content and metadata of patient documents
+type: Solr 
+owner: NWIS - Corporate Applications
+overview: |
+  We use Apache Solr to prvoide advanced search against patient documents in the Welsh Care Record Service.
+  You can perform general searches across all document content as well as metadata, for which a standard set of fields is defined for all documents.
+  Faceted search allows you to group and filter results by category until you find the document your looking for.
+  The advanced search features are primarily used by the Welsh Clinical Portal to allow users to browse for relevant patient documents.
+  It is available nationally and used in all Health Boards.

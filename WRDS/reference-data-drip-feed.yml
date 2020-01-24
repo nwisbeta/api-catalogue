@@ -1,0 +1,8 @@
+title: Reference Data Drip-Feed API
+description: Read and sync bulk data by date by registering for specific data-sets in advance.
+type: SOAP/XML
+owner: NWIS - Integration and Reference
+overview: |
+ This API allows registered users to query for changes to their pre-specified sets of reference data and retrieve full or partial changes in bulk.
+ It is used by systems to efficiently cache reference data that would otherwise need to be fetched via the other lookup APIs.
+ It is available nationally.

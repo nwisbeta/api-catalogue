@@ -1,0 +1,9 @@
+title: Audit Logging
+description: Write user activity to a central audit log
+type: SOAP/XML
+owner: NWIS - Integration and Reference
+overview: |
+  The API allows you to write pre-defined audit events for AC3 users to the Central Audit Service (CAS). 
+  Applications use this to be compliant with audit requirements and make audit logs available to other
+  systems such as the National Intelligent Integrated Auditing Solutions (NIIAS).
+  It is available nationally.

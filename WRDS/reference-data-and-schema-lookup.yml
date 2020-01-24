@@ -1,0 +1,8 @@
+title: Reference Data & Schema Lookup
+description: Retrieves table schemas and data listing all fields in the database.
+type: RESTful
+owner: NWIS - Integration and Reference
+overview: |
+ A RESTful service providing similar functionality to the standard lookup API for retrieving reference data from WRDS.
+ Additionally with this API you can retrieve the table schema to build POCO objects for deserialising the responses.
+ This is available nationally.

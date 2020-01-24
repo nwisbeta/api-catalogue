@@ -1,0 +1,9 @@
+title: FHIR Documents
+description: Store patient documents
+type: FHIR/REST
+owner: NWIS - Ecosystem Team
+overview: |
+  This API could be used to store documents in the Welsh Care Records Service (WCRS), using the FHIR DocumentReference resource
+  It should be considered experimental. Anybody can try out the demo/sandbox  implementation and provide feedback.
+  It is currently only available in the sandbox environment and not in production.
+  

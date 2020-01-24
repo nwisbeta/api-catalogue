@@ -1,0 +1,11 @@
+title: Result Requesting & Reporting
+description: Request radiology scans and pathology tests on specimens like blood samples.
+type: SOAP/XML
+owner: NWIS - Integration and Reference
+overview: |
+ This service mediates requests to Laboratory and Radiology Management Systems and returns request IDs  
+ so that specimens can be labelled and subsequently identified when received by laboratories.
+ The API also allows search/retrieval of a patients previous test requests and results. 
+ Applications use it to allow users in hospitals and GP surgeries to request diagnostic tests, generate
+ barcode labels for the specimen containers and display results as either a detailed list or chart and table.
+ It is available nationally in primary and secondary care.

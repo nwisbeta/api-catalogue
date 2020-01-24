@@ -1,0 +1,9 @@
+title: FHIR Terminology
+description: Look up codes from clinical classifications and ontologies
+type: FHIR/REST
+owner: NWIS - Ecosystem Team
+overview: |
+  This API could be used to search for clinical ontology codes like SNOMED CT using FHIR Resources
+  It should be considered experimental. Anybody can try out the demo/sandbox implementation and provide feedback.
+  It is available in the sandbox environment and being tested internally for production use.
+  
