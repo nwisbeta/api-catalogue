@@ -1,4 +1,4 @@
-title: Reference Data Drip-Feed API
+title: Reference Data Bulk Sync
 description: Read and sync bulk data by date by registering for specific data-sets in advance.
 type: SOAP/XML
 owner: NWIS - Integration and Reference
