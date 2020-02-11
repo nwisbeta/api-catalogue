@@ -8,8 +8,10 @@ The catalogue has the following structure:
     ├── system.yml
     ├── {api-id}/
     │   ├── api.yml
-    │   └──── spec/
-    │         └── open-api.yml or service.wsdl
+    │   ├── spec/
+    │   │   └── open-api.yml or service.wsdl
+    │   └── user-guide/
+    │       └── # see user guide section below
 
 If an API is deployed to the sandbox, it will be available at: `https://sandbox.api.wales.nhs.uk/{system-id}/{api-id}/`
 
@@ -62,6 +64,44 @@ The status of an API is determined by availability.
  
  > NOTE: the catalogue structure may be amended in future to support multiple API versions with different status
 
-### open-api.yml or service.wsdl
+## open-api.yml or service.wsdl
 A WSDL or Open API document for the API
  > NOTE: guidance for these items is still being developed
+
+
+## user-guide
+
+Although some reference documentation will be auto-generated from the `spec/service.wsdl` or `spec/open-api.yml`, you can provide more detail by adding a user guide. 
+To include an API user guide, add markdown files in a `user-guide` folder structured as show below:
+
+    user-guide/
+    ├── overview.md
+    ├── quickstart.md
+    ├── how-to/
+    │   ├── 1-{description}.md
+    │   ┊    
+    │   └── n-{description}.md   
+    ├── concepts/
+    │   ├── {concept}.md
+    │   ┊    
+    │   └── {concept}.md
+
+More information about the content of each markdown file is provided below.
+
+#### overview.md - Technical overview
+This overview is aimed at developers, so you should go into more technical detail than the catalogue description.
+Explain what the API does and how it works, e.g. it's a FHIR API that lets you retrieve ValueSets resources of SNOMED concepts, it's SOAP API that triggers a questionnaire to be sent.
+Be sure to highlight any technology and concepts that the user should be familiar with.
+
+#### quickstart.md - How to get started
+This should provide a short and clear example of how to use the API. 
+You can assume the reader has some familiarity with the required technology, but highlight anything advanced or unconvential - i.e. gotchas!
+Show sample requests, responses and explain error handling where appropriate
+
+#### how-to - Walk-through guides for common scenarios
+These should be examples written in the same style as the quickstart but it's ok for these to be lengthier more complex examples of usage.
+
+#### concepts - detail on API 
+These are descriptions of key concepts specific to the API, e.g. a Document Metadata standard.
+Where relevant, link to information sources (e.g. where concepts reference from some external standard) 
+
