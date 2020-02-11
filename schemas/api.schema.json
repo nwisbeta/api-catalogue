@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://api.wales.nhs.uk/catalogue/draft-01/api.schema.json",
+  "title": "API",
+  "description": "An API catalogue entry",
+  "type": "object",
+  "properties": {
+    "title": {
+      "description": "The name of the API",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 30
+    },
+    "description": {
+      "description": "A short description of what the API can do",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "type": {
+      "description": "Type of API",
+      "type": "string",
+      "enum": ["SOAP", "SOAP/HL7", "HL7", "REST", "REST/FHIR", "Solr", "GraphQL"]
+    },
+    "overview": {
+      "description": "A structured description of the API",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 800
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "type",
+    "overview"
+  ]
+}

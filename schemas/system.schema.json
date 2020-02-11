@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://api.wales.nhs.uk/catalogue/draft-01/system.schema.json",
+  "title": "System",
+  "description": "An API catalogue system metadata entry",
+  "type": "object",
+  "properties": {
+    "short-name": {
+      "description": "A short or abbreviated name for the system",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 10
+    },
+    "description": {
+      "description": "A description of the system",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    }
+  },
+  "required": [
+    "short-name",
+    "description"
+  ]
+}
