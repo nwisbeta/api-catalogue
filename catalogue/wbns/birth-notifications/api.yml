@@ -1,6 +1,6 @@
 title: Birth Notifications
 description: Register births and receive an NHS Number
-type: SOAP/XML + HL7 v2.3, v3
+type: SOAP/HL7
 owner: NWIS - Integration and Reference
 overview: |
   This API accepts HL7 ADT messages with details of a birth (mother's details, time of birth, gender, birth weight etc.) and responds with a newly generated NHS Number.

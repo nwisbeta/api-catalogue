@@ -1,6 +1,6 @@
 title: FHIR Patient
 description: Query for patients identifiers matched across multiple systems 
-type: FHIR/REST
+type: REST/FHIR
 owner: NWIS - Ecosystem Team
 overview: |
   This API could be used to query the Master Patient Index using the FHIR Patient resource. 

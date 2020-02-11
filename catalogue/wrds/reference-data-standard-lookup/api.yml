@@ -1,6 +1,6 @@
 title: Reference Data Standard Lookup
 description: Retrieve specific fields from reference sets.
-type: SOAP/XML
+type: SOAP
 owner: NWIS - Integration and Reference
 overview: |
  A SOAP service supporting ad-hoc enquiries against WRDS, the store of nationally agreed reference data.

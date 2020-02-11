@@ -1,6 +1,6 @@
 title: FHIR Documents
 description: Store patient documents
-type: FHIR/REST
+type: REST/FHIR
 owner: NWIS - Ecosystem Team
 overview: |
   This API could be used to store documents in the Welsh Care Records Service (WCRS), using the FHIR DocumentReference resource

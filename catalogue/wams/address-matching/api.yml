@@ -1,6 +1,6 @@
 title: Address Matching
 description: Search for addresses in the nationally approved address list
-type: SOAP/XML or RPC/JSON
+type: SOAP
 owner: NWIS - Integration and Reference
 overview: |
   The API allows searching and matching against the Welsh Address Matching Service (WAMS). 

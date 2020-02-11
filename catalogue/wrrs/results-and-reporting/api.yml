@@ -1,6 +1,6 @@
 title: Result Requesting & Reporting
 description: Request radiology scans and pathology tests on specimens like blood samples.
-type: SOAP/XML
+type: SOAP
 owner: NWIS - Integration and Reference
 overview: |
  This service mediates requests to Laboratory and Radiology Management Systems and returns request IDs  

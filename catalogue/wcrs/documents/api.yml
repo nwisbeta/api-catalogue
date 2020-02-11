@@ -1,6 +1,6 @@
 title: Documents
 description: Store and retrieve patient documents and perform basic searches
-type: SOAP/XML
+type: SOAP
 owner: NWIS - Integration and Reference
 overview: |
   This API is used to store documents in the Welsh Care Records Service (WCRS), the central patient document store for NHS Wales.

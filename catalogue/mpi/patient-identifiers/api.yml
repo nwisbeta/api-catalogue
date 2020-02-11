@@ -1,6 +1,6 @@
 title: Master Patient Index 
 description: Query for patients identifiers matched across multiple systems 
-type: SOAP/XML + HL7v2.5
+type: SOAP/HL7
 owner: NWIS - Integration and Reference
 overview: |
   These APIs implement the PIX and PDQ Integration Profiles from IHE.

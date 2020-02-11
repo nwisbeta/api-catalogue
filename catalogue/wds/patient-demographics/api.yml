@@ -1,6 +1,6 @@
 title: Patient Demographics
-description: Search for patient demographic information such as Address, Date of Birth, NHS Number etc.
-type: SOAP/XML
+description: Search for patient details such as address, date of birth, NHS number etc.
+type: SOAP
 owner: NWIS - Integration and Reference
 overview: |
   This API provides access to the Welsh Demographics Service.

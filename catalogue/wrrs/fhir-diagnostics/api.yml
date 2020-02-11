@@ -1,6 +1,6 @@
 title: FHIR Diagnostics
 description: Retrieve patient test results for pathology and radiology
-type: FHIR/REST
+type: REST/FHIR
 owner: NWIS - Ecosystem Team
 overview: |
   This API could allow search/retrieval of a patients test results using the FHIR DiagnosticReport and Observation resources.
