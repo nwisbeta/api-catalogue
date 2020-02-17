@@ -7,6 +7,6 @@ overview: |
   You can use Patient Identifier Cross Referencing (PIX) to match patients records across multiple systems.
   You can perform Patient Demographic Queries (PDQ) to search for patients demographic information, such as address or date of birth.
   The APIs are used by applications such as the Welsh Clinical Portal to retrieve all local identifiers for a patient, which then enables 
-  it retrieve and combine local records, such as test results, into a single list.
+  it to retrieve and combine local records, such as test results, into a single list.
   It is available nationally and used across primary and secondary care in all health boards.
   
