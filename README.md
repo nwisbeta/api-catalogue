@@ -1,6 +1,6 @@
 # NHS Wales API Catalogue
 
-Catalogue of APIs for NHS Wales systems
+The files in this repository are used to generate documentation and user guides for NHS Wales APIs. 
 
 The catalogue has the following structure:
 
@@ -11,18 +11,15 @@ The catalogue has the following structure:
     │   ├── spec/
     │   │   └── open-api.yml or service.wsdl
     │   └── user-guide/
-    │       └── # see user guide section below
+    │       └── # see user-guide section below
 
-If an API is deployed to the sandbox, it will be available at: `https://sandbox.api.wales.nhs.uk/{system-id}/{api-id}/`
+If an API has a sandbox implementation, it will be available at: `https://sandbox.api.wales.nhs.uk/{system-id}/{api-id}/`
 
-
-# Contributing
-
-Pull requests will be reviewed by an admin before merging.  Guidance on how to add new catalogue entries for a system and/or API are detailed below. 
+Below is more detail on each of the catalogue files and guidance on the expected content and writing style.
 
 ## system.yml
-This file holds information about the backend system rather than the APIs it exposes.  
-Information that may otherwise be repeated across all of a system's APIs can be added to the `description` item.
+This file holds information about the backend system that exposes one or more APIs.  
+Information that may otherwise be repeated across all of a system's APIs can be added to the `description` field.
 
 ### short-name
 A short name or abbreviation (max 10 chars) to be used as a prefix for each API title when displayed in the API catalogue.
