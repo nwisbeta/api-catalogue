@@ -16,5 +16,5 @@ We recommend editing the files using [**VS Code**](https://code.visualstudio.com
 
 Make sure you read the guidance in the [README](https://github.com/nwisbeta/api-catalogue/README.md), to be clear on the content and writing style expected for each file.
 
-Pull requests will automatically checked for correct file structure and then be reviewed by an one of the @nwis/ecosystem team before merging.
+Pull requests will be automatically checked for correct file structure and then be reviewed by a member of the @nwis/ecosystem team before merging.
 
