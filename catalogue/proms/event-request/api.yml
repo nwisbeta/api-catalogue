@@ -1,7 +1,7 @@
 
 title: Event Request
 description: Request that a patient be sent an assessment questionnaire after clinical events
-type: SOAP
+type: SOAPY
 owner: NWIS - Corporate Applications
 overview: |
   This is the non-standard API used to trigger PROMs capture by the National PROMs platform (https://proms.nhs.wales)
