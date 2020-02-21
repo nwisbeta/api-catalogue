@@ -4,6 +4,6 @@ description: Request that a patient be sent an assessment questionnaire after cl
 type: SOAP
 owner: NWIS - Corporate Applications
 overview: |
-  This is the standard API used to trigger PROMs capture by the National PROMs platform (https://proms.nhs.wales)
+  This is the non-standard API used to trigger PROMs capture by the National PROMs platform (https://proms.nhs.wales)
   The API is used by patient administration systems to request that questionnaires be sent to patients at relevant stages along a treatment pathway.
   It is available nationally and currently used in almost all Health Boards.
