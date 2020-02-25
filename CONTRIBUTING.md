@@ -37,7 +37,7 @@ git checkout -b iss53
 
 We recommend editing the files using [**VS Code**](https://code.visualstudio.com/) with the [**YAML extension**](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml). You will then get intellisense when adding or editing the api.yml and system.yml files.
 
-Make sure you read the guidance in the [README](https://github.com/nwisbeta/api-catalogue/README.md), so your clear on the content and writing style expected for each file.
+Make sure you read the guidance in the [README](README.md), so your clear on the content and writing style expected for each file.
 
 When you're done, push your commited changes back to your forked repo.  
 
