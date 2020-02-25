@@ -1,6 +1,21 @@
 # NHS Wales API Catalogue
 
-The files in this repository are used to generate documentation and user guides for NHS Wales APIs. 
+## Table of Contents
+[catalogue structure](#How-we've-structured-the-catalogue)
+
+[system.yml](#system.yml)
+
+[api.yml](#api.yml)
+
+[open-api.yml or service.wsdl](#open-api.yml-or-service.wsdl)
+
+[user guide](#user-guide)
+
+[Contributing](#contributing)
+
+## How we've structured the catalogue
+
+The files in this repository are used to generate documentation and user guides for NHS Wales APIs.
 
 The catalogue has the following structure:
 
@@ -60,6 +75,7 @@ The status of an API is determined by availability.
  > NOTE: the catalogue structure may be amended in future to support multiple API versions with different status.
 
 ## open-api.yml or service.wsdl
+
 A WSDL or Open API document for the API.
  > NOTE: guidance for these items is still being developed.
 
@@ -100,3 +116,8 @@ These should be examples written in the same style as the quickstart but it's ok
 These are descriptions of key concepts specific to the API, e.g. a Document Metadata standard.
 Where relevant, link to information sources (e.g. where concepts reference from some external standard.) 
 
+## Contributing
+
+The catalogue is in the open and we encourage contributions. So if you come across a a spelling mistake or wish to add an NHS API, feel free to send a [pull request]((https://github.com/nwisbeta/api-catalogue/pulls)) or you can open a [issue]([issue](https://github.com/nwisbeta/api-catalogue/issues)) to report it to us.
+
+Read our [contributing guidelines](CONTRIBUTING.md) for more information.
