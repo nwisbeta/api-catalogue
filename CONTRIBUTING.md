@@ -4,11 +4,11 @@
 
 [Our Goal](#Our-Goal)
 
-[How to contribute](@how-to-contribute)
+[How to contribute](@How-to-contribute)
 
-[Editing files and sending a pull request](editing-files-and-sending-a-pull-request)
+[Editing files and sending a pull request](@Editing-files-and-sending-a-pull-request)
 
-[Resources](@resources)
+[Resources](@Resources)
 
 ## Our Goal
 
