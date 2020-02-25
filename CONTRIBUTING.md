@@ -4,11 +4,11 @@
 
 [Our Goal](#Our-Goal)
 
-[How to contribute](@How-to-contribute)
+[How to contribute](#How-to-contribute)
 
-[Editing files and sending a pull request](@Editing-files-and-sending-a-pull-request)
+[Editing files and sending a pull request](#Editing-files-and-sending-a-pull-request)
 
-[Resources](@Resources)
+[Resources](#Resources)
 
 ## Our Goal
 
@@ -24,8 +24,8 @@ We need volunteers to help us and we welcome contributions to improve. This coul
 
 Either open an [issue](https://github.com/nwisbeta/api-catalogue/issues) or edit the files and send a [pull request](https://github.com/nwisbeta/api-catalogue/pulls) - but first check that there's not one already open for the same thing.
 
-
 ## Editing files and sending a pull request
+
 To send us a pull request, first fork the repository and create a new branch for your changes.
 
 ```
@@ -48,6 +48,7 @@ git push -u origin iss53
 Finally, raise a pull request. Pull requests will be automatically checked for correct file structure and then be reviewed by a member of the @nwis/ecosystem team before merging.
 
 ## Resources
+
 ---
 [About pull-requests](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)
 
