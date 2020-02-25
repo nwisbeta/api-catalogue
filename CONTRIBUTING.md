@@ -22,16 +22,16 @@ We need volunteers to help us and we welcome contributions to improve. This coul
 - add a new API to the catalogue.
 - suggest an improvement in the catalogue structure.
 
-Either open an [issue](https://github.com/nwisbeta/api-catalogue/issues) or edit the files and send a [pull request](https://github.com/nwisbeta/api-catalogue/pulls) - but first check that there's not one already open for the same thing.
+To do so, either open an [issue](https://github.com/nwisbeta/api-catalogue/issues) or edit the files and send a [pull request](https://github.com/nwisbeta/api-catalogue/pulls) - but first check that there's not one already open for the same thing.
 
 ## Editing files and sending a pull request
 
 To send us a pull request, first fork the repository and create a new branch for your changes.
 
 ```
-git clone https://github.com/your-username/api-catalogue.git
+git clone https://github.com/<your-username>/api-catalogue.git
 
-git checkout -b iss53
+git checkout -b <your-branch-name>
 ```
 
 
@@ -42,7 +42,7 @@ Make sure you read the guidance in the [README](README.md), so your clear on the
 When you're done, push your commited changes back to your forked repo.  
 
 ```
-git push -u origin iss53
+git push -u origin <your-branch-name>
 ```
 
 Finally, raise a pull request. Pull requests will be automatically checked for correct file structure and then be reviewed by a member of the @nwis/ecosystem team before merging.
