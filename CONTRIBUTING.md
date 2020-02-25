@@ -1,20 +1,54 @@
 # How to contribute to the NHS Wales API Catalogue
 
-We welcome contributions to improve the catalogue, which could be to:
+## Table of Contents
 
-- correct inaccuracies, grammar and typos.
+[Our Goal](#Our-Goal)
+
+[How to contribute](@how-to-contribute)
+
+[Editing files and sending a pull request](editing-files-and-sending-a-pull-request)
+
+[Resources](@resources)
+
+## Our Goal
+
+Welcome and thanks for reading this! We’re a small team at NHS Wales, helping to open up our technical architecture. We're doing so by first making our catalogue of Web APIs accessible.
+
+## How to contribute
+
+We need volunteers to help us and we welcome contributions to improve. This could be to...
+
+- correct inaccuracies, grammar or typos.
 - add a new API to the catalogue.
 - suggest an improvement in the catalogue structure.
 
-You can either open an [issue](https://github.com/nwisbeta/api-catalogue/issues) or edit the files and send a [pull request](https://github.com/nwisbeta/api-catalogue/pulls) - but first check that there's not one already open for the same thing.
+Either open an [issue](https://github.com/nwisbeta/api-catalogue/issues) or edit the files and send a [pull request](https://github.com/nwisbeta/api-catalogue/pulls) - but first check that there's not one already open for the same thing.
 
 
 ## Editing files and sending a pull request
 To send us a pull request, first fork the repository and create a new branch for your changes.
 
-We recommend editing the files using [**VS Code**](https://code.visualstudio.com/) with the [**YAML extension**](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml).  You will then get intellisense if you add or edit the api.yml and system.yml files.
+```
+git clone https://github.com/your-username/api-catalogue.git
 
-Make sure you read the guidance in the [README](https://github.com/nwisbeta/api-catalogue/README.md), to be clear on the content and writing style expected for each file.
+git checkout -b iss53
+```
 
-Pull requests will be automatically checked for correct file structure and then be reviewed by a member of the @nwis/ecosystem team before merging.
 
+We recommend editing the files using [**VS Code**](https://code.visualstudio.com/) with the [**YAML extension**](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml). You will then get intellisense when adding or editing the api.yml and system.yml files.
+
+Make sure you read the guidance in the [README](https://github.com/nwisbeta/api-catalogue/README.md), so your clear on the content and writing style expected for each file.
+
+When you're done, push your commited changes back to your forked repo.  
+
+```
+git push -u origin iss53
+```
+
+Finally, raise a pull request. Pull requests will be automatically checked for correct file structure and then be reviewed by a member of the @nwis/ecosystem team before merging.
+
+## Resources
+---
+[About pull-requests](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)
+
+[Git standard Fork and Pull request Workflow](https://gist.github.com/Chaser324/ce0505fbed06b947d962)
