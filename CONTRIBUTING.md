@@ -48,7 +48,6 @@ Finally, raise a pull request. Pull requests will be automatically checked for c
 
 ## Resources
 
----
 [About pull-requests](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)
 
 [Git standard Fork and Pull request Workflow](https://gist.github.com/Chaser324/ce0505fbed06b947d962)
