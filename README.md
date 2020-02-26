@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-[catalogue structure](#how-weve-structured-the-catalogue)
+[Catalogue Structure](#how-weve-structured-the-catalogue)
 
 [system.yml](#systemyml)
 
