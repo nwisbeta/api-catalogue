@@ -10,7 +10,7 @@
 
 [open-api.yml or service.wsdl](#open-apiyml-or-servicewsdl)
 
-[user guide](#user-guide)
+[user-guide](#user-guide)
 
 [Contributing](#contributing)
 
