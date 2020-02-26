@@ -2,6 +2,8 @@
 
 ## Table of Contents
 
+[Contributing](#contributing)
+
 [Catalogue Structure](#how-weve-structured-the-catalogue)
 
 [system.yml](#systemyml)
@@ -11,8 +13,6 @@
 [open-api.yml or service.wsdl](#open-apiyml-or-servicewsdl)
 
 [user-guide](#user-guide)
-
-[Contributing](#contributing)
 
 ## How we've structured the catalogue
 
