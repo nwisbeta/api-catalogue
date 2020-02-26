@@ -2,13 +2,13 @@
 
 ## Table of Contents
 
-[Our Goal](#our-goal)
+* [Our Goal](#our-goal)
 
-[How to contribute](#how-to-contribute)
+* [How to contribute](#how-to-contribute)
 
-[Editing files and sending a pull request](#editing-files-and-sending-a-pull-request)
+* [Editing files and sending a pull request](#editing-files-and-sending-a-pull-request)
 
-[Resources](#resources)
+* [Resources](#resources)
 
 ## Our Goal
 
