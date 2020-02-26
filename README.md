@@ -134,6 +134,6 @@ Where relevant, link to information sources (e.g. where concepts reference from 
 
 ## Contributing
 
-The catalogue is in the open and we encourage contributions. So if you come across a spelling mistake or wish to add an NHS API, feel free to send a [pull request]((https://github.com/nwisbeta/api-catalogue/pulls)) or you can open a [issue]([issue](https://github.com/nwisbeta/api-catalogue/issues)) to report it to us.
+The catalogue is in the open and we encourage contributions. So if you come across a spelling mistake or wish to add an NHS API, feel free to send a [pull request](https://github.com/nwisbeta/api-catalogue/pulls) or you can open a [issue](https://github.com/nwisbeta/api-catalogue/issues) to report it to us.
 
 Read our [contributing guidelines](CONTRIBUTING.md) for more information.
