@@ -2,13 +2,13 @@
 
 ## Table of Contents
 
-[catalogue structure](#How-we've-structured-the-catalogue)
+[catalogue structure](#how-weve-structured-the-catalogue)
 
-[system.yml](#system.yml)
+[system.yml](#systemyml)
 
-[api.yml](#api.yml)
+[api.yml](#apiyml)
 
-[open-api.yml or service.wsdl](#open-api.yml-or-service.wsdl)
+[open-api.yml or service.wsdl](#open-apiyml-or-servicewsdl)
 
 [user guide](#user-guide)
 
