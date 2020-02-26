@@ -28,12 +28,11 @@ To do so, either open an [issue](https://github.com/nwisbeta/api-catalogue/issue
 
 To send us a pull request, first fork the repository and create a new branch for your changes.
 
-```
+```bash
 git clone https://github.com/<your-username>/api-catalogue.git
 
 git checkout -b <your-branch-name>
 ```
-
 
 We recommend editing the files using [**VS Code**](https://code.visualstudio.com/) with the [**YAML extension**](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml). You will then get intellisense when adding or editing the api.yml and system.yml files.
 
@@ -41,7 +40,7 @@ Make sure you read the guidance in the [README](README.md), so your clear on the
 
 When you're done, push your commited changes back to your forked repo.  
 
-```
+```bash
 git push -u origin <your-branch-name>
 ```
 
