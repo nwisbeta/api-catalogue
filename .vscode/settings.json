@@ -1,7 +1,7 @@
 {
     "yaml.schemas": {
-        "./schemas/system.schema.json" : "system.yml",
-        "./schemas/api.schema.json" : "api.yml"
+        "./schemas/system.schema.json" : "/system.yml",
+        "./schemas/api.schema.json" : "/api.yml"
     }
 
 }
