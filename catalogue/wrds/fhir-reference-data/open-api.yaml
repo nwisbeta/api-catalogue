@@ -1,0 +1,559 @@
+openapi: 3.0.1
+info:
+  title: WRDS - FHIR Reference Data
+  description: "_Retrieve organisational reference data_\n\nThis API could be used to retrieve lists of practitioners, GP practices, hospitals etc., using the FHIR Organization, Practitioner and PractitionerRole resources.\nIt should be considered experimental. Anybody can try out the demo/sandbox implementation and provide feedback.\nIt is currently only available in the sandbox environment and not in production.\n"
+  version: '1.0'
+servers:
+  - url: https://dhew-nwis.azure-api.net/wrds/fhir-reference-data
+paths:
+  /Organization:
+    get:
+      summary: Organization
+      description: "The Organization resource is used to represent Health Boards and GP Practices.  They can be differentiated by the `Organization.type` property, which is 'HB' for Health Boards and 'GPPractice' for GP Practices.\n\n##### Example Usage: Retrieve a list of all GP Practices\n\n`GET {baseUrl}/Organization?type=GPPractice`\n\n##### Example Usage:  Search for a specific organization using its ODS Code\n \n   `GET {baseUrl}/Organization?identifier=7A1`\n\n##### Example Usage:  Retrieve a list of GP Practices within a specific Health Board\n\nFirst you would need to obtain the id of the Health Board, e.g. by search using the ODS Code (see above).  Then pass the Health Board's Organization id as the `partof` search parameter when retrieving a list of GP Practices.\n\n   `GET {baseUrl}/Organization?type=GPPractice&partof=125`"
+      operationId: get-organization
+      parameters:
+        - name: identifier
+          in: query
+          description: Any identifier for the organization (not the accreditation issuer's identifier)
+          schema:
+            type: string
+        - name: partof
+          in: query
+          description: An organization of which this organization forms a part
+          schema:
+            type: string
+        - name: type
+          in: query
+          description: A code for the type of organization
+          schema:
+            type: string
+        - name: _id
+          in: query
+          description: The ID of the resource
+          schema:
+            type: string
+        - name: _format
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  '/Organization/{id}':
+    get:
+      summary: 'Organization/{id}'
+      description: '/Organization/{id} - GET'
+      operationId: get-organization-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /Practitioner:
+    get:
+      summary: Practitioner
+      description: "##### Example Usage: Search for a Practitioner by Prescribing Number\n\n`GET {baseUrl}/Practitioner?identifier=G8433963`"
+      operationId: get-practitioner
+      parameters:
+        - name: _language
+          in: query
+          description: The language of the resource
+          schema:
+            type: string
+        - name: identifier
+          in: query
+          description: A practitioner's Identifier
+          schema:
+            type: string
+        - name: _format
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  '/Practitioner/{id}':
+    get:
+      summary: 'Practitioner/{id}'
+      description: '/Practitioner/{id} - GET'
+      operationId: get-practitioner-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /PractitionerRole:
+    get:
+      summary: PractitionerRole
+      description: "The [PractitionerRole](http://hl7.org/fhir/STU3/practitionerrole.html) resource is used to represents the role practitioners fulfill at an organisation\n\n##### Example Usage: Retrieve practitioners from a specific organization \n\nSay for example you need a list of all the GPs who work at a specific practice.\nFirst you would search for the GP Practice (i.e. an Organization of type GPPractice).\n\nYou can then use the the value Organization.id to find the PractitionerRole resources\n\n`GET {baseUrl}/PractitionerRole?organization=430`\n\nIf you want to the corresponding Practitioners in the result, you can use the `_include` parameter:\n\n`GET {baseUrl}/PractitionerRole?organization=430&_include=PractitionerRole:practitioner`\n\nNote that if all you wanted was the Practitioner, then you can do this against the Practitioner resource with a reverse chaining query (using the `_has` parameter)\n\n`{baseUrl}/Practitioner?_has:PractitionerRole:practitioner:organization=430`"
+      operationId: get-practitionerrole
+      parameters:
+        - name: practitioner
+          in: query
+          description: Practitioner that is able to provide the defined services for the organization
+          schema:
+            type: string
+        - name: organization
+          in: query
+          description: The identity of the organization the practitioner represents / acts on behalf of
+          schema:
+            type: string
+        - name: _format
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  '/PractitionerRole/{id}':
+    get:
+      summary: 'PractitionerRole/{id}'
+      description: '/PractitionerRole/{id} - GET'
+      operationId: get-practitionerrole-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+components:
+  schemas:
+    Organization:
+      required:
+        - resourceType
+        - id
+        - text
+        - extension
+        - name
+        - telecom
+        - address
+      type: object
+      properties:
+        resourceType:
+          minLength: 1
+          type: string
+        id:
+          minLength: 1
+          type: string
+        text:
+          required:
+            - status
+            - div
+          type: object
+          properties:
+            status:
+              minLength: 1
+              type: string
+            div:
+              minLength: 1
+              type: string
+        extension:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - url
+              - valueString
+            properties:
+              fhir_comments:
+                type: array
+                items: { }
+              url:
+                minLength: 1
+                type: string
+              valueString:
+                minLength: 1
+                type: string
+        name:
+          minLength: 1
+          type: string
+        telecom:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - system
+              - value
+            properties:
+              system:
+                minLength: 1
+                type: string
+              value:
+                minLength: 1
+                type: string
+        address:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - city
+              - state
+              - postalCode
+              - country
+            properties:
+              line:
+                type: array
+                items: { }
+              city:
+                minLength: 1
+                type: string
+              state:
+                minLength: 1
+                type: string
+              postalCode:
+                minLength: 1
+                type: string
+              country:
+                minLength: 1
+                type: string
+      description: ''
+    Practitioner:
+      required:
+        - resourceType
+        - id
+        - text
+        - identifier
+        - active
+        - name
+        - practitionerRole
+        - qualification
+      type: object
+      properties:
+        resourceType:
+          minLength: 1
+          type: string
+        id:
+          minLength: 1
+          type: string
+        text:
+          required:
+            - status
+            - div
+          type: object
+          properties:
+            status:
+              minLength: 1
+              type: string
+            div:
+              minLength: 1
+              type: string
+        identifier:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - system
+              - value
+            properties:
+              system:
+                minLength: 1
+                type: string
+              value:
+                minLength: 1
+                type: string
+        active:
+          type: boolean
+        name:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            properties:
+              family:
+                type: array
+                items: { }
+              given:
+                type: array
+                items: { }
+              prefix:
+                type: array
+                items: { }
+        practitionerRole:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            properties:
+              organization:
+                required:
+                  - reference
+                type: object
+                properties:
+                  reference:
+                    minLength: 1
+                    type: string
+              role:
+                required:
+                  - fhir_comments
+                  - coding
+                type: object
+                properties:
+                  fhir_comments:
+                    type: array
+                    items: { }
+                  coding:
+                    minItems: 1
+                    uniqueItems: true
+                    type: array
+                    items:
+                      required:
+                        - system
+                        - code
+                      properties:
+                        system:
+                          minLength: 1
+                          type: string
+                        code:
+                          minLength: 1
+                          type: string
+              period:
+                required:
+                  - start
+                  - end
+                type: object
+                properties:
+                  start:
+                    minLength: 1
+                    type: string
+                  end:
+                    minLength: 1
+                    type: string
+              location:
+                minItems: 1
+                uniqueItems: true
+                type: array
+                items:
+                  required:
+                    - reference
+                    - display
+                  properties:
+                    reference:
+                      minLength: 1
+                      type: string
+                    display:
+                      minLength: 1
+                      type: string
+              healthcareService:
+                minItems: 1
+                uniqueItems: true
+                type: array
+                items:
+                  required:
+                    - reference
+                  properties:
+                    reference:
+                      minLength: 1
+                      type: string
+        qualification:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            properties:
+              identifier:
+                minItems: 1
+                uniqueItems: true
+                type: array
+                items:
+                  required:
+                    - system
+                    - value
+                  properties:
+                    system:
+                      minLength: 1
+                      type: string
+                    value:
+                      minLength: 1
+                      type: string
+              code:
+                required:
+                  - text
+                type: object
+                properties:
+                  text:
+                    minLength: 1
+                    type: string
+              period:
+                required:
+                  - start
+                type: object
+                properties:
+                  start:
+                    minLength: 1
+                    type: string
+              issuer:
+                required:
+                  - display
+                type: object
+                properties:
+                  display:
+                    minLength: 1
+                    type: string
+      description: ''
+    PractitionerRole:
+      required:
+        - resourceType
+        - id
+        - text
+        - identifier
+        - active
+        - organization
+        - role
+        - location
+        - healthcareService
+        - telecom
+        - period
+      type: object
+      properties:
+        resourceType:
+          minLength: 1
+          type: string
+        id:
+          minLength: 1
+          type: string
+        text:
+          required:
+            - status
+            - div
+          type: object
+          properties:
+            status:
+              minLength: 1
+              type: string
+            div:
+              minLength: 1
+              type: string
+        identifier:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - system
+              - value
+            properties:
+              system:
+                minLength: 1
+                type: string
+              value:
+                minLength: 1
+                type: string
+        active:
+          type: boolean
+        organization:
+          required:
+            - reference
+          type: object
+          properties:
+            reference:
+              minLength: 1
+              type: string
+        role:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            properties:
+              fhir_comments:
+                type: array
+                items: { }
+              coding:
+                minItems: 1
+                uniqueItems: true
+                type: array
+                items:
+                  required:
+                    - system
+                    - code
+                  properties:
+                    system:
+                      minLength: 1
+                      type: string
+                    code:
+                      minLength: 1
+                      type: string
+        location:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - reference
+              - display
+            properties:
+              reference:
+                minLength: 1
+                type: string
+              display:
+                minLength: 1
+                type: string
+        healthcareService:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - reference
+            properties:
+              reference:
+                minLength: 1
+                type: string
+        telecom:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - system
+              - value
+              - use
+            properties:
+              system:
+                minLength: 1
+                type: string
+              value:
+                minLength: 1
+                type: string
+              use:
+                minLength: 1
+                type: string
+        period:
+          required:
+            - start
+            - end
+          type: object
+          properties:
+            start:
+              minLength: 1
+              type: string
+            end:
+              minLength: 1
+              type: string
+      description: ''
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]
