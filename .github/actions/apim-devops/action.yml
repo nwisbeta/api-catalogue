@@ -1,0 +1,12 @@
+name: 'Generate ARM Templates from OpenAPI specs'
+description: 'Some APIs provide an OpenAPI spec file which can be used to generate ARM templates.'
+inputs:
+    api-service:
+        description: 'target api-service'
+        required: false
+        default: '[not-specified]'
+runs:
+    using: 'docker'
+    image: 'Dockerfile'
+    args: 
+        - ${{ inputs.api-service }}
