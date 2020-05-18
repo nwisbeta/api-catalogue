@@ -3,7 +3,24 @@ name: CI
 on: [push]
 
 jobs:
-  build:
+  create-arm-templates:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      - uses: azure/docker-login@v1
+        with:
+          login-server: dhewci.azurecr.io
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+      - run: docker pull dhewci.azurecr.io/apim-arm-template:latest
+      - uses: ./.github/actions/apim-devops
+      - run: ls ${{github.workspace}}/arm-templates
+      - uses: actions/upload-artifact@v2
+        with:
+          path: ${{github.workspace}}/arm-templates
+          
+  validate-yaml:
 
     runs-on: ubuntu-latest
 
