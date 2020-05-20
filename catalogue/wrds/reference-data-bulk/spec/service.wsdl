@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://apps.wales.nhs.uk/wcp/" 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:i0="urn:stc:egate:jce:prjNationalServiceDirectory-v1-1_OTDs_jcdLookup" 
+  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
+  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+  xmlns:tns="http://apps.wales.nhs.uk/wcp/" 
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" 
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://apps.wales.nhs.uk/wcp/" id="schema1" 
+      xmlns:tns="http://apps.wales.nhs.uk/wcp/">
+      <xs:import namespace="http://www.w3.org/2001/XMLSchema" schemaLocation="https://www.w3.org/2001/XMLSchema.xsd" />
+      <xs:element name="ClientSet">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:ClientSetRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ClientSetRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ClientSetResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="ClientSetResult" type="tns:ClientSetResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ClientSetResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="id" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="sets" type="tns:ArrayOfClientSet"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfClientSet">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ClientSet" nillable="true" type="tns:ClientSet"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ClientSet">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="id" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="data" type="tns:ArrayOfClientData"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfClientData">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ClientData" nillable="true" type="tns:ClientData"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ClientData">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="key" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="value" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="parent" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="dataNode" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetRefData">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:GetRefDataRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="GetRefDataRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="requestType" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="date" type="xs:dateTime"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="ASID" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetRefDataResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="GetRefDataResult">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element ref="xs:schema"/>
+                  <xs:any/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ClientSetSoapIn">
+    <wsdl:part name="parameters" element="tns:ClientSet"/>
+  </wsdl:message>
+  <wsdl:message name="ClientSetSoapOut">
+    <wsdl:part name="parameters" element="tns:ClientSetResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetRefDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRefData"/>
+  </wsdl:message>
+  <wsdl:message name="GetRefDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRefDataResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="NRDSservicesSoap">
+    <wsdl:operation name="ClientSet">
+      <wsdl:input message="tns:ClientSetSoapIn"/>
+      <wsdl:output message="tns:ClientSetSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetRefData">
+      <wsdl:input message="tns:GetRefDataSoapIn"/>
+      <wsdl:output message="tns:GetRefDataSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NRDSservicesSoap" type="tns:NRDSservicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ClientSet">
+      <soap:operation soapAction="http://apps.wales.nhs.uk/wcp/ClientSet" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRefData">
+      <soap:operation soapAction="http://apps.wales.nhs.uk/wcp/GetRefData" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WrdsBulkUpdate">
+    <wsdl:port name="NRDSservicesSoap" binding="tns:NRDSservicesSoap">
+      <soap:address location="https://wrds.cymru.nhs.uk/bulk-update.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:stc:egate:jce:prjNationalServiceDirectory-v1-1_OTDs_jcdLookup" 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
+  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+  xmlns:tns="urn:stc:egate:jce:prjNationalServiceDirectory-v1-1_OTDs_jcdLookup" 
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" 
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.wales.nhs.uk/namespaces/MessageRelease2" id="schema2" 
+      xmlns:tns="http://www.wales.nhs.uk/namespaces/MessageRelease2">
+      <xs:element name="LookupRequest" type="tns:LookupRequest">
+        <xs:annotation>
+          <xs:documentation>Annotation of Element in Schema</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:complexType name="LookupRequest">
+        <xs:annotation>
+          <xs:documentation>Annotation of Type in Schema</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AttributeValuePair" type="tns:AttributeValuePairStructure"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="LookupTable" type="tns:EntityIdentifierStructure"/>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="LookupAttribute" type="tns:EntityIdentifierStructure"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AttributeValuePairStructure">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Attribute" type="tns:AttributeStructure"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AttributeStructure">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Namespace" type="xs:anyURI"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EntityIdentifierStructure">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Namespace" type="xs:anyURI"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="LookupResponse" type="tns:ArrayOfAttributeValuePairStructure"/>
+      <xs:complexType name="ArrayOfAttributeValuePairStructure">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AttributeValuePair" type="tns:AttributeValuePairStructure"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetResultSetRequest" type="tns:GetResultSetRequest"/>
+      <xs:complexType name="GetResultSetRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AttributeValuePair" type="tns:AttributeValuePairStructure"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="LookupTable" type="tns:EntityIdentifierStructure"/>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AttributeToRetrieve" type="tns:EntityIdentifierStructure"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="ExactMatch" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetResultSetResponse" type="tns:ArrayOfArrayOfAttributeValuePairStructure"/>
+      <xs:complexType name="ArrayOfArrayOfAttributeValuePairStructure">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Row" type="tns:ArrayOfAttributeValuePairStructure"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetIHRproviderServiceEndpointRequest" type="tns:GetIHRproviderServiceEndpointRequest"/>
+      <xs:complexType name="GetIHRproviderServiceEndpointRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="GPpracticeCode" type="tns:IdentifierStructure"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="IHRrequestContextId" type="tns:IdentifierStructure"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="IdentifierStructure">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Domain" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetIHRproviderServiceEndpointResponse" type="tns:GetIHRproviderServiceEndpointResponse"/>
+      <xs:complexType name="GetIHRproviderServiceEndpointResponse">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="IHRretrievalPermitted" type="xs:boolean"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="IHRendpoint" type="tns:ServiceEndpointStructure"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="IHRendpointSystemType" type="tns:TypeStructure"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ServiceEndpointStructure">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Endpoint" type="xs:anyURI"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="WSDL" type="xs:anyURI"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TypeStructure">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="TypeId" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Domain" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Rubric" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="LookupSoapIn">
+    <wsdl:documentation>The lookup SOAP message</wsdl:documentation>
+    <wsdl:part name="LookupRequest" element="q1:LookupRequest" 
+      xmlns:q1="http://www.wales.nhs.uk/namespaces/MessageRelease2">
+      <wsdl:documentation>The lookup request part</wsdl:documentation>
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="LookupSoapOut">
+    <wsdl:documentation>The lookup SOAP response</wsdl:documentation>
+    <wsdl:part name="LookupResult" element="q2:LookupResponse" 
+      xmlns:q2="http://www.wales.nhs.uk/namespaces/MessageRelease2"/>
+  </wsdl:message>
+  <wsdl:message name="GetResultSetSoapIn">
+    <wsdl:part name="GetResultSetRequest" element="q3:GetResultSetRequest" 
+      xmlns:q3="http://www.wales.nhs.uk/namespaces/MessageRelease2"/>
+  </wsdl:message>
+  <wsdl:message name="GetResultSetSoapOut">
+    <wsdl:part name="GetResultSetResult" element="q4:GetResultSetResponse" 
+      xmlns:q4="http://www.wales.nhs.uk/namespaces/MessageRelease2"/>
+  </wsdl:message>
+  <wsdl:message name="GetIHRproviderServiceEndpointSoapIn">
+    <wsdl:part name="GetIHRproviderServiceEndpointRequest" element="q5:GetIHRproviderServiceEndpointRequest" 
+      xmlns:q5="http://www.wales.nhs.uk/namespaces/MessageRelease2"/>
+  </wsdl:message>
+  <wsdl:message name="GetIHRproviderServiceEndpointSoapOut">
+    <wsdl:part name="GetIHRproviderServiceEndpointResult" element="q6:GetIHRproviderServiceEndpointResponse" 
+      xmlns:q6="http://www.wales.nhs.uk/namespaces/MessageRelease2"/>
+  </wsdl:message>
+  <wsdl:portType name="ExecutePortTypeBinding">
+    <wsdl:operation name="Lookup">
+      <wsdl:documentation>Standard lookup request</wsdl:documentation>
+      <wsdl:input message="tns:LookupSoapIn">
+        <wsdl:documentation>The requested lookup fields and criteria for matching</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:LookupSoapOut">
+        <wsdl:documentation>The list of matching lookup values for the requested fields</wsdl:documentation>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResultSet">
+      <wsdl:input message="tns:GetResultSetSoapIn"/>
+      <wsdl:output message="tns:GetResultSetSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetIHRproviderServiceEndpoint">
+      <wsdl:input message="tns:GetIHRproviderServiceEndpointSoapIn"/>
+      <wsdl:output message="tns:GetIHRproviderServiceEndpointSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ExecutePortTypeBinding" type="tns:ExecutePortTypeBinding">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Lookup">
+      <soap:operation soapAction="urn:stc:egate:jce:prjNationalServiceDirectory-v1-1_OTDs:jcdLookupWSDL:Lookup" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResultSet">
+      <soap:operation soapAction="urn:stc:egate:jce:prjNationalServiceDirectory-v2-2_OTDs:jcdGetResultSetWSDL:GetResultSet" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIHRproviderServiceEndpoint">
+      <soap:operation soapAction="urn:stc:egate:jce:prjNationalServiceDirectory-v1-1_OTDs:jcdGetIHRproviderServiceEndpointWSDL:GetIHRproviderServiceEndpoint" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WrdsStandardLookup">
+    <wsdl:documentation>WRDS Standard Lookup Service.  A SOAP service supporting ad-hoc enquiries against WRDS, the store of nationally agreed reference data.
+ It is used by applications to retrieve data such as location codes for GP Practices, hospitals, pharmacies, lists of available drugs, pathology tests etc.
+ This API is suitable for production use and is available nationally.</wsdl:documentation>
+    <wsdl:port name="ExecutePortTypeBinding" binding="tns:ExecutePortTypeBinding">
+      <soap:address location="https://wrds.cymru.nhs.uk/bulk-lookup.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
