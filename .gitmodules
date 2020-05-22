@@ -1,0 +1,3 @@
+[submodule ".github/actions/apim-devops/apim-resource-kit"]
+	path = .github/actions/apim-devops/apim-resource-kit
+	url = https://github.com/Azure/azure-api-management-devops-resource-kit.git

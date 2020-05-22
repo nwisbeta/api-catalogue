@@ -8,14 +8,9 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-      - uses: azure/docker-login@v1
         with:
-          login-server: dhewci.azurecr.io
-          username: ${{ secrets.ACR_USERNAME }}
-          password: ${{ secrets.ACR_PASSWORD }}
-      - run: docker pull dhewci.azurecr.io/apim-arm-template:latest
+          submodules: true
       - uses: ./.github/actions/apim-devops
-      - run: ls ${{github.workspace}}/arm-templates
       - uses: actions/upload-artifact@v2
         with:
           name: arm-templates
