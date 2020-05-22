@@ -18,6 +18,7 @@ jobs:
       - run: ls ${{github.workspace}}/arm-templates
       - uses: actions/upload-artifact@v2
         with:
+          name: arm-templates
           path: ${{github.workspace}}/arm-templates
       - name: Process WSDLs
         shell: bash
@@ -27,6 +28,7 @@ jobs:
         run: ${{github.workspace}}/.github/actions/arm-for-wsdl/process-wsdl.sh  
       - uses: actions/upload-artifact@v2
         with:
+          name: process-wsdl-logs
           path: ${{github.workspace}}/arm-for-wsdl
   
   validate-yaml:
