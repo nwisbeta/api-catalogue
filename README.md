@@ -89,8 +89,11 @@ The status of an API is determined by availability.
 
 ## open-api.yml or service.wsdl
 
-A WSDL or Open API document for the API.
- > NOTE: guidance for these items is still being developed.
+You only need to provide one of the two, we can use either to generate ARM templates which are used to deploy your API to an Azure API management instance. When you create a pull request a github docker action will automatically run and check the validity of your spec file. Navigate to `.github/actions` and `.github/workflows` if you would like to explore how our pipeline is setup.
+
+`open-api.yml` files are processed using the [azure-api-management-devops-resource-kit]('https://github.com/Azure/azure-api-management-devops-resource-kit') namely the [Creator]('https://github.com/Azure/azure-api-management-devops-resource-kit/blob/master/src/APIM_ARMTemplate/README.md#Creator') tool. You can [watch this video]('') which explains the approach we drew our inspiration from and demonstrates a sample implementation.
+
+>service.wsdl documentation will be added soon...
 
 ## user-guide
 
