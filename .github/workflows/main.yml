@@ -21,8 +21,9 @@ jobs:
       - name: Process WSDLs
         shell: bash
         env:
+          APIM_ACCESS_KEY: ${{ secrets.APIM_ACCESS_KEY }}
           APIM_INSTANCE: ${{ secrets.APIM_INSTANCE }}
-          APIM_SAS_TOKEN: ${{ secrets.APIM_SAS_TOKEN }}
+          APIM_UID: ${{ secrets.APIM_UID }}          
         run: ${{github.workspace}}/.github/actions/arm-for-wsdl/process-wsdl.sh  
       - uses: actions/upload-artifact@v2
         with:

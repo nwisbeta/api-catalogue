@@ -5,12 +5,20 @@
 # GITHUB_WORKSPACE=
 # GITHUB_REPOSITORY=
 # GITHUB_SHA=
-#
+
 # APIM_INSTANCE=
-# APIM_SAS_TOKEN=
+# APIM_UID=
+# APIM_ACCESS_KEY=
 # -------------------------------------------------------------------------------------
 
-REST_URL=https://${APIM_INSTANCE}.management.azure-api.net/subscriptions/x/resourceGroups/x/providers/Microsoft.ApiManagement/service/x
+
+
+# Generate Access Token
+EXPIRY=$(date --utc -d "+1 day" +%Y-%m-%dT%H:%M:%S.0000000Z )
+SIGNATURE=$(printf "%s\n%s" $APIM_UID $EXPIRY | openssl sha512 -hmac $APIM_ACCESS_KEY -binary  | base64 -w 0)
+APIM_SAS_TOKEN="SharedAccessSignature uid=$APIM_UID&ex=$EXPIRY&sn=$SIGNATURE"
+
+APIM_URL=https://${APIM_INSTANCE}.management.azure-api.net/subscriptions/x/resourceGroups/x/providers/Microsoft.ApiManagement/service/x
 
 LOG_LOCATION=arm-for-wsdl
 
@@ -40,7 +48,7 @@ EOF
 
 echo $(date): Sending ${system}-${api} WSDL to APIM ARM REST API... >> $LOG_LOCATION/request.log
 
-curl --request PUT ${REST_URL}/apis/apim-devops-${system}-${api}?api-version=2019-12-01 \
+curl --request PUT ${APIM_URL}/apis/apim-devops-${system}-${api}?api-version=2019-12-01 \
      --header "Content-Type: application/json" \
      --header "Authorization: $APIM_SAS_TOKEN" \
      --data @${LOG_LOCATION}/${system}-${api}.PUT \
