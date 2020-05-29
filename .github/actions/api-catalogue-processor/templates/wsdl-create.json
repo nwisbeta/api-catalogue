@@ -1,0 +1,8 @@
+{
+  "properties": {
+    "path": "wrds/standard",
+    "value": "https://raw.githubusercontent.com/nwisbeta/api-catalogue/master/catalogue/wrds/reference-data-standard-lookup/spec/service.wsdl",
+    "format": "wsdl-link",
+    "apiType": "soap"
+  }
+}

@@ -1,0 +1,5 @@
+name: 'Azure API Management'
+description: 'Generate resource templates for Azure API Management '
+runs:
+  using: 'node12'
+  main: 'index.js'
