@@ -4,7 +4,10 @@ const processor = require('./module')
 
 try {
 
-  processor.processCatalogue( $GITHUB_WORKSPACE + '/catalogue' , $GITHUB_WORKSPACE + 'artifacts-api-processor/');
+  const catDir = core.getInput('catalogueDirectory');
+  const outDir = core.getInput('outputDirectory');
+
+  processor.processCatalogue(catDir , outDir);
   
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)

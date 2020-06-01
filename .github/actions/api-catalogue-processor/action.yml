@@ -1,5 +1,12 @@
-name: 'Azure API Management'
-description: 'Generate resource templates for Azure API Management '
+name: 'API Catalogue Processor'
+description: 'Generate resource templates for Azure API Management.'
+inputs:
+  catalogueDirectory:
+    description: 'Location of the catalogue containing the APIs'
+    required: true
+  outputDirectory:
+    description: 'Output location for resource templates'
+    required: true
 runs:
   using: 'node12'
   main: 'index.js'
