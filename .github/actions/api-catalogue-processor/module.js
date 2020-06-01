@@ -20,28 +20,42 @@ function convertToApi(systemId, systemName, apiId, apiDetails, wsdlExists, openA
 
     const displayName = (systemName ? systemName + ' - ' : '') + apiDetails.title;
     const description = `_${apiDetails.description}_\n\n${apiDetails.overview}`;
+    
+    let patchConfig = null;
 
     const putConfig = {
         "properties": {
-          "path":  systemId.toLowerCase() + '/' + apiId,
-  
+          "path":  systemId.toLowerCase() + '/' + apiId
         }
     }
 
     const putProperties = putConfig.properties
 
-    //TODO: If there is a WSDL use that otherwsie use a dummy WSDL
     if (apiDetails.type.includes("SOAP")){
         putProperties["apiType"] = "soap";
+        putConfig["type"] = "soap";
 
-        //TODO: check if spec/service.wsdl exists and get environment variables
         if(wsdlExists) {
+            patchConfig = {
+                "properties": {
+                    "displayName" : displayName,
+                    "description": description
+                }
+            }
+
             putProperties["format"] = "wsdl-link"
             putProperties["value"] = "https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_SHA/$wsdl"
-        } 
+        }
+        else {
+           putProperties["displayName"] = displayName;
+           putConfig["description"] = description;
+           
+           putProperties["protocols"] = [ "https" ];        
+        }
     }
     else {
-        //TODO:  check if spec/service.wsdl exists and get environment variables
+        putConfig["type"] = "http";
+
         if (openApi){
 
             openApi.info.title = displayName;
@@ -49,18 +63,15 @@ function convertToApi(systemId, systemName, apiId, apiDetails, wsdlExists, openA
 
             putProperties["format"] = "openapi";
             putProperties["value"] = yaml.stringify(openApi);
-
-            // putProperties["format"] = "openapi-link"
-            // putProperties["value"] = "https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_SHA/$openapi"
+        }
+        else {
+            putProperties["displayName"] = displayName;
+            putConfig["description"] = description;
+            
+            putProperties["protocols"] = [ "https" ];
         }
     }
 
-    const patchConfig = {
-        "properties": {
-            "displayName" : displayName,
-            "description": description
-        }
-    }
 
     return {
         id,
@@ -74,7 +85,10 @@ function writeApiFiles(api, outDir) {
     fs.mkdirSync(outDir, {recursive: true});
 
     fs.writeFile(outDir + api.id + ".PUT.json", JSON.stringify(api.putConfig, null, 2), logError);
-    fs.writeFile(outDir + api.id + ".PATCH.json", JSON.stringify(api.patchConfig, null, 2), logError);
+
+    if(api.patchConfig) {
+        fs.writeFile(outDir + api.id + ".PATCH.json", JSON.stringify(api.patchConfig, null, 2), logError);
+    }    
 }
 
 function processSystem(systemId, systemDirectory, outDirectory) {
@@ -97,7 +111,6 @@ function processSystem(systemId, systemDirectory, outDirectory) {
 
                 const apiDetails = yaml.parse(fs.readFileSync(systemDirectory + '/' + apiDir.name + '/' + 'api.yml', 'utf8'));
 
-                
                 const wsdlExists = fs.existsSync(systemDirectory + '/' + apiDir.name + '/spec/service.wsdl'  );
 
                 let openApi = null;

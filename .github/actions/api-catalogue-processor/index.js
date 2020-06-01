@@ -1,8 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const processor = require('./processor.module')
-
-//TODO: mkdir artifacts-api-processor
+const processor = require('./module')
 
 try {
 
