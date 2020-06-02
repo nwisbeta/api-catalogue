@@ -1,7 +1,0 @@
-{
-    "properties": {
-      "path": "wrds/fhir-reference-data",
-      "value": "https://raw.githubusercontent.com/nwisbeta/api-catalogue/master/catalogue/wrds/fhir-reference-data/spec/open-api.yml",
-      "format": "openapi-link"
-    }
-  }

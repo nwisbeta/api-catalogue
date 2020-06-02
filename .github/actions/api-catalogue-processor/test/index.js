@@ -1,4 +1,4 @@
-const processor = require('./module');
+const processor = require('../src/module');
 
 const inDir = process.argv[2];
 const outDir = process.argv[3];
