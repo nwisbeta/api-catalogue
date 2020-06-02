@@ -33,7 +33,7 @@ function convertToApi(systemId, systemName, apiId, apiDetails, wsdl, openApi) {
 
     if (apiDetails.type.includes("SOAP")){
         putProperties["apiType"] = "soap";
-        putConfig["type"] = "soap";
+        putProperties["type"] = "soap";
 
         if(wsdl) {
             patchConfig = {
@@ -48,13 +48,13 @@ function convertToApi(systemId, systemName, apiId, apiDetails, wsdl, openApi) {
         }
         else {
            putProperties["displayName"] = displayName;
-           putConfig["description"] = description;
+           putProperties["description"] = description;
            
            putProperties["protocols"] = [ "https" ];        
         }
     }
     else {
-        putConfig["type"] = "http";
+        putProperties["type"] = "http";
 
         if (openApi){
 
@@ -66,7 +66,7 @@ function convertToApi(systemId, systemName, apiId, apiDetails, wsdl, openApi) {
         }
         else {
             putProperties["displayName"] = displayName;
-            putConfig["description"] = description;
+            putProperties["description"] = description;
             
             putProperties["protocols"] = [ "https" ];
         }
@@ -115,7 +115,7 @@ function processSystem(systemId, systemDirectory, outDirectory) {
                 
                 let wsdl = null;
                 if(wsdlExists) {
-                    wsdl = fs.readFileSync(systemDirectory + '/' + apiDir.name + '/spec/service.wsdl')
+                    wsdl = fs.readFileSync(systemDirectory + '/' + apiDir.name + '/spec/service.wsdl', 'utf8')
                 }
 
                 let openApi = null;

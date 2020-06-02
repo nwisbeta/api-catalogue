@@ -20,30 +20,12 @@ fs.readdir('./', { withFileTypes: true }, (err, dirents) => {
 
         let httpCommand = null
         if (dirent.isFile() && (httpCommand = extractHttpCommand(dirent, cli.args["apimInstance"], sasToken))) {
-            httpCommands.push(httpCommand)
-        }
+            httpCommands.push(httpCommand)            
+        }            
     }
-
-    httpCommands.sort(methodPrecedence)
-
-    for (const command of httpCommands) {
-
-        const request = https.request(command.options, (response) => {
-            console.log(`PATH: ${command.options.path}\nMETHOD: ${command.options.method}\nRESPONSE: ${response.statusCode}`)
-        })
-
-        request.write(command.data)
-        request.on('error', cli.logError)
-        request.end()
-
-        console.log(command.options)
-        console.log(command.data)
-        process.exit()
-    }
+    sendCommands(httpCommands)  
 
 })
-
-
 
 function createSharedAccessToken(apimUid, apimAccessKey, validForDays = 1) {
 
@@ -56,8 +38,6 @@ function createSharedAccessToken(apimUid, apimAccessKey, validForDays = 1) {
 
     return sasToken;
 }
-
-
 
 //Regex for API template files, e.g. "my-awesomme-api-name.PATCH.json"     
 const fileRegex = /([^\.]+)\.(GET|PUT|POST|PATCH|DELETE)+\.json$/
@@ -75,7 +55,7 @@ function extractHttpCommand(dirent, instanceName, sasToken) {
     try {
         data = JSON.stringify(JSON.parse(fs.readFileSync(dirent.name, 'utf8')))
     } catch (err) {
-        cli.logError(`Error parsing JSON from file (${dirent.name}):\n\t${err}`)
+        cli.logError(`problem parsing JSON from file (${dirent.name}):\n\t${err}`)
         process.exit()
     }    
 
@@ -93,7 +73,39 @@ function extractHttpCommand(dirent, instanceName, sasToken) {
     };
 }
 
-function methodPrecedence(req1, req2) {
+/**
+ * Sends the HTTP requsts as commanded. PUT requests will sent before any other requests are sent
+ * @param {*} httpCommands 
+ */
+async function sendCommands(httpCommands){
+    httpCommands.sort(putPutsFirst)
+
+    console.log(`PROCESSING ${httpCommands.length} commands`)
+
+    let promisedPuts = [];
+
+    for (const command of httpCommands) {
+
+        if (command.options.method !== "PUT") {
+            try {
+                await Promise.all(promisedPuts);
+            }
+            catch(err) {
+                cli.logError(`unable to complete PUT request:\n\t${err}`);
+                process.exit();
+            }
+            
+        }     
+
+        const requestPromise = createRequestPromise(command)
+
+        if (command.options.method === "PUT")
+            promisedPuts.push(requestPromise)
+    }
+}
+
+
+function putPutsFirst(req1, req2) {
 
     m1 = req1.options.method
     m2 = req2.options.method
@@ -102,6 +114,21 @@ function methodPrecedence(req1, req2) {
         return m1 === "PUT" ? -1 : 1
     }
     else return 0
+}
+
+function createRequestPromise(command) {
+
+    return new Promise((resolve, reject) => {
+
+        const request = https.request(command.options, (response) => {
+            console.log(`PATH: ${command.options.path}\nMETHOD: ${command.options.method}\nRESPONSE: ${response.statusCode}`)
+            response.statusCode < 400 ? resolve() : reject(`${command.options.path} (${response.statusCode})`)
+        });
+
+        request.write(command.data);
+        request.on('error', cli.logError);
+        request.end();
+    });
 }
 
 
@@ -121,7 +148,7 @@ function initCli() {
     }
 
     function logError(err) {
-        console.error(err)
+        console.error("ERROR: " + err)
     }
     
     function printUsage(namedArgs) {  
