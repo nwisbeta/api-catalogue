@@ -12,7 +12,7 @@ function logError(err){
  * @param {string} apiId Unique identifier for the API (alphanumeric and hyphens only)
  * @param {any} apiDetails object with API title, type and description
  */
-function convertToApi(systemId, systemName, apiId, apiDetails, wsdlExists, openApi) {
+function convertToApi(systemId, systemName, apiId, apiDetails, wsdl, openApi) {
 
     //This is what will need to be used for the call to the Azure REST Endpoint
     //Or we could use as the name in the ARM template
@@ -35,7 +35,7 @@ function convertToApi(systemId, systemName, apiId, apiDetails, wsdlExists, openA
         putProperties["apiType"] = "soap";
         putConfig["type"] = "soap";
 
-        if(wsdlExists) {
+        if(wsdl) {
             patchConfig = {
                 "properties": {
                     "displayName" : displayName,
@@ -43,8 +43,8 @@ function convertToApi(systemId, systemName, apiId, apiDetails, wsdlExists, openA
                 }
             }
 
-            putProperties["format"] = "wsdl-link"
-            putProperties["value"] = "https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_SHA/$wsdl"
+            putProperties["format"] = "wsdl";
+            putProperties["value"] = wsdl;
         }
         else {
            putProperties["displayName"] = displayName;
@@ -111,14 +111,19 @@ function processSystem(systemId, systemDirectory, outDirectory) {
 
                 const apiDetails = yaml.parse(fs.readFileSync(systemDirectory + '/' + apiDir.name + '/' + 'api.yml', 'utf8'));
 
-                const wsdlExists = fs.existsSync(systemDirectory + '/' + apiDir.name + '/spec/service.wsdl'  );
+                const wsdlExists = fs.existsSync(systemDirectory + '/' + apiDir.name + '/spec/service.wsdl');
+                
+                let wsdl = null;
+                if(wsdlExists) {
+                    wsdl = fs.readFileSync(systemDirectory + '/' + apiDir.name + '/spec/service.wsdl')
+                }
 
                 let openApi = null;
                 if (fs.existsSync(systemDirectory + '/' + apiDir.name + '/spec/open-api.yml'  )){
                     openApi = yaml.parse(fs.readFileSync(systemDirectory + '/' + apiDir.name + '/spec/open-api.yml', 'utf8'));
                 }                
 
-                const api = convertToApi(systemId, systemName, apiDir.name, apiDetails, wsdlExists, openApi);    
+                const api = convertToApi(systemId, systemName, apiDir.name, apiDetails, wsdl, openApi);    
 
                 writeApiFiles(api, outDirectory);
             }
