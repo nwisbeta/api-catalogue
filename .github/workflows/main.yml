@@ -6,30 +6,6 @@ on:
       - master
 
 jobs:
-  create-arm-templates:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: true
-      - uses: ./.github/actions/apim-devops
-      - uses: actions/upload-artifact@v2
-        with:
-          name: arm-templates
-          path: ${{github.workspace}}/arm-templates
-      - name: Process WSDLs
-        shell: bash
-        env:
-          APIM_ACCESS_KEY: ${{ secrets.APIM_ACCESS_KEY }}
-          APIM_INSTANCE: ${{ secrets.APIM_INSTANCE }}
-          APIM_UID: ${{ secrets.APIM_UID }}          
-        run: ${{github.workspace}}/.github/actions/arm-for-wsdl/process-wsdl.sh  
-      - uses: actions/upload-artifact@v2
-        with:
-          name: process-wsdl-logs
-          path: ${{github.workspace}}/arm-for-wsdl
-  
   validate-yaml:
 
     runs-on: ubuntu-latest
@@ -37,5 +13,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: nwisbeta/validate-yaml-schema@v1.0
-
-    
+  
+  generate-resource-templates:
+    runs-on: ubuntu-latest
+    needs: [validate-yaml]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/api-catalogue-processor
+        with:	
+          catalogueDirectory: ${{github.workspace}}/catalogue
+          outputDirectory: ${{github.workspace}}/artifacts-api-processor/  
+      - uses: actions/upload-artifact@v2
+        with:
+          name: resource-templates
+          path: ${{github.workspace}}/artifacts-api-processor
