@@ -140,7 +140,7 @@
   </wsdl:binding>
   <wsdl:service name="WrdsBulkUpdate">
     <wsdl:port name="NRDSservicesSoap" binding="tns:NRDSservicesSoap">
-      <soap:address location="https://wrds.cymru.nhs.uk/bulk-update.asmx"/>
+      <soap:address location="https://private.url"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
