@@ -2,6 +2,8 @@ title: Account Control
 description: Authenticate and authorise users
 type: SOAP
 owner: NWIS - Integration and Reference
+status: stable
+access: restricted
 overview: |
   The API provides access to the AC3 identity provider.
   Applications use this to authenticate users as well as manage and check their access rights.

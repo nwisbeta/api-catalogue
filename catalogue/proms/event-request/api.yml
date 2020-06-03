@@ -3,6 +3,8 @@ title: Event Request
 description: Request that a patient be sent an assessment questionnaire after clinical events
 type: SOAP
 owner: NWIS - Corporate Applications
+status: stable
+access: restricted
 overview: |
   This is the standard API used to trigger PROMs capture by the National PROMs platform (https://proms.nhs.wales)
   The API is used by patient administration systems to request that questionnaires be sent to patients at relevant stages along a treatment pathway.
