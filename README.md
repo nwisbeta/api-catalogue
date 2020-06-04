@@ -86,18 +86,25 @@ Name of the team that is the main point of contact for information about this AP
 
 ### type
 
-API type - SOAP, REST, HL7, GraphQL, etc.
+API type: `SOAP`, `SOAP/HL7`, `HL7`, `REST`, `REST/FHIR`, `Solr`, or `GraphQL`
 
 ### status
 
-The status of an API is determined by availability.
+Status indicating the level of stability and support, defined as follows:
 
-- **Live**: in Production.
-- **Beta**: in Production but for pilot use only.
-- **Alpha**: in SIT but not in production.
-- **Experimental**: in internal Dev environment or Sandbox but not in SIT or production.
+- `experimental`: Proof of Concept or Prototype still under development.
+- `alpha`: In a test (SIT) environment and undergoing formal evaluation by a tester
+- `beta`: In a production environment but under pilot and with no SLAs
+- `stable`: In a production environment with SLAs
 
- > NOTE: the catalogue structure may be amended in future to support multiple API versions with different status.
+ > NOTE: the catalogue structure may be amended in future to support multiple API versions with different statuses.
+
+### access
+
+- `internal`: Restricted to NHS applications only
+- `restricted`: Restricted by a formal approval process or by network, e.g. NHS Wales, PSBA, HSCN
+- `public`: Available to registered applications over any network
+
 
 ## open-api.yml or service.wsdl
 
@@ -112,7 +119,7 @@ We recommend that you don't include the actual url/endpoint of your api servers,
 In the HTML view of the catalogue the URL will appear as `https://sandbox.api.nhs.wales/{system-id}/{api-id}/`
 
 #### Providing an Open API document
-For Open API documents, the description of each _path/operation_ is used to generate documentation in the HTML view of the cataloge.
+For Open API documents, the description of each _path/operation_ is used to generate documentation in the HTML view of the catalogue.
 You can format the descriptions using markdown syntax.
 
 #### Providing a WSDL document
