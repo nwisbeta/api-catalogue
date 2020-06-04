@@ -93,7 +93,7 @@ API type: `SOAP`, `SOAP/HL7`, `HL7`, `REST`, `REST/FHIR`, `Solr`, or `GraphQL`
 Status indicating the level of stability and support, defined as follows:
 
 - `experimental`: Proof of Concept or Prototype still under development.
-- `alpha`: In a test (SIT) environment and undergoing formal evaluation by a tester
+- `alpha`: In a test environment and undergoing formal evaluation by a tester
 - `beta`: In a production environment but under pilot and with no SLAs
 - `stable`: In a production environment with SLAs
 
