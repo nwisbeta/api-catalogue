@@ -1,10 +1,14 @@
 # NHS Wales API Catalogue
 
+The files in this repository are used to generate documentation and user guides for NHS Wales APIs.
+
+The generated HTML view of the catalogue can be found at https://developer.nhs.wales/apis
+
 ## Table of Contents
 
 * [Contributing](#contributing)
 
-* [Catalogue Structure](#how-weve-structured-the-catalogue)
+* [Catalogue Structure](#catalogue-structure)
 
   * [system.yml](#systemyml)
 
@@ -14,11 +18,19 @@
 
   * [user-guide](#user-guide)
 
-## How we've structured the catalogue
+* [Sandbox APIs](#sandbox-apis)
 
-The files in this repository are used to generate documentation and user guides for NHS Wales APIs.
 
-The catalogue has the following structure:
+
+## Contributing
+
+The catalogue is in the open and we encourage contributions. So if you come across a spelling mistake or wish to add an NHS API, feel free to send a [pull request](https://github.com/nwisbeta/api-catalogue/pulls) or you can open a [issue](https://github.com/nwisbeta/api-catalogue/issues) to report it to us.
+
+Read our [contributing guidelines](CONTRIBUTING.md) for more information.
+
+## Catalogue Structure
+
+The catalogue files are structured as shown below:
 
     {system-id}/
     ├── system.yml
@@ -27,9 +39,9 @@ The catalogue has the following structure:
     │   ├── spec/
     │   │   └── open-api.yml or service.wsdl
     │   └── user-guide/
-    │       └── # see user-guide section below
+    │       └── # read the user-guide section for more info
 
-If an API has a sandbox implementation, it will be available at: `https://sandbox.api.wales.nhs.uk/{system-id}/{api-id}/`
+If an API has a sandbox implementation, it will be available at: `https://sandbox.api.nhs.wales/{system-id}/{api-id}/`
 
 Below is more detail on each of the catalogue files and guidance on the expected content and writing style.
 
@@ -89,8 +101,36 @@ The status of an API is determined by availability.
 
 ## open-api.yml or service.wsdl
 
-A WSDL or Open API document for the API.
- > NOTE: guidance for these items is still being developed.
+Provide an **open-api.yml** file for a REST API or a **service.wsdl** file for a SOAP webservice.
+
+Standard formats such as [WSDL][WSDL] and [Open API][OpenAPI] provide consumers with enough information to start
+developing client applications, even without access to the actual API.  
+They also allow us to generate more detailed documentation in the HTML view of the catalogue.
+
+>**NOTE**  
+We recommend that you don't include the actual url/endpoint of your api servers, instead replace it with `https://private.url`  
+In the HTML view of the catalogue the URL will appear as `https://sandbox.api.nhs.wales/{system-id}/{api-id}/`
+
+#### Providing an Open API document
+For Open API documents, the description of each _path/operation_ is used to generate documentation in the HTML view of the cataloge.
+You can format the descriptions using markdown syntax.
+
+#### Providing a WSDL document
+For WSDL documents, the operations from the WSDL are displayed in the HTML view of the catalogue, but any `wsdl:documentation` elements are currently ignored.
+
+You may need to amend your WSDL document to meet the following criteria: 
+
+- `wsdl:import` is not supported. Create a single WSDL or split into separate WSDLs as appropriate (see next note on binding) 
+- Multiple bindings are not supported. Remove all but the most commonly used binding or split bindings into separate WSDL documents if appropriate
+- SOAP bindings with _style_ attribute of `rpc` and elements with _use_ attribute of `encoded` are not supported
+- The WCF `wsHttpBinding` is not supported. Change it to `basicHttpBinding`
+
+These restrictions come from the Azure API Management tool we use to display the catalogue ([see here for more detail][WSDL Restrictions]).
+
+[WSDL]: https://www.w3.org/TR/wsdl.html
+[OpenAPI]:  https://github.com/OAI/OpenAPI-Specification/
+[WSDL Restrictions]: https://docs.microsoft.com/en-us/azure/api-management/api-management-api-import-restrictions#-wsdl
+
 
 ## user-guide
 
@@ -132,8 +172,11 @@ These should be examples written in the same style as the quickstart but it's ok
 These are descriptions of key concepts specific to the API, e.g. a Document Metadata standard.
 Where relevant, link to information sources (e.g. where concepts reference from some external standard.)
 
-## Contributing
 
-The catalogue is in the open and we encourage contributions. So if you come across a spelling mistake or wish to add an NHS API, feel free to send a [pull request](https://github.com/nwisbeta/api-catalogue/pulls) or you can open a [issue](https://github.com/nwisbeta/api-catalogue/issues) to report it to us.
+## Sandbox APIs
 
-Read our [contributing guidelines](CONTRIBUTING.md) for more information.
+We are currently building up a sandbox environment for APIs in the catalogue, open to anybody who signs up for access.  
+
+The sandbox can host test intances of the APIs, which can then be used in the early stages of developing integrations, client applications etc.
+
+> NOTE: More information to follow on how to provide a sandbox instance and sample data for your API

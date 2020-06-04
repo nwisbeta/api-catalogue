@@ -4,7 +4,7 @@ info:
   description: "_Retrieve organisational reference data_\n\nThis API could be used to retrieve lists of practitioners, GP practices, hospitals etc., using the FHIR Organization, Practitioner and PractitionerRole resources.\nIt should be considered experimental. Anybody can try out the demo/sandbox implementation and provide feedback.\nIt is currently only available in the sandbox environment and not in production.\n"
   version: '1.0'
 servers:
-  - url: https://dhew-nwis.azure-api.net/wrds/fhir-reference-data
+  - url: https://private.url
 paths:
   /Organization:
     get:
@@ -545,15 +545,3 @@ components:
               minLength: 1
               type: string
       description: ''
-  securitySchemes:
-    apiKeyHeader:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-    apiKeyQuery:
-      type: apiKey
-      name: subscription-key
-      in: query
-security:
-  - apiKeyHeader: [ ]
-  - apiKeyQuery: [ ]
