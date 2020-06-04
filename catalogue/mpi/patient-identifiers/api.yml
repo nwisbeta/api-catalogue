@@ -2,6 +2,8 @@ title: Master Patient Index
 description: Query for patients identifiers matched across multiple systems 
 type: SOAP/HL7
 owner: NWIS - Integration and Reference
+status: stable
+access: restricted
 overview: |
   These APIs implement the PIX and PDQ Integration Profiles from IHE.
   You can use Patient Identifier Cross Referencing (PIX) to match patients records across multiple systems.

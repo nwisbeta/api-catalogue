@@ -2,6 +2,8 @@ title: Reference Data Standard Lookup
 description: Retrieve specific fields from reference sets.
 type: SOAP
 owner: NWIS - Integration and Reference
+status: stable
+access: public
 overview: |
  A SOAP service supporting ad-hoc enquiries against WRDS, the store of nationally agreed reference data.
  It is used by applications to retrieve data such as location codes for GP Practices, hospitals, pharmacies, lists of available drugs, pathology tests etc.

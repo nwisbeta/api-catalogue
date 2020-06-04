@@ -2,6 +2,8 @@ title: Clinical Documents Exchange
 description: Send and receive clinical documents such as referral letters
 type: SOAP
 owner: NWIS - Community Applications
+status: stable
+access: restricted
 overview: |
   The API is allows registered users and applications to exchange clinical documents.
   It is used by GP Systems and WCCIS to exchange documents such as electronic referrals with secondary care applications.

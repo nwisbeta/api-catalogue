@@ -6,8 +6,10 @@ try {
 
   const catDir = core.getInput('catalogueDirectory');
   const outDir = core.getInput('outputDirectory');
+  
+  const badgeURL = `https://raw.githubusercontent.com/${process.env.GITHUB_REPOSITORY}/${process.env.GITHUB_SHA}/media/badges`;
 
-  processor.processCatalogue(catDir , outDir);
+  processor.processCatalogue(catDir , outDir, badgeURL);
   
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)

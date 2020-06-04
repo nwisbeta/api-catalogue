@@ -22,6 +22,16 @@
       "type": "string",
       "enum": ["SOAP", "SOAP/HL7", "HL7", "REST", "REST/FHIR", "Solr", "GraphQL"]
     },
+    "status": {
+      "description": "Status of API",
+      "type": "string",
+      "enum": ["experimental", "alpha", "beta", "stable"]
+    },
+    "access": {
+      "description": "Access level of API",
+      "type": "string",
+      "enum": ["internal", "restricted", "public"]
+    },
     "overview": {
       "description": "A structured description of the API",
       "type": "string",

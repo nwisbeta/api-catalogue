@@ -2,6 +2,8 @@ title: FHIR Reference Data
 description: Retrieve organisational reference data
 type: REST/FHIR
 owner: NWIS - Ecosystem Team
+status: experimental
+access: public
 overview: |
   This API could be used to retrieve lists of practitioners, GP practices, hospitals etc., using the FHIR Organization, Practitioner and PractitionerRole resources.
   It should be considered experimental. Anybody can try out the demo/sandbox implementation and provide feedback.
