@@ -3,7 +3,7 @@ description: Read and sync bulk data by date by registering for specific data-se
 type: SOAP
 owner: NWIS - Integration and Reference
 status: stable
-access: public
+access: restricted
 overview: |
  This API allows registered users to query for changes to their pre-specified sets of reference data and retrieve full or partial changes in bulk.
  It is used by systems to efficiently cache reference data that would otherwise need to be fetched via the other lookup APIs.
