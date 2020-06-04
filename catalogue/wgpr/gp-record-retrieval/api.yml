@@ -3,7 +3,7 @@ description: Retrieve a patient's clinical record as held on GP Systems
 type: SOAP
 owner: NWIS - Community Applications
 status: stable
-access: public
+access: restricted
 overview: |
   The API provides access to the patient data held on GP Systems, e.g. medications, problems and diagnoses, test results etc. 
   It is used by the Welsh Clinical Portal and Choose Pharmacy to retrieve the currently prescribed medications for a patient.
