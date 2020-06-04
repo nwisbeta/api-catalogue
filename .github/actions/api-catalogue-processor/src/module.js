@@ -12,14 +12,16 @@ function logError(err){
  * @param {string} apiId Unique identifier for the API (alphanumeric and hyphens only)
  * @param {any} apiDetails object with API title, type and description
  */
-function convertToApi(systemId, systemName, apiId, apiDetails, wsdl, openApi) {
+function convertToApi(systemId, systemName, apiId, apiDetails, wsdl, openApi, badgeURL) {
 
     //This is what will need to be used for the call to the Azure REST Endpoint
     //Or we could use as the name in the ARM template
     const id = systemId.toLowerCase() + '-' + apiId;
+    const statusBadge = `<img src="${badgeURL}/status-${apiDetails.status}.svg" alt="status-${apiDetails.status}" style="margin-right:5px;">`;
+    const accessBadge = `<img src="${badgeURL}/access-${apiDetails.access}.svg" alt="access-${apiDetails.access}">`;   
 
     const displayName = (systemName ? systemName + ' - ' : '') + apiDetails.title;
-    const description = `_${apiDetails.description}_\n\n${apiDetails.overview}`;
+    const description = `_${apiDetails.description}_\n\n<div>${statusBadge}${accessBadge}</div>\n${apiDetails.overview}`;
     
     let patchConfig = null;
 
@@ -91,7 +93,7 @@ function writeApiFiles(api, outDir) {
     }    
 }
 
-function processSystem(systemId, systemDirectory, outDirectory) {
+function processSystem(systemId, systemDirectory, outDirectory, badgeURL) {
     fs.readdir(systemDirectory,  { withFileTypes : true }, (err, dirents) => {
         
         if (err) throw err;
@@ -123,7 +125,7 @@ function processSystem(systemId, systemDirectory, outDirectory) {
                     openApi = yaml.parse(fs.readFileSync(systemDirectory + '/' + apiDir.name + '/spec/open-api.yml', 'utf8'));
                 }                
 
-                const api = convertToApi(systemId, systemName, apiDir.name, apiDetails, wsdl, openApi);    
+                const api = convertToApi(systemId, systemName, apiDir.name, apiDetails, wsdl, openApi, badgeURL);    
 
                 writeApiFiles(api, outDirectory);
             }
@@ -131,7 +133,7 @@ function processSystem(systemId, systemDirectory, outDirectory) {
     });
 } 
 
-exports.processCatalogue =  function processCatalogue(catalogueDirectory, outDirectory) {
+exports.processCatalogue =  function processCatalogue(catalogueDirectory, outDirectory, badgeURL) {
     fs.readdir(catalogueDirectory, { withFileTypes : true }, (err, dirents) => {
 
         if (err) throw err;
@@ -142,7 +144,7 @@ exports.processCatalogue =  function processCatalogue(catalogueDirectory, outDir
 
             const systemDirectory = catalogueDirectory + '/' + systemDir.name;
             
-            processSystem(systemDir.name, systemDirectory, outDirectory)
+            processSystem(systemDir.name, systemDirectory, outDirectory, badgeURL)
         }
     });
 }
