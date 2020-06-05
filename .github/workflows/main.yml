@@ -1,9 +1,18 @@
 name: CI
 
 on:
+  push:
+    branches: [ master ]
+    paths: 
+      - 'catalogue/**'
+      - '.github/actions/api-catalogue-processor/**'
+      - '.github/workflows/**'
   pull_request:
-    branches:
-      - master
+    branches: [ master ]
+    paths: 
+      - 'catalogue/**'
+      - '.github/actions/api-catalogue-processor/**'
+      - '.github/workflows/**'
 
 jobs:
   validate-yaml:
