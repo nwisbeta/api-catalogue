@@ -72,16 +72,3 @@ paths:
           description: OK
           content:
             application/xml: { }
-components:
-  securitySchemes:
-    apiKeyHeader:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-    apiKeyQuery:
-      type: apiKey
-      name: subscription-key
-      in: query
-security:
-  - apiKeyHeader: [ ]
-  - apiKeyQuery: [ ]
