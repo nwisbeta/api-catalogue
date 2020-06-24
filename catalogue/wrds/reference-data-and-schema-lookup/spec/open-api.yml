@@ -2,8 +2,6 @@ openapi: 3.0.1
 info:
   title: WRDS - Reference Data & Schema Lookup
   version: '1.0'
-servers:
-  - url: https://dhew-nwis.azure-api.net/wrds/reference-data-and-schema-lookup
 paths:
   '/NRDS/GetTable/{namespace}/{tablename}':
     get:
