@@ -1,0 +1,72 @@
+openapi: 3.0.1
+info:
+  title: WRDS - Reference Data & Schema Lookup
+  version: '1.0'
+paths:
+  '/NRDS/GetTable/{namespace}/{tablename}':
+    get:
+      tags:
+        - NRDS
+      summary: GetTable
+      description: Retrieve the XML for a given reference table.
+      operationId: GetTable
+      parameters:
+        - name: namespace
+          in: path
+          description: The namespace the table belongs to
+          required: true
+          schema:
+            type: string
+        - name: tablename
+          in: path
+          description: The table/view you want to retrieve data from
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml: { }            
+  '/NRDS/GetTableSchema/{namespace}/{tablename}':
+    get:
+      tags:
+        - NRDS
+      summary: GetTableSchema
+      description: Retrieve the XML Schema for a given reference table.
+      operationId: GetTableSchema
+      parameters:
+        - name: namespace
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: tablename
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml: { }
+  '/NRDS/GetNamespaceSchema/{namespace}':
+    get:
+      tags:
+        - NRDS
+      summary: GetNamespaceSchema
+      description: Retrieve the XML Schema for all elements (i.e. NRDS atrributes) in a given namespace.
+      operationId: GetNamespaceSchema
+      parameters:
+        - name: namespace
+          in: path
+          description: The namespace you want to explore
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml: { }
