@@ -1,0 +1,88 @@
+openapi: 3.0.1
+info:
+  title: WRDS - Reference Data & Schema Lookup
+  description: "_Retrieves table schemas and data listing all fields in the database._\n\nA RESTful service providing similar functionality to the standard lookup API for retrieving reference data from WRDS.\nAdditionally with this API you can retrieve the table schema to build POCO objects for deserialising the responses.\nThis is available nationally.\n"
+  version: '1.0'
+servers:
+  - url: https://dhew-nwis.azure-api.net/wrds/reference-data-and-schema-lookup
+paths:
+  '/NRDS/GetTable/{namespace}/{tablename}':
+    get:
+      tags:
+        - NRDS
+      summary: GetTable
+      description: Retrieve the XML for a given reference table.
+      operationId: GetTable
+      parameters:
+        - name: namespace
+          in: path
+          description: The namespace the table belongs to
+          required: true
+          schema:
+            type: string
+        - name: tablename
+          in: path
+          description: The table/view you want to retrieve data from
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml: { }            
+  '/NRDS/GetTableSchema/{namespace}/{tablename}':
+    get:
+      tags:
+        - NRDS
+      summary: GetTableSchema
+      description: Retrieve the XML Schema for a given reference table.
+      operationId: GetTableSchema
+      parameters:
+        - name: namespace
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: tablename
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml: { }
+  '/NRDS/GetNamespaceSchema/{namespace}':
+    get:
+      tags:
+        - NRDS
+      summary: GetNamespaceSchema
+      description: Retrieve the XML Schema for all elements (i.e. NRDS atrributes) in a given namespace.
+      operationId: GetNamespaceSchema
+      parameters:
+        - name: namespace
+          in: path
+          description: The namespace you want to explore
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml: { }
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]
