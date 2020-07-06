@@ -28,7 +28,7 @@ Returns zero or more rows, each containing one or more attribute-value pairs fro
 
 In the request you must specify:
 
- - The logical namespace and table name to query.
+ - The namespace and table name to query.
  - One or more attributes to retrieve
  - Zero or more attribute-value pairs that set the filter criteria for the query.
  - An "Exact Match" indicator to control how the filter criteria is interpreted. If Exact Match is false then wildcards can be used in the values of the attribute value pairs.
@@ -38,6 +38,6 @@ Returns a list of attribute-value pairs with data from specific column of a refe
 
 In the request you must specify:
 
- - The logical namespace and table name to query.
+ - The namespace and table name to query.
  - The attribute to retrieve
  - Zero or more attribute-value pairs that set the filter criteria for the query.

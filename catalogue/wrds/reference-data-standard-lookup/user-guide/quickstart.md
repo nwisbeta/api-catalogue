@@ -13,7 +13,7 @@ However, you can query from the following tables, in the namespace `http://www.w
  - vwClinicianMaster
  - WelshOrganisation
 
- and WelshGPPracticeMainSites in the namesace `http://www.wales.nhs.uk/namespaces/NSD/GP2GP`
+ and WelshGPPracticeMainSites in the namespace `http://www.wales.nhs.uk/namespaces/NSD/GP2GP`
 
 The full list of names and namespaces is available on the WRDS Website
 
