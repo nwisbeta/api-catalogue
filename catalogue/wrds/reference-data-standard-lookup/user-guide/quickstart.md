@@ -2,7 +2,7 @@
 
 To follow along with this quickstart you'll need:
 
-- a tool for sending sending SOAP request, e.g. SOAP UI, Postman or a WCF for .NET
+- a tool for sending sending SOAP request, e.g. SOAP UI, Postman or WCF .NET Client
 - access to a test endpoint, e.g. the public sandbox
 
 If you're using the public sandbox as your test endpoint, you'll find that not all reference data is available. 
@@ -15,10 +15,13 @@ However, you can query from the following tables, in the namespace `http://www.w
 
  and WelshGPPracticeMainSites in the namesace `http://www.wales.nhs.uk/namespaces/NSD/GP2GP`
 
+The full list of names and namespaces is available on the WRDS Website
+
+> TODO: Find a public version of the data on the WRDS website 
 
 ## Search for GP Practices by Health Board
 
-Every GP Practice in Wales has a nationally assigned organisation code.
+Every GP practice in Wales has a nationally assigned organisation code.
 
 To retrieve a list of all GP Practice Codes within a specific healthboard, we can query the WelshGPPracticeMainSites table with a filter criteria on the attribute `LHBCode`.
 The value to filter on will be the organisation code of the local health board, e.g. `7A1` for Besti Cadwaladr University Health Board.
@@ -36,21 +39,26 @@ Your request should look something like this:
   <soapenv:Header/>
   <soapenv:Body>
     <mes:LookupRequest>
-      <mes:AttributeValuePair>
-        <mes:Attribute>        
-          <mes:Name>LHBCode</mes:Name>
-          <mes:Namespace>http://www.wales.nhs.uk/namespaces/NSD/GP2GP</mes:Namespace>
-        </mes:Attribute>
-        <mes:Value>7A6</mes:Value>        
-      </mes:AttributeValuePair>      
+      <!-- Name and namespace of the table to query -->
       <mes:LookupTable>
         <mes:Name>WelshGPPracticeMainSites</mes:Name>
         <mes:Namespace>http://www.wales.nhs.uk/namespaces/NSD/GP2GP</mes:Namespace>
-      </mes:LookupTable>      
+      </mes:LookupTable>
+      <!-- The attribute to retrieve (the WCode is the Organisation code for Welsh GP Practices) -->
       <mes:LookupAttribute>
         <mes:Name>WCode</mes:Name>
+        <!-- The namespace for attributes should be the same as the namespace for the table -->
         <mes:Namespace>http://www.wales.nhs.uk/namespaces/NSD/GP2GP</mes:Namespace>
       </mes:LookupAttribute>
+      <!-- One or more AttributeValuePairs to define the filter criteria -->
+      <mes:AttributeValuePair>
+        <mes:Attribute>
+          <mes:Name>LHBCode</mes:Name>
+          <!-- The namespace for attributes should be the same as the namespace for the table -->
+          <mes:Namespace>http://www.wales.nhs.uk/namespaces/NSD/GP2GP</mes:Namespace>
+        </mes:Attribute>
+        <mes:Value>7A6</mes:Value>
+      </mes:AttributeValuePair>
     </mes:LookupRequest>
   </soapenv:Body>
 </soapenv:Envelope>

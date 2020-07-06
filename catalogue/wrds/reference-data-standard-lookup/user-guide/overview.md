@@ -6,7 +6,7 @@ The Welsh Reference Data Service (WRDS) hosts curated sets of reference data for
  - Service location - web endpoints for other national services
  - Code translations, e.g. to translate clinician code from PAS system domain to LIMS
 
-You will use data from WRDS to ensure consistency with other applications and to conform with mandated information standards.
+You can use data from WRDS to ensure consistency with other NHS Wales applications and conform with mandated information standards.
 
 There are three APIs that you can use to fetch reference data for your application:
 
@@ -17,11 +17,11 @@ There are three APIs that you can use to fetch reference data for your applicati
 ## WRDS - Reference Data Standard Lookup
 The Standard Lookup API is a SOAP web service that you can use to query tables of reference data.
 
-It has two operations, `GetResultSet` for fetchting subsets of table data and `Lookup` for retreiving a specific column (attribute) of the data. Both operations require you to supply the namespace and table name to query along with filter criteria and attributes to retrieve..
+It has two operations, `GetResultSet` for fetching subsets of table data and `Lookup` for retrieving a specific column (attribute) of the data. Both operations require you to supply the namespace and table name to query along with filter criteria and attributes to retrieve..
 
 You can find information about available namespaces and tables on the WRDS Website
 
-> TODO: Find a public version of the WRDS website 
+> TODO: Find a public version of the data on the WRDS website 
 
 ### GetResultSet
 Returns zero or more rows, each containing one or more attribute-value pairs from a reference data table.
@@ -34,7 +34,7 @@ In the request you must specify:
  - An "Exact Match" indicator to control how the filter criteria is interpreted. If Exact Match is false then wildcards can be used in the values of the attribute value pairs.
 
 ### Lookup
-Returns a list of attribute-value pairs representing a specific column of a reference data table.
+Returns a list of attribute-value pairs with data from specific column of a reference data table.
 
 In the request you must specify:
 
