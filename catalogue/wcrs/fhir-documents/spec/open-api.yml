@@ -1,0 +1,618 @@
+openapi: 3.0.1
+info:
+  title: WCRS - FHIR Documents
+  version: '1.0'
+paths:
+  /DocumentReference:
+    post:
+      summary: DocumentReference
+      description: "You can find information on the base `DocumentReference` resource in the [official FHIR documentation](http://hl7.org/fhir/STU3/documentreference.html). \n\nA WCRS specific DocumentReference profile defines some additional constraints and extended properties, e.g. making the `created` attribute mandatory and adding an extension to describe `transcriber`.  You can view the WCRS profile for DocumentReference on the [NWIS FHIR Reference Server](http://nwis-fhir-ref.westus.cloudapp.azure.com/STU3/StructureDefinition/NHSWales-WCRS-DocumentReference-1)\n\nYou can find more information about FHIR profiles and conformance resources in the [official FHIR documentation](http://hl7.org/implement/standards/fhir/profiling.html)\n\n##### Example Usage: Storing a Document\n\nStore documents by posting a well formed FHIR `DocumentReference` resource in XML or JSON format.\n\nThe DocumentReference must contain a minimum set of metadata as defined in the WCRS profile (see above).  You should also include the document at the `content.attachment.data` property, encoded as a Base64 string, as per the FHIR specification for the [Attachment datatype](http://hl7.org/fhir/STU3/datatypes-definitions.html#Attachment.data).  Base64 encoding is a common way of passing binary data and can be done with a variety of tools, e.g. using the `btoa()` function in Javascript.  \n\nExamples are available in a Postman collection:\n\n[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/58b14bd86cae50ac1c4c)"
+      operationId: post-documentreference
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentReference'
+      responses:
+        '200':
+          description: Success
+components:
+  schemas:
+    DocumentReference:
+      required:
+        - resourceType
+        - id
+        - text
+        - contained
+        - masterIdentifier
+        - identifier
+        - subject
+        - type
+        - class
+        - author
+        - custodian
+        - authenticator
+        - created
+        - indexed
+        - status
+        - docStatus
+        - relatesTo
+        - description
+        - securityLabel
+        - content
+        - context
+      type: object
+      properties:
+        resourceType:
+          minLength: 1
+          type: string
+        id:
+          minLength: 1
+          type: string
+        text:
+          required:
+            - fhir_comments
+            - status
+            - div
+          type: object
+          properties:
+            fhir_comments:
+              type: array
+              items: { }
+            status:
+              minLength: 1
+              type: string
+            div:
+              minLength: 1
+              type: string
+        contained:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - resourceType
+              - id
+            properties:
+              resourceType:
+                minLength: 1
+                type: string
+              id:
+                minLength: 1
+                type: string
+              name:
+                required:
+                  - family
+                  - given
+                type: object
+                properties:
+                  family:
+                    type: array
+                    items: { }
+                  given:
+                    type: array
+                    items: { }
+              practitionerRole:
+                minItems: 1
+                uniqueItems: true
+                type: array
+                items:
+                  properties:
+                    managingOrganization:
+                      required:
+                        - display
+                      type: object
+                      properties:
+                        display:
+                          minLength: 1
+                          type: string
+                    role:
+                      required:
+                        - text
+                      type: object
+                      properties:
+                        text:
+                          minLength: 1
+                          type: string
+                    specialty:
+                      minItems: 1
+                      uniqueItems: true
+                      type: array
+                      items:
+                        required:
+                          - text
+                        properties:
+                          text:
+                            minLength: 1
+                            type: string
+        masterIdentifier:
+          required:
+            - system
+            - value
+          type: object
+          properties:
+            system:
+              minLength: 1
+              type: string
+            value:
+              minLength: 1
+              type: string
+        identifier:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - system
+              - value
+            properties:
+              system:
+                minLength: 1
+                type: string
+              value:
+                minLength: 1
+                type: string
+        subject:
+          required:
+            - reference
+          type: object
+          properties:
+            reference:
+              minLength: 1
+              type: string
+        type:
+          required:
+            - coding
+          type: object
+          properties:
+            coding:
+              minItems: 1
+              uniqueItems: true
+              type: array
+              items:
+                required:
+                  - system
+                  - code
+                  - display
+                properties:
+                  system:
+                    minLength: 1
+                    type: string
+                  code:
+                    minLength: 1
+                    type: string
+                  display:
+                    minLength: 1
+                    type: string
+        class:
+          required:
+            - coding
+          type: object
+          properties:
+            coding:
+              minItems: 1
+              uniqueItems: true
+              type: array
+              items:
+                required:
+                  - system
+                  - code
+                  - display
+                properties:
+                  system:
+                    minLength: 1
+                    type: string
+                  code:
+                    minLength: 1
+                    type: string
+                  display:
+                    minLength: 1
+                    type: string
+        author:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - reference
+            properties:
+              reference:
+                minLength: 1
+                type: string
+        custodian:
+          required:
+            - reference
+          type: object
+          properties:
+            reference:
+              minLength: 1
+              type: string
+        authenticator:
+          required:
+            - reference
+          type: object
+          properties:
+            reference:
+              minLength: 1
+              type: string
+        created:
+          minLength: 1
+          type: string
+        indexed:
+          minLength: 1
+          type: string
+        status:
+          minLength: 1
+          type: string
+        docStatus:
+          required:
+            - coding
+          type: object
+          properties:
+            coding:
+              minItems: 1
+              uniqueItems: true
+              type: array
+              items:
+                required:
+                  - system
+                  - code
+                  - display
+                properties:
+                  system:
+                    minLength: 1
+                    type: string
+                  code:
+                    minLength: 1
+                    type: string
+                  display:
+                    minLength: 1
+                    type: string
+        relatesTo:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - code
+            properties:
+              code:
+                minLength: 1
+                type: string
+              target:
+                required:
+                  - reference
+                type: object
+                properties:
+                  reference:
+                    minLength: 1
+                    type: string
+        description:
+          minLength: 1
+          type: string
+        securityLabel:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            properties:
+              coding:
+                minItems: 1
+                uniqueItems: true
+                type: array
+                items:
+                  required:
+                    - system
+                    - code
+                    - display
+                  properties:
+                    system:
+                      minLength: 1
+                      type: string
+                    code:
+                      minLength: 1
+                      type: string
+                    display:
+                      minLength: 1
+                      type: string
+        content:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            properties:
+              attachment:
+                required:
+                  - contentType
+                  - language
+                  - url
+                  - size
+                  - hash
+                type: object
+                properties:
+                  contentType:
+                    minLength: 1
+                    type: string
+                  language:
+                    minLength: 1
+                    type: string
+                  url:
+                    minLength: 1
+                    type: string
+                  size:
+                    type: number
+                  hash:
+                    minLength: 1
+                    type: string
+              format:
+                minItems: 1
+                uniqueItems: true
+                type: array
+                items:
+                  required:
+                    - system
+                    - code
+                    - display
+                  properties:
+                    system:
+                      minLength: 1
+                      type: string
+                    code:
+                      minLength: 1
+                      type: string
+                    display:
+                      minLength: 1
+                      type: string
+        context:
+          required:
+            - encounter
+            - event
+            - period
+            - facilityType
+            - practiceSetting
+            - sourcePatientInfo
+            - related
+          type: object
+          properties:
+            encounter:
+              required:
+                - reference
+              type: object
+              properties:
+                reference:
+                  minLength: 1
+                  type: string
+            event:
+              minItems: 1
+              uniqueItems: true
+              type: array
+              items:
+                properties:
+                  coding:
+                    minItems: 1
+                    uniqueItems: true
+                    type: array
+                    items:
+                      required:
+                        - system
+                        - code
+                        - display
+                      properties:
+                        system:
+                          minLength: 1
+                          type: string
+                        code:
+                          minLength: 1
+                          type: string
+                        display:
+                          minLength: 1
+                          type: string
+            period:
+              required:
+                - start
+                - end
+              type: object
+              properties:
+                start:
+                  minLength: 1
+                  type: string
+                end:
+                  minLength: 1
+                  type: string
+            facilityType:
+              required:
+                - coding
+              type: object
+              properties:
+                coding:
+                  minItems: 1
+                  uniqueItems: true
+                  type: array
+                  items:
+                    required:
+                      - system
+                      - code
+                      - display
+                    properties:
+                      system:
+                        minLength: 1
+                        type: string
+                      code:
+                        minLength: 1
+                        type: string
+                      display:
+                        minLength: 1
+                        type: string
+            practiceSetting:
+              required:
+                - coding
+              type: object
+              properties:
+                coding:
+                  minItems: 1
+                  uniqueItems: true
+                  type: array
+                  items:
+                    required:
+                      - system
+                      - code
+                      - display
+                    properties:
+                      system:
+                        minLength: 1
+                        type: string
+                      code:
+                        minLength: 1
+                        type: string
+                      display:
+                        minLength: 1
+                        type: string
+            sourcePatientInfo:
+              required:
+                - reference
+              type: object
+              properties:
+                reference:
+                  minLength: 1
+                  type: string
+            related:
+              minItems: 1
+              uniqueItems: true
+              type: array
+              items:
+                properties:
+                  identifier:
+                    required:
+                      - system
+                      - value
+                    type: object
+                    properties:
+                      system:
+                        minLength: 1
+                        type: string
+                      value:
+                        minLength: 1
+                        type: string
+                  ref:
+                    required:
+                      - reference
+                    type: object
+                    properties:
+                      reference:
+                        minLength: 1
+                        type: string
+      description: ''
+      example:
+        resourceType: DocumentReference
+        contained:
+          - resourceType: Practitioner
+            id: practitioner1
+            identifier:
+              - system: https://fhir.hl7.org.uk/Id/gmc-number
+                value: '8122472'
+            name:
+              - family: McManus
+                given:
+                  - Gerald
+                prefix:
+                  - Dr
+          - resourceType: Patient
+            id: patient1
+            identifier:
+              - system: https://fhir.nhs.uk/Id/nhs-number
+                value: '1234567891'
+              - system: https://fhir.wales.nhs.uk/Id/cavuhb/pas/patient-identifier
+                value: E500011
+            name:
+              - family: Linacre
+                given:
+                  - Thomas
+                prefix:
+                  - Mr
+            gender: male
+            birthDate: '1931-09-09T00:00:00.0000000+00:00'
+            address:
+              - line:
+                  - 29 Acacia Road
+                city: Barry
+                postalCode: SA31 2NP
+          - resourceType: Encounter
+            id: encounter1
+            status: finished
+            participant:
+              - type:
+                  - coding:
+                      - system: http://hl7.org/fhir/v3/ParticipationType
+                        code: RESP
+                        display: ResponsibleClinician
+                individual:
+                  reference: '#practitioner1'
+          - resourceType: Organization
+            id: organization1
+            identifier:
+              - system: https://fhir.nhs.uk/Id/ods-organization-code
+                value: 7A4
+            name: Cardiff and Vale University HB
+          - resourceType: Person
+            id: person1
+            identifier:
+              - system: https://fhir.wales.nhs.uk/Id/nadex-identifier
+                value: su12345
+            name:
+              - family: Wright-Jones
+                given:
+                  - Susan
+        extension:
+          - url: https://fhir.wales.nhs.uk/STU3/StructureDefinition/Extension-NHSWales-WCRS-Transcriber-1
+            valueReference:
+              reference: '#person1'
+          - url: https://fhir.wales.nhs.uk/STU3/StructureDefinition/Extension-NHSWales-WCRS-SourceSystem-1
+            valueIdentifier:
+              system: https://fhir.wales.nhs.uk/Id/system-identifier
+              value: '184'
+        masterIdentifier:
+          system: urn:oid:2.16.840.1.113883.2.1.8.1.5.184
+          value: '9910220'
+        identifier:
+          - system: https://fhir.wales.nhs.uk/Id/wcrs/document-supersessionset-id
+            value: 28feecc1-f663-4398-970a-f768e18ec2c3
+          - system: https://fhir.wales.nhs.uk/Id/wcrs/document-document-id
+            value: a89d914b-f02e-43ed-a225-f5f270c7f2ed
+        status: current
+        type:
+          coding:
+            - system: https://fhir.wales.nhs.uk/STU3/ValueSet/NHSWales-WCRS-DocumentType-1
+              code: CO02
+              display: Outpatient Letter
+        subject:
+          reference: '#patient1'
+        created: '2019-09-05T14:34:26Z'
+        author:
+          - reference: '#practitioner1'
+        custodian:
+          reference: '#organization1'
+        securityLabel:
+          - coding:
+              - system: http://hl7.org/fhir/v3/Confidentiality
+                code: N
+                display: normal
+        content:
+          - attachment:
+              contentType: application/xml
+              data: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiID8+DQo8Q2xpbmljYWxEb2N1bWVudD4NCiAgPERldGFpbHM+Y29udGVudCBnb2VzIGhlcmU8L0RldGFpbHM+DQo8L0NsaW5pY2FsRG9jdW1lbnQ+
+        context:
+          encounter:
+            reference: '#encounter1'
+          period:
+            start: '2019-09-05T08:00:00Z'
+            end: '2019-09-05T08:30:00Z'
+          facilityType:
+            coding:
+              - system: https://fhir.wales.nhs.uk/STU3/ValueSet/NHSWales-WCRS-CareSetting-1
+                code: H
+                display: Hospital
+          practiceSetting:
+            coding:
+              - system: https://fhir.wales.nhs.uk/STU3/ValueSet/NHSWales-TreatmentSpecialty-1
+                code: '800'
+                display: Clinical Oncology (previously Radiotherapy)
