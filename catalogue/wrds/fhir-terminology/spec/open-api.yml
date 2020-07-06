@@ -1,0 +1,1375 @@
+openapi: 3.0.1
+info:
+  title: WRDS - FHIR Terminology
+  version: '1.0'
+paths:
+  /CodeSystem:
+    get:
+      summary: CodeSystem
+      operationId: get-codesystem
+      parameters:
+        - name: _id
+          in: query
+          description: The ID of the resource
+          schema:
+            type: string
+        - name: _tag
+          in: query
+          schema:
+            type: string
+        - name: description
+          in: query
+          description: The description of the code system
+          schema:
+            type: string
+        - name: identifier
+          in: query
+          description: External identifier for the code system
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: Computationally friendly name of the code system
+          schema:
+            type: string
+        - name: system
+          in: query
+          description: The system for any codes defined by this code system (same as 'url')
+          schema:
+            type: string
+        - name: url
+          in: query
+          description: The uri that identifies the code system
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The business version of the code system
+          schema:
+            type: string
+        - name: _format
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  '/CodeSystem/{id}':
+    get:
+      summary: 'CodeSystem/{id}'
+      operationId: get-codesystem-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /ConceptMap:
+    get:
+      summary: ConceptMap
+      operationId: get-conceptmap
+      parameters:
+        - name: _id
+          in: query
+          description: The ID of the resource
+          schema:
+            type: string
+        - name: _tag
+          in: query
+          schema:
+            type: string
+        - name: description
+          in: query
+          description: The description of the concept map
+          schema:
+            type: string
+        - name: identifier
+          in: query
+          description: External identifier for the concept map
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: Computationally friendly name of the concept map
+          schema:
+            type: string
+        - name: source-code
+          in: query
+          description: Identifies element being mapped
+          schema:
+            type: string
+        - name: source-system
+          in: query
+          description: Code System (if value set crosses code systems)
+          schema:
+            type: string
+        - name: source-uri
+          in: query
+          description: Identifies the source of the concepts which are being mapped
+          schema:
+            type: string
+        - name: target-code
+          in: query
+          description: Code that identifies the target element
+          schema:
+            type: string
+        - name: target-system
+          in: query
+          description: System of the target (if necessary)
+          schema:
+            type: string
+        - name: target-uri
+          in: query
+          description: Provides context to the mappings
+          schema:
+            type: string
+        - name: url
+          in: query
+          description: The uri that identifies the concept map
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The business version of the concept map
+          schema:
+            type: string
+        - name: _format
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  '/ConceptMap/{id}':
+    get:
+      summary: 'ConceptMap/{id}'
+      operationId: get-conceptmap-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /StructureDefinition:
+    get:
+      summary: StructureDefinition
+      operationId: get-structuredefinition
+      parameters:
+        - name: _id
+          in: query
+          description: The ID of the resource
+          schema:
+            type: string
+        - name: _tag
+          in: query
+          schema:
+            type: string
+        - name: description
+          in: query
+          description: The description of the structure definition
+          schema:
+            type: string
+        - name: identifier
+          in: query
+          description: External identifier for the structure definition
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: Computationally friendly name of the structure definition
+          schema:
+            type: string
+        - name: type
+          in: query
+          description: Type defined or constrained by this structure
+          schema:
+            type: string
+        - name: url
+          in: query
+          description: The uri that identifies the structure definition
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The business version of the structure definition
+          schema:
+            type: string
+        - name: _format
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  '/StructureDefinition/{id}':
+    get:
+      summary: 'StructureDefinition/{id}'
+      operationId: get-structuredefinition-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /ValueSet:
+    get:
+      summary: ValueSet
+      operationId: get-valueset
+      parameters:
+        - name: _id
+          in: query
+          description: The ID of the resource
+          schema:
+            type: string
+        - name: _tag
+          in: query
+          schema:
+            type: string
+        - name: description
+          in: query
+          description: The description of the value set
+          schema:
+            type: string
+        - name: identifier
+          in: query
+          description: External identifier for the value set
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: Computationally friendly name of the value set
+          schema:
+            type: string
+        - name: url
+          in: query
+          description: The uri that identifies the value set
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The business version of the value set
+          schema:
+            type: string
+        - name: _format
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /ValueSet/$expand:
+    get:
+      summary: ValueSet/$expand
+      operationId: expand
+      parameters:
+        - name: url
+          in: query
+          schema:
+            enum:
+              - http:%2F%2Fsnomed.info%2Fsct%3Ffhir_vs
+            type: uri
+            default: http:%2F%2Fsnomed.info%2Fsct%3Ffhir_vs
+        - name: filter
+          in: query
+          schema:
+            type: string
+        - name: count
+          in: query
+          schema:
+            enum:
+              - '10'
+            type: integer
+            default: 10
+      responses:
+        '200':
+          description: 
+  '/ValueSet/{id}':
+    get:
+      summary: 'ValueSet/{id}'
+      operationId: get-valueset-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+components:
+  schemas:
+    CodeSystem:
+      required:
+        - resourceType
+        - id
+        - meta
+        - text
+        - url
+        - _url
+        - identifier
+        - version
+        - _version
+        - name
+        - status
+        - experimental
+        - publisher
+        - contact
+        - date
+        - description
+        - caseSensitive
+        - _caseSensitive
+        - content
+        - concept
+      type: object
+      properties:
+        resourceType:
+          minLength: 1
+          type: string
+        id:
+          minLength: 1
+          type: string
+        meta:
+          required:
+            - profile
+          type: object
+          properties:
+            profile:
+              type: array
+              items: { }
+        text:
+          required:
+            - status
+            - div
+          type: object
+          properties:
+            status:
+              minLength: 1
+              type: string
+            div:
+              minLength: 1
+              type: string
+        url:
+          minLength: 1
+          type: string
+        _url:
+          required:
+            - fhir_comments
+          type: object
+          properties:
+            fhir_comments:
+              type: array
+              items: { }
+        identifier:
+          required:
+            - fhir_comments
+            - system
+            - value
+          type: object
+          properties:
+            fhir_comments:
+              type: array
+              items: { }
+            system:
+              minLength: 1
+              type: string
+            value:
+              minLength: 1
+              type: string
+        version:
+          minLength: 1
+          type: string
+        _version:
+          required:
+            - fhir_comments
+          type: object
+          properties:
+            fhir_comments:
+              type: array
+              items: { }
+        name:
+          minLength: 1
+          type: string
+        status:
+          minLength: 1
+          type: string
+        experimental:
+          type: boolean
+        publisher:
+          minLength: 1
+          type: string
+        contact:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - name
+            properties:
+              name:
+                minLength: 1
+                type: string
+              telecom:
+                minItems: 1
+                uniqueItems: true
+                type: array
+                items:
+                  required:
+                    - system
+                    - value
+                  properties:
+                    system:
+                      minLength: 1
+                      type: string
+                    value:
+                      minLength: 1
+                      type: string
+        date:
+          minLength: 1
+          type: string
+        description:
+          minLength: 1
+          type: string
+        caseSensitive:
+          type: boolean
+        _caseSensitive:
+          required:
+            - fhir_comments
+          type: object
+          properties:
+            fhir_comments:
+              type: array
+              items: { }
+        content:
+          minLength: 1
+          type: string
+        concept:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - code
+              - display
+              - definition
+            properties:
+              fhir_comments:
+                type: array
+                items: { }
+              code:
+                minLength: 1
+                type: string
+              display:
+                minLength: 1
+                type: string
+              definition:
+                minLength: 1
+                type: string
+              designation:
+                minItems: 1
+                uniqueItems: true
+                type: array
+                items:
+                  required:
+                    - value
+                  properties:
+                    use:
+                      required:
+                        - system
+                        - code
+                      type: object
+                      properties:
+                        system:
+                          minLength: 1
+                          type: string
+                        code:
+                          minLength: 1
+                          type: string
+                    value:
+                      minLength: 1
+                      type: string
+      description: ''
+    ConceptMap:
+      required:
+        - resourceType
+        - id
+        - text
+        - url
+        - identifier
+        - version
+        - _version
+        - name
+        - _name
+        - status
+        - experimental
+        - publisher
+        - contact
+        - date
+        - description
+        - useContext
+        - requirements
+        - copyright
+        - sourceReference
+        - targetReference
+        - element
+      type: object
+      properties:
+        resourceType:
+          minLength: 1
+          type: string
+        id:
+          minLength: 1
+          type: string
+        text:
+          required:
+            - status
+            - div
+          type: object
+          properties:
+            status:
+              minLength: 1
+              type: string
+            div:
+              minLength: 1
+              type: string
+        url:
+          minLength: 1
+          type: string
+        identifier:
+          required:
+            - system
+            - value
+          type: object
+          properties:
+            system:
+              minLength: 1
+              type: string
+            value:
+              minLength: 1
+              type: string
+        version:
+          minLength: 1
+          type: string
+        _version:
+          required:
+            - fhir_comments
+          type: object
+          properties:
+            fhir_comments:
+              type: array
+              items: { }
+        name:
+          minLength: 1
+          type: string
+        _name:
+          required:
+            - fhir_comments
+          type: object
+          properties:
+            fhir_comments:
+              type: array
+              items: { }
+        status:
+          minLength: 1
+          type: string
+        experimental:
+          type: boolean
+        publisher:
+          minLength: 1
+          type: string
+        contact:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - name
+            properties:
+              name:
+                minLength: 1
+                type: string
+              telecom:
+                minItems: 1
+                uniqueItems: true
+                type: array
+                items:
+                  required:
+                    - system
+                    - value
+                  properties:
+                    system:
+                      minLength: 1
+                      type: string
+                    value:
+                      minLength: 1
+                      type: string
+        date:
+          minLength: 1
+          type: string
+        description:
+          minLength: 1
+          type: string
+        useContext:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - text
+            properties:
+              text:
+                minLength: 1
+                type: string
+        requirements:
+          minLength: 1
+          type: string
+        copyright:
+          minLength: 1
+          type: string
+        sourceReference:
+          required:
+            - reference
+          type: object
+          properties:
+            reference:
+              minLength: 1
+              type: string
+        targetReference:
+          required:
+            - reference
+          type: object
+          properties:
+            reference:
+              minLength: 1
+              type: string
+        element:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - system
+              - code
+            properties:
+              system:
+                minLength: 1
+                type: string
+              code:
+                minLength: 1
+                type: string
+              target:
+                minItems: 1
+                uniqueItems: true
+                type: array
+                items:
+                  required:
+                    - system
+                    - code
+                    - equivalence
+                  properties:
+                    system:
+                      minLength: 1
+                      type: string
+                    code:
+                      minLength: 1
+                      type: string
+                    equivalence:
+                      minLength: 1
+                      type: string
+      description: ''
+    StructureDefinition:
+      required:
+        - resourceType
+        - id
+        - text
+        - url
+        - identifier
+        - version
+        - name
+        - display
+        - _display
+        - status
+        - experimental
+        - publisher
+        - contact
+        - date
+        - description
+        - useContext
+        - requirements
+        - copyright
+        - _copyright
+        - code
+        - fhirVersion
+        - mapping
+        - kind
+        - abstract
+        - baseType
+        - baseDefinition
+        - derivation
+        - snapshot
+      type: object
+      properties:
+        resourceType:
+          minLength: 1
+          type: string
+        id:
+          minLength: 1
+          type: string
+        text:
+          required:
+            - status
+            - div
+          type: object
+          properties:
+            status:
+              minLength: 1
+              type: string
+            div:
+              minLength: 1
+              type: string
+        url:
+          minLength: 1
+          type: string
+        identifier:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - system
+              - value
+            properties:
+              system:
+                minLength: 1
+                type: string
+              _system:
+                required:
+                  - fhir_comments
+                type: object
+                properties:
+                  fhir_comments:
+                    type: array
+                    items: { }
+              value:
+                minLength: 1
+                type: string
+        version:
+          minLength: 1
+          type: string
+        name:
+          minLength: 1
+          type: string
+        display:
+          minLength: 1
+          type: string
+        _display:
+          required:
+            - fhir_comments
+          type: object
+          properties:
+            fhir_comments:
+              type: array
+              items: { }
+        status:
+          minLength: 1
+          type: string
+        experimental:
+          type: boolean
+        publisher:
+          minLength: 1
+          type: string
+        contact:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - name
+            properties:
+              name:
+                minLength: 1
+                type: string
+              telecom:
+                minItems: 1
+                uniqueItems: true
+                type: array
+                items:
+                  required:
+                    - system
+                    - value
+                  properties:
+                    system:
+                      minLength: 1
+                      type: string
+                    value:
+                      minLength: 1
+                      type: string
+        date:
+          minLength: 1
+          type: string
+        description:
+          minLength: 1
+          type: string
+        useContext:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            properties:
+              coding:
+                minItems: 1
+                uniqueItems: true
+                type: array
+                items:
+                  required:
+                    - system
+                    - code
+                  properties:
+                    fhir_comments:
+                      type: array
+                      items: { }
+                    system:
+                      minLength: 1
+                      type: string
+                    code:
+                      minLength: 1
+                      type: string
+        requirements:
+          minLength: 1
+          type: string
+        copyright:
+          minLength: 1
+          type: string
+        _copyright:
+          required:
+            - fhir_comments
+          type: object
+          properties:
+            fhir_comments:
+              type: array
+              items: { }
+        code:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - system
+              - code
+              - display
+            properties:
+              system:
+                minLength: 1
+                type: string
+              code:
+                minLength: 1
+                type: string
+              display:
+                minLength: 1
+                type: string
+        fhirVersion:
+          minLength: 1
+          type: string
+        mapping:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - identity
+              - uri
+              - name
+              - comments
+            properties:
+              fhir_comments:
+                type: array
+                items: { }
+              identity:
+                minLength: 1
+                type: string
+              uri:
+                minLength: 1
+                type: string
+              name:
+                minLength: 1
+                type: string
+              comments:
+                minLength: 1
+                type: string
+        kind:
+          minLength: 1
+          type: string
+        abstract:
+          type: boolean
+        baseType:
+          minLength: 1
+          type: string
+        baseDefinition:
+          minLength: 1
+          type: string
+        derivation:
+          minLength: 1
+          type: string
+        snapshot:
+          required:
+            - element
+          type: object
+          properties:
+            element:
+              minItems: 1
+              uniqueItems: true
+              type: array
+              items:
+                required:
+                  - path
+                  - name
+                  - short
+                  - definition
+                  - comments
+                  - min
+                  - max
+                  - isModifier
+                properties:
+                  path:
+                    minLength: 1
+                    type: string
+                  name:
+                    minLength: 1
+                    type: string
+                  short:
+                    minLength: 1
+                    type: string
+                  definition:
+                    minLength: 1
+                    type: string
+                  comments:
+                    minLength: 1
+                    type: string
+                  min:
+                    type: number
+                  max:
+                    minLength: 1
+                    type: string
+                  base:
+                    required:
+                      - path
+                      - min
+                      - max
+                    type: object
+                    properties:
+                      path:
+                        minLength: 1
+                        type: string
+                      min:
+                        type: number
+                      max:
+                        minLength: 1
+                        type: string
+                  type:
+                    minItems: 1
+                    uniqueItems: true
+                    type: array
+                    items:
+                      required:
+                        - code
+                      properties:
+                        code:
+                          minLength: 1
+                          type: string
+                  isModifier:
+                    type: boolean
+      description: ''
+    ValueSet:
+      required:
+        - resourceType
+        - id
+        - meta
+        - text
+        - url
+        - _url
+        - identifier
+        - version
+        - _version
+        - name
+        - _name
+        - status
+        - experimental
+        - publisher
+        - contact
+        - date
+        - lockedDate
+        - _lockedDate
+        - description
+        - copyright
+        - compose
+      type: object
+      properties:
+        resourceType:
+          minLength: 1
+          type: string
+        id:
+          minLength: 1
+          type: string
+        meta:
+          required:
+            - profile
+            - _profile
+          type: object
+          properties:
+            profile:
+              type: array
+              items: { }
+            _profile:
+              minItems: 1
+              uniqueItems: true
+              type: array
+              items:
+                properties:
+                  fhir_comments:
+                    type: array
+                    items: { }
+        text:
+          required:
+            - status
+            - div
+          type: object
+          properties:
+            status:
+              minLength: 1
+              type: string
+            div:
+              minLength: 1
+              type: string
+        url:
+          minLength: 1
+          type: string
+        _url:
+          required:
+            - fhir_comments
+          type: object
+          properties:
+            fhir_comments:
+              type: array
+              items: { }
+        identifier:
+          required:
+            - fhir_comments
+            - system
+            - value
+          type: object
+          properties:
+            fhir_comments:
+              type: array
+              items: { }
+            system:
+              minLength: 1
+              type: string
+            value:
+              minLength: 1
+              type: string
+        version:
+          minLength: 1
+          type: string
+        _version:
+          required:
+            - fhir_comments
+          type: object
+          properties:
+            fhir_comments:
+              type: array
+              items: { }
+        name:
+          minLength: 1
+          type: string
+        _name:
+          required:
+            - fhir_comments
+          type: object
+          properties:
+            fhir_comments:
+              type: array
+              items: { }
+        status:
+          minLength: 1
+          type: string
+        experimental:
+          type: boolean
+        publisher:
+          minLength: 1
+          type: string
+        contact:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - name
+            properties:
+              name:
+                minLength: 1
+                type: string
+              telecom:
+                minItems: 1
+                uniqueItems: true
+                type: array
+                items:
+                  required:
+                    - system
+                    - value
+                  properties:
+                    system:
+                      minLength: 1
+                      type: string
+                    value:
+                      minLength: 1
+                      type: string
+        date:
+          minLength: 1
+          type: string
+        lockedDate:
+          minLength: 1
+          type: string
+        _lockedDate:
+          required:
+            - fhir_comments
+          type: object
+          properties:
+            fhir_comments:
+              type: array
+              items: { }
+        description:
+          minLength: 1
+          type: string
+        copyright:
+          minLength: 1
+          type: string
+        compose:
+          required:
+            - include
+          type: object
+          properties:
+            include:
+              minItems: 1
+              uniqueItems: true
+              type: array
+              items:
+                required:
+                  - system
+                  - version
+                properties:
+                  fhir_comments:
+                    type: array
+                    items: { }
+                  system:
+                    minLength: 1
+                    type: string
+                  version:
+                    minLength: 1
+                    type: string
+                  concept:
+                    minItems: 1
+                    uniqueItems: true
+                    type: array
+                    items:
+                      required:
+                        - code
+                        - display
+                      properties:
+                        fhir_comments:
+                          type: array
+                          items: { }
+                        code:
+                          minLength: 1
+                          type: string
+                        display:
+                          minLength: 1
+                          type: string
+                        _display:
+                          required:
+                            - fhir_comments
+                          type: object
+                          properties:
+                            fhir_comments:
+                              type: array
+                              items: { }
+      description: ''
+    Bundle:
+      required:
+        - resourceType
+        - id
+        - meta
+        - type
+        - total
+        - _total
+        - link
+        - entry
+      type: object
+      properties:
+        resourceType:
+          minLength: 1
+          type: string
+        id:
+          minLength: 1
+          type: string
+        meta:
+          required:
+            - fhir_comments
+            - lastUpdated
+          type: object
+          properties:
+            fhir_comments:
+              type: array
+              items: { }
+            lastUpdated:
+              minLength: 1
+              type: string
+        type:
+          minLength: 1
+          type: string
+        total:
+          type: number
+        _total:
+          required:
+            - fhir_comments
+          type: object
+          properties:
+            fhir_comments:
+              type: array
+              items: { }
+        link:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - relation
+              - url
+            properties:
+              fhir_comments:
+                type: array
+                items: { }
+              relation:
+                minLength: 1
+                type: string
+              url:
+                minLength: 1
+                type: string
+        entry:
+          minItems: 1
+          uniqueItems: true
+          type: array
+          items:
+            required:
+              - fullUrl
+            properties:
+              fhir_comments:
+                type: array
+                items: { }
+              fullUrl:
+                minLength: 1
+                type: string
+              resource:
+                required:
+                  - resourceType
+                  - id
+                  - text
+                  - medicationReference
+                  - patient
+                type: object
+                properties:
+                  resourceType:
+                    minLength: 1
+                    type: string
+                  id:
+                    minLength: 1
+                    type: string
+                  text:
+                    required:
+                      - fhir_comments
+                      - status
+                      - div
+                    type: object
+                    properties:
+                      fhir_comments:
+                        type: array
+                        items: { }
+                      status:
+                        minLength: 1
+                        type: string
+                      div:
+                        minLength: 1
+                        type: string
+                  medicationReference:
+                    required:
+                      - reference
+                    type: object
+                    properties:
+                      reference:
+                        minLength: 1
+                        type: string
+                  patient:
+                    required:
+                      - reference
+                    type: object
+                    properties:
+                      reference:
+                        minLength: 1
+                        type: string
+              search:
+                required:
+                  - fhir_comments
+                  - mode
+                  - _mode
+                  - score
+                  - _score
+                type: object
+                properties:
+                  fhir_comments:
+                    type: array
+                    items: { }
+                  mode:
+                    minLength: 1
+                    type: string
+                  _mode:
+                    required:
+                      - fhir_comments
+                    type: object
+                    properties:
+                      fhir_comments:
+                        type: array
+                        items: { }
+                  score:
+                    type: number
+                  _score:
+                    required:
+                      - fhir_comments
+                    type: object
+                    properties:
+                      fhir_comments:
+                        type: array
+                        items: { }
+      description: ''
+      example:
+        resourceType: '#'
+        id: '#'
+        meta:
+          fhir_comments:
+            - 
+          lastUpdated: '#'
+        type: '#'
+        total: 0.909116401592867
+        _total:
+          fhir_comments:
+            - 
+        link:
+          - 
+        entry:
+          - 
