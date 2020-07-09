@@ -286,7 +286,7 @@ paths:
           in: query
           schema:
             enum:
-              - '10'
+              - 10
             type: integer
             default: 10
       responses:
