@@ -1,12 +1,12 @@
 # Using GetTableSchema and GetNamespaceSchema to generate DTOs
 
-This guide explains how you can use the `GetTableSchema` and `GetNamespaceSchema` operations to generate classes for Data Transfer Objects (DTOs). If you haven't already, take a look at the [quickstart](../quickstart) to get set up for sending requests.  
+This guide explains how you can use the `GetTableSchema` and `GetNamespaceSchema` operations to generate classes for Data Transfer Objects (DTOs). If you haven't already, take a look at the [quickstart](/wrds-reference-data-and-schema-lookup/api-guide/quickstart) to get set up for sending requests.  
 
 DTOs are a pattern used in object oriented programming to transfer data using simple objects.  You can save time writing code by using tools to generate the class definitions for DTOs from an XML Schema.
 
 In this example, we'll use [xsd.exe][1] to generate C# classes from a schema. Similar tools are available for other languages (e.g. XMLBeans for Java)
 
-We want to generate definitions DTOs to holding data returned from `/GetTable/GP2GP/WelshGPPracticeMainSites`
+We want to generate definitions DTOs to hold data returned from `/GetTable/GP2GP/WelshGPPracticeMainSites`
 
 The namespace of the table we want to query is `GP2GP`, so we'll first fetch the Namespace schema
 

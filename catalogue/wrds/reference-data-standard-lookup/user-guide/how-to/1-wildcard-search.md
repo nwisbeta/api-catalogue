@@ -1,6 +1,6 @@
 # Get GP Address Information for a GP Practice
 
-This guide explains how you can use a wildcard filter with the `GetResultSet` operation.  If you haven't already, take a look at the [quickstart](../quickstart) to get set up for sending requests.  
+This guide explains how you can use a wildcard filter with the `GetResultSet` operation.  If you haven't already, take a look at the [quickstart](/wrds-reference-data-standard-lookup/api-guide/quickstart) to get set up for sending requests.  
 
 We'll search for Health Boards with a postcode beginning with 'CF' (i.e. in the Cardiff postal area).  
 
