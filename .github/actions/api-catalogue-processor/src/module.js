@@ -17,8 +17,47 @@ function convertToApi(systemId, systemName, apiId, apiDetails, wsdl, openApi, ba
     //This is what will need to be used for the call to the Azure REST Endpoint
     //Or we could use as the name in the ARM template
     const id = systemId.toLowerCase() + '-' + apiId;
-    const statusBadge = `<img src="${badgeURL}/status-${apiDetails.status}.svg" alt="status-${apiDetails.status}" style="margin-right:5px;">`;
-    const accessBadge = `<img src="${badgeURL}/access-${apiDetails.access}.svg" alt="access-${apiDetails.access}">`;   
+
+    let statusTooltip = "";
+    let accessTooltip = "";
+
+    switch(apiDetails.status)
+    {
+        case "experimental":
+            statusTooltip = "Proof of Concept or Prototype still under development.";
+            break;
+        case "alpha":
+            statusTooltip = "In a test environment and undergoing formal evaluation by a tester.";
+            break;
+        case "beta":
+            statusTooltip = "In a production environment but under pilot and with no SLAs.";
+            break;
+        case "stable":
+            statusTooltip = "In a production environment with SLAs.";
+            break;
+        default:
+            statusTooltip = "";
+            break;
+    }
+
+    switch(apiDetails.access)
+    {
+        case "internal":
+            accessTooltip = "Restricted to NHS applications only.";
+            break;
+        case "restricted":
+            accessTooltip = "Restricted by a formal approval process or by network, e.g. NHS Wales, PSBA, HSCN.";
+            break;
+        case "public":
+            accessTooltip = "Available to registered applications over any network.";
+            break;
+        default:
+            accessTooltip = "";
+            break;
+    }
+
+    const statusBadge = `<a data-tooltip="${statusTooltip}"><img src="${badgeURL}/status-${apiDetails.status}.svg" alt="status-${apiDetails.status}" style="margin-right:5px;"></a>`;
+    const accessBadge = `<a data-tooltip="${accessTooltip}"><img src="${badgeURL}/access-${apiDetails.access}.svg" alt="access-${apiDetails.access}"></a>`;   
 
     const displayName = (systemName ? systemName + ' - ' : '') + apiDetails.title;
     const description = `_${apiDetails.description}_\n\n<div>${statusBadge}${accessBadge}</div>\n${apiDetails.overview}`;
