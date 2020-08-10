@@ -3,7 +3,7 @@ info:
   title: WRDS - Reference Data & Schema Lookup
   version: '1.0'
 paths:
-  '/NRDS/GetTable/{namespace}/{tablename}':
+  '/GetTable/{namespace}/{tablename}':
     get:
       tags:
         - NRDS
@@ -16,19 +16,38 @@ paths:
           description: The namespace the table belongs to
           required: true
           schema:
+            enum:
+              - nrds
+              - gp2gp
             type: string
+            default: nrds
         - name: tablename
           in: path
           description: The table/view you want to retrieve data from
           required: true
           schema:
+            enum:
+              - GPPracticeMembership
+              - WelshOrganisation
+              - vwClinicianMaster
+              - SexualHealthClinicsWales
+              - AssigningAuthority
+              - WelshGPPracticeMainSites
             type: string
+            default: WelshOrganisation
+        - name: nrd:org_code
+          in: query
+          schema:
+            enum:
+              - '49998'
+            type: 'string'
+            default: ''
       responses:
         '200':
           description: OK
           content:
-            application/xml: { }            
-  '/NRDS/GetTableSchema/{namespace}/{tablename}':
+            application/xml: { }
+  '/GetTableSchema/{namespace}/{tablename}':
     get:
       tags:
         - NRDS
@@ -40,18 +59,30 @@ paths:
           in: path
           required: true
           schema:
+            enum:
+              - nrds
+              - gp2gp
             type: string
+            default: nrds
         - name: tablename
           in: path
           required: true
           schema:
+            enum:
+              - GPPracticeMembership
+              - WelshOrganisation
+              - vwClinicianMaster
+              - SexualHealthClinicsWales
+              - AssigningAuthority
+              - WelshGPPracticeMainSites
             type: string
+            default: WelshOrganisation
       responses:
         '200':
           description: OK
           content:
             application/xml: { }
-  '/NRDS/GetNamespaceSchema/{namespace}':
+  '/GetNamespaceSchema/{namespace}':
     get:
       tags:
         - NRDS
@@ -64,7 +95,11 @@ paths:
           description: The namespace you want to explore
           required: true
           schema:
+            enum:
+              - nrds
+              - gp2gp
             type: string
+            default: nrds
       responses:
         '200':
           description: OK
