@@ -1,0 +1,26 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://www.wales.nhs.uk/namespaces/MessageRelease2">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <mes:LookupRequest>
+      <mes:AttributeValuePair>
+        <mes:Attribute>
+        
+          <mes:Name>org_code</mes:Name>
+          <mes:Namespace>http://www.wales.nhs.uk/nrds</mes:Namespace>
+        </mes:Attribute>
+        <mes:Value>4WD24</mes:Value>
+        
+      </mes:AttributeValuePair>
+      
+      <mes:LookupTable>
+        <mes:Name>WelshOrganisation</mes:Name>
+        <mes:Namespace>http://www.wales.nhs.uk/nrds</mes:Namespace>
+      </mes:LookupTable>
+      
+      <mes:LookupAttribute>
+        <mes:Name>org_name</mes:Name>
+        <mes:Namespace>http://www.wales.nhs.uk/nrds</mes:Namespace>
+      </mes:LookupAttribute>
+    </mes:LookupRequest>
+  </soapenv:Body>
+</soapenv:Envelope>
