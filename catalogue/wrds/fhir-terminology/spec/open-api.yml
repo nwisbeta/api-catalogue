@@ -275,9 +275,9 @@ paths:
           in: query
           schema:
             enum:
-              - http:%2F%2Fsnomed.info%2Fsct%3Ffhir_vs
-            type: uri
-            default: http:%2F%2Fsnomed.info%2Fsct%3Ffhir_vs
+              - "http:%2F%2Fsnomed.info%2Fsct%3Ffhir_vs"
+            type: string
+            default: "http:%2F%2Fsnomed.info%2Fsct%3Ffhir_vs"
         - name: filter
           in: query
           schema:
@@ -286,12 +286,12 @@ paths:
           in: query
           schema:
             enum:
-              - '10'
+              - 10
             type: integer
             default: 10
       responses:
         '200':
-          description: 
+          description: Success
   '/ValueSet/{id}':
     get:
       summary: 'ValueSet/{id}'
