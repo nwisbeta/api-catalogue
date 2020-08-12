@@ -14,16 +14,16 @@ fs.readdir('./', { withFileTypes: true }, (err, dirents) => {
 
     if (err) throw err
 
-    let httpCommands = []
+    let httpRequests = []
 
     for (const dirent of dirents) {
 
-        let httpCommand = null
-        if (dirent.isFile() && (httpCommand = extractHttpCommand(dirent, cli.args["apimInstance"], sasToken))) {
-            httpCommands.push(httpCommand)            
+        let httpRequest = null
+        if (dirent.isFile() && (httpRequest = extractHttpRequest(dirent, cli.args["apimInstance"], sasToken))) {
+            httpRequests.push(httpRequest)            
         }            
     }
-    sendCommands(httpCommands)  
+    sendAllRequests(httpRequests)  
 
 })
 
@@ -42,7 +42,7 @@ function createSharedAccessToken(apimUid, apimAccessKey, validForDays = 1) {
 //Regex for API template files, e.g. "my-awesomme-api-name.PATCH.json"     
 const fileRegex = /([^\.]+)\.(GET|PUT|POST|PATCH|DELETE)+\.json$/
 
-function extractHttpCommand(dirent, instanceName, sasToken) {
+function extractHttpRequest(dirent, instanceName, sasToken) {
 
     const arr = fileRegex.exec(dirent.name)
 
@@ -74,33 +74,25 @@ function extractHttpCommand(dirent, instanceName, sasToken) {
 }
 
 /**
- * Sends the HTTP requsts as commanded. PUT requests will sent before any other requests are sent
- * @param {*} httpCommands 
+ * Sends the HTTP requests as requested. PUT requests will sent before any other requests are sent
+ * @param {*} httpRequests 
  */
-async function sendCommands(httpCommands){
-    httpCommands.sort(putPutsFirst)
+async function sendAllRequests(httpRequests){
 
-    console.log(`PROCESSING ${httpCommands.length} commands`)
+    httpRequests.sort(putPutsFirst)
 
-    let promisedPuts = [];
+    console.log(`PROCESSING ${httpRequests.length} requests`)
 
-    for (const command of httpCommands) {
+    for (const request of httpRequests) {
 
-        if (command.options.method !== "PUT") {
-            try {
-                await Promise.all(promisedPuts);
-            }
-            catch(err) {
-                cli.logError(`unable to complete PUT request:\n\t${err}`);
-                process.exit();
-            }
-            
-        }     
+        try {
+            await sendRequestAsync(request)
+        }
+        catch {
+            cli.logError(`unable to complete request:\n\t${err}`)
+            process.exit()
+        }
 
-        const requestPromise = createRequestPromise(command)
-
-        if (command.options.method === "PUT")
-            promisedPuts.push(requestPromise)
     }
 }
 
@@ -116,12 +108,12 @@ function putPutsFirst(req1, req2) {
     else return 0
 }
 
-function createRequestPromise(command) {
+function sendRequestAsync(command) {
 
     return new Promise((resolve, reject) => {
 
         const request = https.request(command.options, (response) => {
-            console.log(`PATH: ${command.options.path}\nMETHOD: ${command.options.method}\nRESPONSE: ${response.statusCode}`)
+            console.log(`PATH: ${command.options.path}\nMETHOD: ${command.options.method}\nRESPONSE: ${response.statusCode}\n`)
             response.statusCode < 400 ? resolve() : reject(`${command.options.path} (${response.statusCode})`)
         });
 

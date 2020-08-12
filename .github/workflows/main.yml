@@ -29,10 +29,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/api-catalogue-processor
-        with:	
+        with:
           catalogueDirectory: ${{github.workspace}}/catalogue
           outputDirectory: ${{github.workspace}}/artifacts-api-processor/  
       - uses: actions/upload-artifact@v2
         with:
           name: resource-templates
-          path: ${{github.workspace}}/artifacts-api-processor
+          path: ${{github.workspace}}/artifacts-api-
+      - uses: actions/upload-artifact@v2
+        with:
+          name: resource-templates
+          path: .github/actions/api-catalogue-processor/deploy-to-azure-apim.js
