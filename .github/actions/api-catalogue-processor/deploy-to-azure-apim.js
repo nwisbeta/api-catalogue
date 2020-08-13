@@ -83,13 +83,33 @@ async function sendAllRequests(httpRequests){
 
     console.log(`PROCESSING ${httpRequests.length} requests`)
 
+    const statusChecks = {}
+
     for (const request of httpRequests) {
 
+        const path = request.options.path
+
         try {
-            await sendRequestAsync(request)
+
+            if (statusChecks[path]) {
+                let statusCheckResponse = await checkResult(statusChecks[path])
+                delete statusChecks[path]
+                throwIfFailed(statusCheckResponse)
+            }
+
+            const response = await sendRequestAsync(request)
+
+            throwIfFailed(response)
+
+            if (response.statusCode == 202) {
+                //accepted but not completed, add a status check
+                statusChecks[path] = createStatusCheckRequest(request, response)
+            }
+            
+  
         }
-        catch {
-            cli.logError(`unable to complete request:\n\t${err}`)
+        catch (error) {
+            cli.logError(error)
             process.exit()
         }
 
@@ -108,20 +128,64 @@ function putPutsFirst(req1, req2) {
     else return 0
 }
 
+function throwIfFailed(response){
+    if (response.statusCode >= 400)
+        throw JSON.stringify({
+            status: response.statusCode,
+            path: response.url,
+            body: response.body
+        })
+}
+
+function createStatusCheckRequest(request, response){
+    const {host, pathname, search} = new URL(response.headers.location)
+    return {
+        options: {
+            host,
+            path: pathname + search,
+            method: "GET",
+            headers : {
+                "Authorization": request.options.headers["Authorization"]
+            }
+        }       
+    }
+}
+
+async function checkResult(statusCheckRequest){
+    cli.log("Waiting for previous operation to complete...")
+    const exponentialBackoffs = [500, 1000, 3000, 12000];
+    let i = 0; 
+    let status = 202;       
+    while (status === 202) {
+        if (!exponentialBackoffs[i]) {
+            throw "Previous request did not complete within allowed time" 
+        }
+        await new Promise(r => setTimeout(r, exponentialBackoffs[i++]));
+        response = await sendRequestAsync(statusCheckRequest)   
+        status = response.statusCode    
+    }
+    return response;
+}
+
 function sendRequestAsync(command) {
 
     return new Promise((resolve, reject) => {
 
         const request = https.request(command.options, (response) => {
             console.log(`PATH: ${command.options.path}\nMETHOD: ${command.options.method}\nRESPONSE: ${response.statusCode}\n`)
-            response.statusCode < 400 ? resolve() : reject(`${command.options.path} (${response.statusCode})`)
+    
+            response.body = '';
+            response.on('data', (chunk) => {
+                response.body += chunk;
+            });
+            response.on('end', () => resolve(response));        
         });
 
-        request.write(command.data);
-        request.on('error', cli.logError);
-        request.end();
+        request.on('error', reject);
+        request.end(command.data);
     });
 }
+
 
 
 function initCli() {
@@ -139,6 +203,10 @@ function initCli() {
         }
     }
 
+    function log(message) {
+        console.log(message)
+    }
+
     function logError(err) {
         console.error("ERROR: " + err)
     }
@@ -152,6 +220,7 @@ function initCli() {
 
     return {
         args,
+        log,
         logError,
         printUsage
     }
