@@ -106,13 +106,16 @@ async function sendAllRequests(httpRequests){
                 statusChecks[path] = createStatusCheckRequest(request, response)
             }
             
-  
         }
         catch (error) {
             cli.logError(error)
             process.exit()
         }
 
+    }
+    // run through remaining status checks in case of failures
+    for (const path in statusChecks) {
+        checkResult(statusChecks[path]).then(throwIfFailed).catch(cli.logError)
     }
 }
 
@@ -152,7 +155,7 @@ function createStatusCheckRequest(request, response){
 }
 
 async function checkResult(statusCheckRequest){
-    cli.log("Waiting for previous operation to complete...")
+    cli.log("Checking result of prior request...")
     const exponentialBackoffs = [500, 1000, 3000, 12000];
     let i = 0; 
     let status = 202;       
