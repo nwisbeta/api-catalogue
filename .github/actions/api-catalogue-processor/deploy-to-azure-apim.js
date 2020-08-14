@@ -81,7 +81,7 @@ async function sendAllRequests(httpRequests){
 
     httpRequests.sort(putPutsFirst)
 
-    console.log(`PROCESSING ${httpRequests.length} requests`)
+    cli.log(`Processing ${httpRequests.length} requests...`)
 
     const statusChecks = {}
 
@@ -92,14 +92,16 @@ async function sendAllRequests(httpRequests){
         try {
 
             if (statusChecks[path]) {
+                cli.log("Checking result of prior requests...")
                 let statusCheckResponse = await checkResult(statusChecks[path])
+                processResponseFor(statusChecks[path], statusCheckResponse)
                 delete statusChecks[path]
-                throwIfFailed(statusCheckResponse)
+                
             }
 
             const response = await sendRequestAsync(request)
 
-            throwIfFailed(response)
+            processResponseFor(request, response)
 
             if (response.statusCode == 202) {
                 //accepted but not completed, add a status check
@@ -113,9 +115,10 @@ async function sendAllRequests(httpRequests){
         }
 
     }
-    // run through remaining status checks in case of failures
+
+    cli.log("Checking results for any remaining status checks...")
     for (const path in statusChecks) {
-        checkResult(statusChecks[path]).then(throwIfFailed).catch(cli.logError)
+        checkResult(statusChecks[path]).then(processResponseFor(statusChecks[path])).catch(cli.logError)
     }
 }
 
@@ -131,14 +134,23 @@ function putPutsFirst(req1, req2) {
     else return 0
 }
 
-function throwIfFailed(response){
-    if (response.statusCode >= 400)
-        throw JSON.stringify({
-            status: response.statusCode,
-            path: response.url,
-            body: response.body
-        })
+function processResponseFor(req, res){
+
+    if (arguments.length > 1)
+        processResponse(res);
+    else
+        return processResponse;
+
+    function processResponse(response) {
+        let message = `PATH: ${req.options.path}\nMETHOD: ${req.options.method}\nRESPONSE: ${response.statusCode}\n`
+        if (response.statusCode >= 400) {
+            message += `BODY: ${response.body}\n`
+            throw `Received ${response.statusCode} response \n${message}`
+        }
+        cli.log(message)           
+    } 
 }
+
 
 function createStatusCheckRequest(request, response){
     const {host, pathname, search} = new URL(response.headers.location)
@@ -155,7 +167,6 @@ function createStatusCheckRequest(request, response){
 }
 
 async function checkResult(statusCheckRequest){
-    cli.log("Checking result of prior request...")
     const exponentialBackoffs = [500, 1000, 3000, 12000];
     let i = 0; 
     let status = 202;       
@@ -175,8 +186,7 @@ function sendRequestAsync(command) {
     return new Promise((resolve, reject) => {
 
         const request = https.request(command.options, (response) => {
-            console.log(`PATH: ${command.options.path}\nMETHOD: ${command.options.method}\nRESPONSE: ${response.statusCode}\n`)
-    
+
             response.body = '';
             response.on('data', (chunk) => {
                 response.body += chunk;
