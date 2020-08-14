@@ -81,18 +81,44 @@ async function sendAllRequests(httpRequests){
 
     httpRequests.sort(putPutsFirst)
 
-    console.log(`PROCESSING ${httpRequests.length} requests`)
+    cli.log(`Processing ${httpRequests.length} requests...`)
+
+    const statusChecks = {}
 
     for (const request of httpRequests) {
 
+        const path = request.options.path
+
         try {
-            await sendRequestAsync(request)
+
+            if (statusChecks[path]) {
+                cli.log("Checking result of prior requests...")
+                let statusCheckResponse = await checkResult(statusChecks[path])
+                processResponseFor(statusChecks[path], statusCheckResponse)
+                delete statusChecks[path]
+                
+            }
+
+            const response = await sendRequestAsync(request)
+
+            processResponseFor(request, response)
+
+            if (response.statusCode == 202) {
+                //accepted but not completed, add a status check
+                statusChecks[path] = createStatusCheckRequest(request, response)
+            }
+            
         }
-        catch {
-            cli.logError(`unable to complete request:\n\t${err}`)
+        catch (error) {
+            cli.logError(error)
             process.exit()
         }
 
+    }
+
+    cli.log("Checking results for any remaining status checks...")
+    for (const path in statusChecks) {
+        checkResult(statusChecks[path]).then(processResponseFor(statusChecks[path])).catch(cli.logError)
     }
 }
 
@@ -108,20 +134,71 @@ function putPutsFirst(req1, req2) {
     else return 0
 }
 
+function processResponseFor(req, res){
+
+    if (arguments.length > 1)
+        processResponse(res);
+    else
+        return processResponse;
+
+    function processResponse(response) {
+        let message = `PATH: ${req.options.path}\nMETHOD: ${req.options.method}\nRESPONSE: ${response.statusCode}\n`
+        if (response.statusCode >= 400) {
+            message += `BODY: ${response.body}\n`
+            throw `Received ${response.statusCode} response \n${message}`
+        }
+        cli.log(message)           
+    } 
+}
+
+
+function createStatusCheckRequest(request, response){
+    const {host, pathname, search} = new URL(response.headers.location)
+    return {
+        options: {
+            host,
+            path: pathname + search,
+            method: "GET",
+            headers : {
+                "Authorization": request.options.headers["Authorization"]
+            }
+        }       
+    }
+}
+
+async function checkResult(statusCheckRequest){
+    const exponentialBackoffs = [500, 1000, 3000, 12000];
+    let i = 0; 
+    let status = 202;       
+    while (status === 202) {
+        if (!exponentialBackoffs[i]) {
+            throw "Previous request did not complete within allowed time" 
+        }
+        await new Promise(r => setTimeout(r, exponentialBackoffs[i++]));
+        response = await sendRequestAsync(statusCheckRequest)   
+        status = response.statusCode    
+    }
+    return response;
+}
+
 function sendRequestAsync(command) {
 
     return new Promise((resolve, reject) => {
 
         const request = https.request(command.options, (response) => {
-            console.log(`PATH: ${command.options.path}\nMETHOD: ${command.options.method}\nRESPONSE: ${response.statusCode}\n`)
-            response.statusCode < 400 ? resolve() : reject(`${command.options.path} (${response.statusCode})`)
+
+            response.body = '';
+            response.on('data', (chunk) => {
+                response.body += chunk;
+            });
+            response.on('end', () => resolve(response));        
         });
 
-        request.write(command.data);
-        request.on('error', cli.logError);
-        request.end();
+        request.on('error', reject);
+        request.end(command.data);
     });
 }
+
 
 
 function initCli() {
@@ -139,6 +216,10 @@ function initCli() {
         }
     }
 
+    function log(message) {
+        console.log(message)
+    }
+
     function logError(err) {
         console.error("ERROR: " + err)
     }
@@ -152,6 +233,7 @@ function initCli() {
 
     return {
         args,
+        log,
         logError,
         printUsage
     }

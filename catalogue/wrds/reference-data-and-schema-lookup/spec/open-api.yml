@@ -41,7 +41,7 @@ paths:
             enum:
               - '49998'
             type: 'string'
-            default: ''
+            default: '49998'
       responses:
         '200':
           description: OK
