@@ -40,3 +40,10 @@ jobs:
         with:
           name: resource-templates
           path: .github/actions/api-catalogue-processor/deploy-to-azure-apim.js
+      - name: Output user guides
+        shell: bash   
+        run: ${{github.workspace}}/.github/actions/export-user-guides.sh  
+      - uses: actions/upload-artifact@v2
+        with:
+          name: user-guides
+          path: ${{github.workspace}}/user-guides
