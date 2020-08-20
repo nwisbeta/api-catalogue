@@ -1,3 +1,6 @@
+---
+title: Generate DTOs
+---
 # Using GetTableSchema and GetNamespaceSchema to generate DTOs
 
 This guide explains how you can use the `GetTableSchema` and `GetNamespaceSchema` operations to generate classes for Data Transfer Objects (DTOs). If you haven't already, take a look at the [quickstart](/wrds-reference-data-and-schema-lookup/api-guide/quickstart) to get set up for sending requests.  
