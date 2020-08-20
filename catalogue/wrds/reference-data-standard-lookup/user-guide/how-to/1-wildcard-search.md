@@ -1,4 +1,8 @@
-# Get GP Address Information for a GP Practice
+---
+title: Wilcard Search
+---
+
+# How to search using wildcards
 
 This guide explains how you can use a wildcard filter with the `GetResultSet` operation.  If you haven't already, take a look at the [quickstart](/wrds-reference-data-standard-lookup/api-guide/quickstart) to get set up for sending requests.  
 
