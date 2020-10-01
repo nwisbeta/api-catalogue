@@ -1,0 +1,3598 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://apps.wales.nhs.uk/mpi/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="urn:hl7-org:v2xml" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://apps.wales.nhs.uk/mpi/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://apps.wales.nhs.uk/mpi/">
+      <s:import namespace="urn:hl7-org:v2xml" />
+      <s:element name="InvokePatientDemographicsQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:QBP_Q21" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InvokePatientDemographicsQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:RSP_K21" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:hl7-org:v2xml">
+      <s:element name="QBP_Q21" type="s1:QBP_Q21.CONTENT" />
+      <s:complexType name="QBP_Q21.CONTENT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MSH" type="s1:MSH.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SFT" type="s1:SFT.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="QPD" type="s1:QPD.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="RCP" type="s1:RCP.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="DSC" type="s1:DSC.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MSH.CONTENT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.1" type="s1:MSH.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.2" type="s1:MSH.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.3" type="s1:MSH.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.4" type="s1:MSH.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.5" type="s1:MSH.5.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.6" type="s1:MSH.6.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.7" type="s1:MSH.7.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.8" type="s1:MSH.8.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.9" type="s1:MSH.9.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.10" type="s1:MSH.10.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.11" type="s1:MSH.11.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.12" type="s1:MSH.12.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.13" type="s1:MSH.13.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.14" type="s1:MSH.14.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.15" type="s1:MSH.15.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.16" type="s1:MSH.16.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.17" type="s1:MSH.17.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MSH.18" type="s1:MSH.18.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.19" type="s1:MSH.19.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSH.20" type="s1:MSH.20.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MSH.21" type="s1:MSH.21.CONTENT" />
+          <!-- <s:any minOccurs="0" maxOccurs="1" /> -->
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MSH.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSH.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSH.3.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="HD">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="HD.1" type="s1:HD.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="HD.2" type="s1:HD.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="HD.3" type="s1:HD.3.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HD.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="HD.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="HD.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CX.4.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CX.6.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ED.1.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LA1.4.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LA2.4.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="NDL.7.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PL.4.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PL.11.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PPN.9.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PPN.14.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RP.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XCN.9.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XCN.14.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XON.6.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XON.8.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EVN.7.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MSH.4.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MSH.5.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MSH.6.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.34.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:HD">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MSH.7.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="TS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TS.1" type="s1:TS.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="TS.2" type="s1:TS.2.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TS.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="TS.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CCD.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DIN.1.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DLD.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DR.1.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DR.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="FC.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ICD.3.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="NDL.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="NDL.3.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PPN.15.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PPN.20.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PPN.21.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="TQ.4.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="TQ.5.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XAD.13.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XAD.14.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XCN.19.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XCN.20.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XPN.12.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XPN.13.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EVN.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EVN.3.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EVN.6.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.7.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.29.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.33.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PV1.44.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PV1.45.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RCP.4.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SFT.6.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:TS">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MSH.8.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSH.9.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MSG">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MSG">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MSG.1" type="s1:MSG.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSG.2" type="s1:MSG.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSG.3" type="s1:MSG.3.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MSG.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSG.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSG.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSH.10.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSH.11.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:PT">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PT.1" type="s1:PT.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PT.2" type="s1:PT.2.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PT.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PT.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSH.12.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:VID">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="VID">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="VID.1" type="s1:VID.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="VID.2" type="s1:VID.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="VID.3" type="s1:VID.3.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VID.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="VID.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CE.1" type="s1:CE.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CE.2" type="s1:CE.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CE.3" type="s1:CE.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CE.4" type="s1:CE.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CE.5" type="s1:CE.5.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CE.6" type="s1:CE.6.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CE.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CE.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CE.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CE.4.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CE.5.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CE.6.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CP.5.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CQ.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DIN.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ELD.4.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MOC.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PIP.1.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PIP.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PPN.17.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PRL.1.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="TQ.11.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="VID.3.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XCN.16.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XPN.9.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MSA.6.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MSH.19.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PD1.11.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PD1.15.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.10.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.15.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.16.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.17.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.22.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.26.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.27.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.28.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.35.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.36.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.38.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PV1.38.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="QAK.3.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="QPD.1.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="QRI.3.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RCP.3.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MSH.13.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSH.14.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSH.15.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSH.16.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSH.17.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSH.18.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSH.20.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSH.21.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:EI">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EI">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EI.1" type="s1:EI.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="EI.2" type="s1:EI.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="EI.3" type="s1:EI.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="EI.4" type="s1:EI.4.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EI.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="EI.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="EI.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="EI.4.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="EIP.1.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:EI">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EIP.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:EI">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PIP.5.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:EI">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PL.10.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:EI">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SFT.CONTENT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SFT.1" type="s1:SFT.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="SFT.2" type="s1:SFT.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="SFT.3" type="s1:SFT.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="SFT.4" type="s1:SFT.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="SFT.5" type="s1:SFT.5.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="SFT.6" type="s1:SFT.6.CONTENT" />
+          <!-- <s:any minOccurs="0" maxOccurs="1" /> -->
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SFT.1.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:XON">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XON">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="XON.1" type="s1:XON.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XON.2" type="s1:XON.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XON.3" type="s1:XON.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XON.4" type="s1:XON.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XON.5" type="s1:XON.5.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XON.6" type="s1:XON.6.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XON.7" type="s1:XON.7.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XON.8" type="s1:XON.8.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XON.9" type="s1:XON.9.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XON.10" type="s1:XON.10.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="XON.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XON.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XON.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XON.4.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XON.5.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XON.7.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XON.9.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XON.10.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PD1.3.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:XON">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PD1.14.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:XON">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SFT.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="SFT.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="SFT.4.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="SFT.5.CONTENT">
+        <s:complexContent mixed="true">
+          <s:extension base="s1:TX">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="TX" mixed="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="escape" type="s1:escapeType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="escapeType">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="V" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="ED.5.CONTENT">
+        <s:complexContent mixed="true">
+          <s:extension base="s1:TX">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="JCC.3.CONTENT">
+        <s:complexContent mixed="true">
+          <s:extension base="s1:TX">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PRL.3.CONTENT">
+        <s:complexContent mixed="true">
+          <s:extension base="s1:TX">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RFR.7.CONTENT">
+        <s:complexContent mixed="true">
+          <s:extension base="s1:TX">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SPS.3.CONTENT">
+        <s:complexContent mixed="true">
+          <s:extension base="s1:TX">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="TQ.8.CONTENT">
+        <s:complexContent mixed="true">
+          <s:extension base="s1:TX">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ERR.7.CONTENT">
+        <s:complexContent mixed="true">
+          <s:extension base="s1:TX">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ERR.8.CONTENT">
+        <s:complexContent mixed="true">
+          <s:extension base="s1:TX">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="QPD.CONTENT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="QPD.1" type="s1:QPD.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="QPD.2" type="s1:QPD.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="QPD.3" type="s1:QPD.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="QPD.4" type="s1:QPD.4.CONTENT" />
+          <!-- <s:any minOccurs="0" maxOccurs="1" /> -->
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="QPD.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="QPD.3.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:QIP">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="QIP">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="QIP.1" type="s1:QIP.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="QIP.2" type="s1:QIP.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="QIP.3" type="s1:QIP.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="QIP.4" type="s1:QIP.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="QIP.5" type="s1:QIP.5.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="QIP.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="QIP.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="QIP.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="QIP.4.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="QIP.5.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="QPD.4.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:QIP">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RCP.CONTENT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RCP.1" type="s1:RCP.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="RCP.2" type="s1:RCP.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="RCP.3" type="s1:RCP.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="RCP.4" type="s1:RCP.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="RCP.5" type="s1:RCP.5.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RCP.6" type="s1:RCP.6.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RCP.7" type="s1:RCP.7.CONTENT" />
+          <!-- <s:any minOccurs="0" maxOccurs="1" /> -->
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RCP.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="RCP.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CQ">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CQ">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CQ.1" type="s1:CQ.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CQ.2" type="s1:CQ.2.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CQ.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="TQ.1.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CQ">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RCP.5.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="RCP.6.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:SRT">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SRT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SRT.1" type="s1:SRT.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="SRT.2" type="s1:SRT.2.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SRT.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="SRT.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="RCP.7.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="DSC.CONTENT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DSC.1" type="s1:DSC.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="DSC.2" type="s1:DSC.2.CONTENT" />
+          <!-- <s:any minOccurs="0" maxOccurs="1" /> -->
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DSC.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="DSC.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:element name="RSP_K21" type="s1:RSP_K21.CONTENT" />
+      <s:complexType name="RSP_K21.CONTENT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MSH" type="s1:MSH.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SFT" type="s1:SFT.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSA" type="s1:MSA.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="ERR" type="s1:ERR.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="QAK" type="s1:QAK.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="QPD" type="s1:QPD.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RSP_K21.QUERY_RESPONSE" type="s1:RSP_K21.QUERY_RESPONSE.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="DSC" type="s1:DSC.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MSA.CONTENT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MSA.1" type="s1:MSA.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSA.2" type="s1:MSA.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSA.3" type="s1:MSA.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSA.4" type="s1:MSA.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSA.5" type="s1:MSA.5.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSA.6" type="s1:MSA.6.CONTENT" />
+          <!-- <s:any minOccurs="0" maxOccurs="1" /> -->
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MSA.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSA.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSA.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSA.4.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MSA.5.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="ERR.CONTENT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ERR.1" type="s1:ERR.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ERR.2" type="s1:ERR.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="ERR.3" type="s1:ERR.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="ERR.4" type="s1:ERR.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="ERR.5" type="s1:ERR.5.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ERR.6" type="s1:ERR.6.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="ERR.7" type="s1:ERR.7.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="ERR.8" type="s1:ERR.8.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ERR.9" type="s1:ERR.9.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="ERR.10" type="s1:ERR.10.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ERR.11" type="s1:ERR.11.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ERR.12" type="s1:ERR.12.CONTENT" />
+          <!-- <s:any minOccurs="0" maxOccurs="1" /> -->
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ERR.1.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:ELD">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ELD">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ELD.1" type="s1:ELD.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="ELD.2" type="s1:ELD.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="ELD.3" type="s1:ELD.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="ELD.4" type="s1:ELD.4.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ELD.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="ELD.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="ELD.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="ERR.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:ERL">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ERL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ERL.1" type="s1:ERL.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="ERL.2" type="s1:ERL.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="ERL.3" type="s1:ERL.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="ERL.4" type="s1:ERL.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="ERL.5" type="s1:ERL.5.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="ERL.6" type="s1:ERL.6.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ERL.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="ERL.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="ERL.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="ERL.4.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="ERL.5.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="ERL.6.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="ERR.3.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CWE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CWE.1" type="s1:CWE.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CWE.2" type="s1:CWE.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CWE.3" type="s1:CWE.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CWE.4" type="s1:CWE.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CWE.5" type="s1:CWE.5.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CWE.6" type="s1:CWE.6.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CWE.7" type="s1:CWE.7.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CWE.8" type="s1:CWE.8.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CWE.9" type="s1:CWE.9.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CWE.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CWE.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CWE.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CWE.4.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CWE.5.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CWE.6.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CWE.7.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CWE.8.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CWE.9.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CX.9.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CX.10.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PPN.23.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PPN.24.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RPT.1.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SCV.1.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SPS.1.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SPS.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SPS.4.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SPS.5.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SPS.6.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SPS.7.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XCN.22.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XCN.23.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ERR.5.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ERR.10.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ERR.11.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.39.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CWE">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ERR.4.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="ERR.6.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="ERR.9.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="ERR.12.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:XTN">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XTN">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="XTN.1" type="s1:XTN.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XTN.2" type="s1:XTN.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XTN.3" type="s1:XTN.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XTN.4" type="s1:XTN.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XTN.5" type="s1:XTN.5.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XTN.6" type="s1:XTN.6.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XTN.7" type="s1:XTN.7.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XTN.8" type="s1:XTN.8.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XTN.9" type="s1:XTN.9.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XTN.10" type="s1:XTN.10.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XTN.11" type="s1:XTN.11.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XTN.12" type="s1:XTN.12.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="XTN.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XTN.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XTN.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XTN.4.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XTN.5.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XTN.6.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XTN.7.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XTN.8.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XTN.9.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XTN.10.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XTN.11.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XTN.12.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PID.13.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:XTN">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.14.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:XTN">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="QAK.CONTENT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="QAK.1" type="s1:QAK.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="QAK.2" type="s1:QAK.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="QAK.3" type="s1:QAK.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="QAK.4" type="s1:QAK.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="QAK.5" type="s1:QAK.5.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="QAK.6" type="s1:QAK.6.CONTENT" />
+          <!-- <s:any minOccurs="0" maxOccurs="1" /> -->
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="QAK.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="QAK.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="QAK.4.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="QAK.5.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="QAK.6.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="RSP_K21.QUERY_RESPONSE.CONTENT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PID" type="s1:PID.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PD1" type="s1:PD1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="QRI" type="s1:QRI.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PID.CONTENT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PID.1" type="s1:PID.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.2" type="s1:PID.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PID.3" type="s1:PID.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PID.4" type="s1:PID.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PID.5" type="s1:PID.5.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PID.6" type="s1:PID.6.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.7" type="s1:PID.7.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.8" type="s1:PID.8.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PID.9" type="s1:PID.9.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PID.10" type="s1:PID.10.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PID.11" type="s1:PID.11.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.12" type="s1:PID.12.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PID.13" type="s1:PID.13.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PID.14" type="s1:PID.14.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.15" type="s1:PID.15.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.16" type="s1:PID.16.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.17" type="s1:PID.17.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.18" type="s1:PID.18.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.19" type="s1:PID.19.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.20" type="s1:PID.20.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PID.21" type="s1:PID.21.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PID.22" type="s1:PID.22.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.23" type="s1:PID.23.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.24" type="s1:PID.24.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.25" type="s1:PID.25.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PID.26" type="s1:PID.26.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.27" type="s1:PID.27.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.28" type="s1:PID.28.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.29" type="s1:PID.29.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.30" type="s1:PID.30.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.31" type="s1:PID.31.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PID.32" type="s1:PID.32.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.33" type="s1:PID.33.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.34" type="s1:PID.34.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.35" type="s1:PID.35.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.36" type="s1:PID.36.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.37" type="s1:PID.37.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PID.38" type="s1:PID.38.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PID.39" type="s1:PID.39.CONTENT" />
+          <!-- <s:any minOccurs="0" maxOccurs="1" /> -->
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PID.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PID.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CX">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CX">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CX.1" type="s1:CX.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CX.2" type="s1:CX.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CX.3" type="s1:CX.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CX.4" type="s1:CX.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CX.5" type="s1:CX.5.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CX.6" type="s1:CX.6.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CX.7" type="s1:CX.7.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CX.8" type="s1:CX.8.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CX.9" type="s1:CX.9.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="CX.10" type="s1:CX.10.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CX.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CX.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CX.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CX.5.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CX.7.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="CX.8.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MRG.1.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CX">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MRG.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CX">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MRG.3.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CX">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MRG.4.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CX">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MRG.5.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CX">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MRG.6.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CX">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PD1.10.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CX">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.3.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CX">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.4.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CX">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.18.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CX">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.21.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CX">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PV1.5.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CX">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PV1.19.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CX">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PV1.50.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:CX">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.5.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:XPN">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XPN">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="XPN.1" type="s1:XPN.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XPN.2" type="s1:XPN.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XPN.3" type="s1:XPN.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XPN.4" type="s1:XPN.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XPN.5" type="s1:XPN.5.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XPN.6" type="s1:XPN.6.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XPN.7" type="s1:XPN.7.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XPN.8" type="s1:XPN.8.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XPN.9" type="s1:XPN.9.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XPN.10" type="s1:XPN.10.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XPN.11" type="s1:XPN.11.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XPN.12" type="s1:XPN.12.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XPN.13" type="s1:XPN.13.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XPN.14" type="s1:XPN.14.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="XPN.1.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:FN">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="FN">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FN.1" type="s1:FN.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="FN.2" type="s1:FN.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="FN.3" type="s1:FN.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="FN.4" type="s1:FN.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="FN.5" type="s1:FN.5.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FN.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="FN.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="FN.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="FN.4.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="FN.5.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PPN.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:FN">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XCN.2.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:FN">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XPN.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XPN.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XPN.4.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XPN.5.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XPN.6.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XPN.7.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XPN.8.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XPN.10.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:DR">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DR">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DR.1" type="s1:DR.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="DR.2" type="s1:DR.2.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PPN.18.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:DR">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XAD.12.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:DR">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XCN.17.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:DR">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XPN.11.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XPN.14.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="MRG.7.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:XPN">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.6.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:XPN">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.9.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:XPN">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PID.8.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PID.11.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:XAD">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XAD">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="XAD.1" type="s1:XAD.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XAD.2" type="s1:XAD.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XAD.3" type="s1:XAD.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XAD.4" type="s1:XAD.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XAD.5" type="s1:XAD.5.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XAD.6" type="s1:XAD.6.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XAD.7" type="s1:XAD.7.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XAD.8" type="s1:XAD.8.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XAD.9" type="s1:XAD.9.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XAD.10" type="s1:XAD.10.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XAD.11" type="s1:XAD.11.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XAD.12" type="s1:XAD.12.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XAD.13" type="s1:XAD.13.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XAD.14" type="s1:XAD.14.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="XAD.1.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:SAD">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SAD">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SAD.1" type="s1:SAD.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="SAD.2" type="s1:SAD.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="SAD.3" type="s1:SAD.3.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SAD.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="SAD.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="SAD.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XAD.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XAD.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XAD.4.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XAD.5.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XAD.6.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XAD.7.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XAD.8.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XAD.9.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XAD.10.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XAD.11.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PID.12.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PID.19.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PID.20.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:DLN">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DLN">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DLN.1" type="s1:DLN.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="DLN.2" type="s1:DLN.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="DLN.3" type="s1:DLN.3.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DLN.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="DLN.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="DLN.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PID.23.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PID.24.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PID.25.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PID.30.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PID.31.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PID.32.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PID.37.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PD1.CONTENT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PD1.1" type="s1:PD1.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PD1.2" type="s1:PD1.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PD1.3" type="s1:PD1.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PD1.4" type="s1:PD1.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PD1.5" type="s1:PD1.5.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PD1.6" type="s1:PD1.6.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PD1.7" type="s1:PD1.7.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PD1.8" type="s1:PD1.8.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PD1.9" type="s1:PD1.9.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PD1.10" type="s1:PD1.10.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PD1.11" type="s1:PD1.11.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PD1.12" type="s1:PD1.12.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PD1.13" type="s1:PD1.13.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PD1.14" type="s1:PD1.14.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PD1.15" type="s1:PD1.15.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PD1.16" type="s1:PD1.16.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PD1.17" type="s1:PD1.17.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PD1.18" type="s1:PD1.18.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PD1.19" type="s1:PD1.19.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PD1.20" type="s1:PD1.20.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="PD1.21" type="s1:PD1.21.CONTENT" />
+          <!-- <s:any minOccurs="0" maxOccurs="1" /> -->
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PD1.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PD1.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PD1.4.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:XCN">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="XCN">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.1" type="s1:XCN.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.2" type="s1:XCN.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.3" type="s1:XCN.3.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.4" type="s1:XCN.4.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.5" type="s1:XCN.5.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.6" type="s1:XCN.6.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.7" type="s1:XCN.7.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.8" type="s1:XCN.8.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.9" type="s1:XCN.9.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.10" type="s1:XCN.10.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.11" type="s1:XCN.11.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.12" type="s1:XCN.12.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.13" type="s1:XCN.13.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.14" type="s1:XCN.14.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.15" type="s1:XCN.15.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.16" type="s1:XCN.16.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.17" type="s1:XCN.17.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.18" type="s1:XCN.18.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.19" type="s1:XCN.19.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.20" type="s1:XCN.20.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.21" type="s1:XCN.21.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.22" type="s1:XCN.22.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="XCN.23" type="s1:XCN.23.CONTENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="XCN.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XCN.3.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XCN.4.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XCN.5.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XCN.6.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XCN.7.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XCN.8.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XCN.10.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XCN.11.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XCN.12.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XCN.13.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XCN.15.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XCN.18.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="XCN.21.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="EVN.5.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:XCN">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PV1.7.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:XCN">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PV1.8.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:XCN">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PV1.9.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:XCN">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PV1.17.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:XCN">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PV1.52.CONTENT">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:XCN">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PD1.5.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PD1.6.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PD1.7.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PD1.8.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PD1.9.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PD1.12.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PD1.13.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PD1.16.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PD1.17.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PD1.18.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PD1.19.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PD1.20.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="PD1.21.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="QRI.CONTENT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="QRI.1" type="s1:QRI.1.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="QRI.2" type="s1:QRI.2.CONTENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="QRI.3" type="s1:QRI.3.CONTENT" />
+          <!-- <s:any minOccurs="0" maxOccurs="1" /> -->
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="QRI.1.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="QRI.2.CONTENT">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="Item" type="s:string" />
+            <s:attribute name="Type" type="s:string" />
+            <s:attribute name="Table" type="s:string" />
+            <s:attribute name="LongName" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InvokePatientDemographicsQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:InvokePatientDemographicsQuery" />
+  </wsdl:message>
+  <wsdl:message name="InvokePatientDemographicsQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:InvokePatientDemographicsQueryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PatientDemographicsQueryWSSoap">
+    <wsdl:operation name="InvokePatientDemographicsQuery">
+      <wsdl:input message="tns:InvokePatientDemographicsQuerySoapIn" />
+      <wsdl:output message="tns:InvokePatientDemographicsQuerySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <!-- <wsdl:binding name="PatientDemographicsQueryWSSoap" type="tns:PatientDemographicsQueryWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InvokePatientDemographicsQuery">
+      <soap:operation soapAction="http://apps.wales.nhs.uk/mpi/InvokePatientDemographicsQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding> -->
+  <wsdl:binding name="PatientDemographicsQueryWSSoap12" type="tns:PatientDemographicsQueryWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InvokePatientDemographicsQuery">
+      <soap12:operation soapAction="http://apps.wales.nhs.uk/mpi/InvokePatientDemographicsQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PatientDemographicsQueryWS">
+    <!-- <wsdl:port name="PatientDemographicsQueryWSSoap" binding="tns:PatientDemographicsQueryWSSoap">
+      <soap:address location="https://private.url" />
+    </wsdl:port> -->
+    <wsdl:port name="PatientDemographicsQueryWSSoap12" binding="tns:PatientDemographicsQueryWSSoap12">
+      <soap12:address location="https://private.url" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
