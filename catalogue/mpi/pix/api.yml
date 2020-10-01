@@ -1,0 +1,12 @@
+title: PIX
+description: Perform a Patient Identifer Cross-Reference (PIX) 
+type: SOAP/HL7
+owner: NWIS - Integration and Reference
+status: stable
+access: restricted
+overview: |
+  Look up alternative local identifiers for a patients using the Master Patient Index.
+  These APIs implements the Patient Identifer Cross-Reference (PIX) integration profile from IHE.
+  It is used by clinical applications to fetch a patients records from multiple systems using the local IDs.
+  It is available nationally and used across primary and secondary care in all health boards.
+  
