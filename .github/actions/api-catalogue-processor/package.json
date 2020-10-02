@@ -17,7 +17,7 @@
   "license": "ISC",
   "private": true,
   "dependencies": {
-    "@actions/core": "^1.2.4",
+    "@actions/core": "^1.2.6",
     "@actions/github": "^2.2.0",
     "yaml": "^1.10.0"
   },
