@@ -1,0 +1,12 @@
+title: Patient Demographics Query
+description: Query for patients identifiers matched across multiple systems 
+type: SOAP/HL7
+owner: NWIS - Integration and Reference
+status: stable
+access: restricted
+overview: |
+  Search for patient demographic information such as NHS number, sex, date of birth and address.
+  These APIs implements the Patient Demographic Query integration profile from IHE and is used
+  by clinical applications to allow users to match a patient record across multiple systems.
+  It is available nationally and used across primary and secondary care in all health boards.
+  
