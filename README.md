@@ -14,7 +14,9 @@ The generated HTML view of the catalogue can be found at https://developer.nhs.w
 
   * [api.yml](#apiyml)
 
-  * [open-api.yml or service.wsdl](#open-apiyml-or-servicewsdl)
+  * [spec/open-api.yml (or service.wsdl)](#specopen-apiyml-or-specservicewsdl)
+
+  * [spec/example-requests/](#specexample-requests)
 
   * [user-guide](#user-guide)
 
@@ -106,7 +108,7 @@ Status indicating the level of stability and support, defined as follows:
 - `public`: Available to registered applications over any network
 
 
-## open-api.yml or service.wsdl
+## spec/open-api.yml or spec/service.wsdl
 
 Provide an **open-api.yml** file for a REST API or a **service.wsdl** file for a SOAP webservice.
 
@@ -138,6 +140,8 @@ These restrictions come from the Azure API Management tool we use to display the
 [OpenAPI]:  https://github.com/OAI/OpenAPI-Specification/
 [WSDL Restrictions]: https://docs.microsoft.com/en-us/azure/api-management/api-management-api-import-restrictions#-wsdl
 
+## spec/example-requests/
+If your API is defined with an Open API spec you can include examples directly in the open-api.yml file, but with WSDL documents you're unable to do this. Instead you can include example requests as separate xml files in the `spec/example-requests/` folder.  
 
 ## user-guide
 

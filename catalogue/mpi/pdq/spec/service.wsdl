@@ -3559,11 +3559,35 @@
   </wsdl:message>
   <wsdl:portType name="PatientDemographicsQueryWSSoap">
     <wsdl:operation name="InvokePatientDemographicsQuery">
+      <wsdl:documentation>
+This operation implements the [IHE integration profile for PDQ](https://wiki.ihe.net/index.php/Patient_Demographics_Query) using SOAP, the message payload format is are HL7 2.5 serialized as XML.
+
+To query for a patient you'll send an [HL7 QBP_Q22 message](https://hl7-definition.caristix.com/v2/HL7v2.5/TriggerEvents/QBP_Q22) containing the demographic details to search by (e.g. forename, surname, date of birth).
+
+The response will be a [HL7 RSP_K22 message](https://hl7-definition.caristix.com/v2/HL7v2.5/TriggerEvents/RSP_K22) containing zero or more matching patients records.
+
+To try out the Sandbox API, you can search by the following sample patient:
+
+ - Surname: HOLMES
+ - Forename: Sherlock
+ - Date of Birth: 08/11/1938
+ - Postcode: CF11 9AD
+ - NHS Number: 
+    - Identifier: `5555599226`
+    - Assigning Authority: `NHS`
+    - Identifier Type: `NH`
+ - Hospital Number: 
+    - Identifier: `E123679 `
+    - Assigning Authority `129`
+    - Identifier Type `PI`
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/74c360c9556323a9bec2)
+      </wsdl:documentation>
       <wsdl:input message="tns:InvokePatientDemographicsQuerySoapIn" />
       <wsdl:output message="tns:InvokePatientDemographicsQuerySoapOut" />
     </wsdl:operation>
   </wsdl:portType>
-  <!-- <wsdl:binding name="PatientDemographicsQueryWSSoap" type="tns:PatientDemographicsQueryWSSoap">
+  <wsdl:binding name="PatientDemographicsQueryWSSoap" type="tns:PatientDemographicsQueryWSSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="InvokePatientDemographicsQuery">
       <soap:operation soapAction="http://apps.wales.nhs.uk/mpi/InvokePatientDemographicsQuery" style="document" />
@@ -3574,8 +3598,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-  </wsdl:binding> -->
-  <wsdl:binding name="PatientDemographicsQueryWSSoap12" type="tns:PatientDemographicsQueryWSSoap">
+  </wsdl:binding>
+  <!-- <wsdl:binding name="PatientDemographicsQueryWSSoap12" type="tns:PatientDemographicsQueryWSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="InvokePatientDemographicsQuery">
       <soap12:operation soapAction="http://apps.wales.nhs.uk/mpi/InvokePatientDemographicsQuery" style="document" />
@@ -3586,13 +3610,13 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-  </wsdl:binding>
+  </wsdl:binding> -->
   <wsdl:service name="PatientDemographicsQueryWS">
-    <!-- <wsdl:port name="PatientDemographicsQueryWSSoap" binding="tns:PatientDemographicsQueryWSSoap">
+    <wsdl:port name="PatientDemographicsQueryWSSoap" binding="tns:PatientDemographicsQueryWSSoap">
       <soap:address location="https://private.url" />
-    </wsdl:port> -->
-    <wsdl:port name="PatientDemographicsQueryWSSoap12" binding="tns:PatientDemographicsQueryWSSoap12">
-      <soap12:address location="https://private.url" />
     </wsdl:port>
+    <!-- <wsdl:port name="PatientDemographicsQueryWSSoap12" binding="tns:PatientDemographicsQueryWSSoap12">
+      <soap12:address location="https://private.url" />
+    </wsdl:port> -->
   </wsdl:service>
 </wsdl:definitions>
