@@ -7,7 +7,12 @@
 
 OUTDIR=user-guides
 
-cd $GITHUB_WORKSPACE
+if [[ -z "$GITHUB_WORKSPACE" ]]
+then
+  echo "env var GITHUB_WORKSPACE is unset or does not exist"
+fi
+
+cd $GITHUB_WORKSPACE || exit
 
 for ug in $(find . -name user-guide | sed 's/\.\///g')
 do
