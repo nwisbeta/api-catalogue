@@ -283,7 +283,7 @@ Please see our MPI PDQ Postman project for several additional search examples. T
 [![MPI PDQ Postman project](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f54d6238f91e83aa9aaf)
 
 In addition we have included 2 edge cases in the Postman search examples. The details of what cases they cover specifically are 
-noted in the [MPI user guide overview](/pdq/api-guide/overview)
+noted in the [MPI user guide overview](/pdq-user-guide/api-guide/overview)
 
 
 

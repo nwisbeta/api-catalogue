@@ -3,6 +3,7 @@
 # For Debugging 
 # -------------------------------------------------------------------------------------
 # GITHUB_WORKSPACE=
+GITHUB_WORKSPACE=/mnt/c/development/git/bmcd77/api-catalogue/catalogue
 # -------------------------------------------------------------------------------------
 
 OUTDIR=user-guides
@@ -20,7 +21,13 @@ do
   api=$(echo $ug | cut -d'/' -f 3)
   echo "${system}-${api}..."
   mkdir -p $OUTDIR/${system}-${api}
-  cp -r $ug/* $OUTDIR/${system}-${api}/
+  
+  if [[ $(ls -a | wc -l) -ne 2 ]] 
+  then       
+    cp -r $ug/* $OUTDIR/${system}-${api}/
+  else 
+    echo "WARNING: Directory " $ug " is empty. No files will be included"
+  fi
 
 done
 
