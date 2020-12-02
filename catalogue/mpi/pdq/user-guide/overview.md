@@ -99,6 +99,5 @@ Valid use case search criteria covered by our examples are:
 
 NOTE: The mock implementations used by the developer portal will also *echo back the QPD section (request details) of the original request* and populates MSH/MSH.7/TS.1 with a fresh timestamp for each request.
 
-To get started making requests take a look at our [quickstart](/pdq-user-guide/api-guide/quickstart)
-
+To get started making requests take a look at our [quickstart](/api-guides/mpi-pdq/quickstart)
 
