@@ -10,6 +10,7 @@ OUTDIR=user-guides
 if [[ -z "$GITHUB_WORKSPACE" ]]
 then
   echo "env var GITHUB_WORKSPACE is unset or does not exist"
+  exit 1
 fi
 
 cd $GITHUB_WORKSPACE || exit
@@ -29,4 +30,3 @@ do
   fi
 
 done
-
