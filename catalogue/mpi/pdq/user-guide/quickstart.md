@@ -17,7 +17,7 @@ To POST any search requests successfully you will need to set the following API 
 | SOAPAction                |  http://apps.wales.nhs.uk/mpi/InvokePatientDemographicsQuery |
 | Content-Type              |  text/xml                                                    |
 
-*<your subscription key>* is unique to you and is allocated when you sign up to the [NHS Wales Developer Portal](https://developer.nhs.wales/) and subscribe to sandbox api's under your profile (visible once you have signed in). If you use one of the tryit links on the portal for a sandbox api you will see that it is automatically included in each api call.
+*\<your subscription key\>* is unique to you and is allocated when you sign up to the [NHS Wales Developer Portal](https://developer.nhs.wales/) and subscribe to sandbox api's under your profile (visible once you have signed in). If you use one of the tryit links on the portal for a sandbox api you will see that it is automatically included in each api call.
 
 ## Search the MPI PDQ by NHS Number:
 
@@ -284,7 +284,6 @@ Please see our MPI PDQ Postman project for several additional search examples. T
 
 In addition we have included 2 edge cases in the Postman search examples. The details of what cases they cover specifically are 
 noted in the [MPI user guide overview](/pdq-user-guide/api-guide/overview)
-
 
 
 
