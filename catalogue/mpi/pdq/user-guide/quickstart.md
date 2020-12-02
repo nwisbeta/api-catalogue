@@ -278,12 +278,24 @@ Note the response portion of this request is included between the
 
 ## More Search Requests:
 
-Please see our MPI PDQ Postman project for several additional search examples. This project already contains the required HTTP Header entries. You will need to add your specific Ocp-Apim-Subscription-Key as detailed above.
+We have included a number of similar searches in our publicly available Postman project. Please see Notes on using Postman below. In a If you are in a hurry 2 things are important:
+
+- you will need to use Postman desktop and 
+- set your developer portal postman <!--{% raw %}-->{{OcpApimSubscriptionKey}}<!--{% endraw %}--> value before a request will be successfull.
 
 [![MPI PDQ Postman project](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f54d6238f91e83aa9aaf)
 
 In addition we have included 2 edge cases in the Postman search examples. The details of what cases they cover specifically are 
 noted in the [MPI user guide overview](/pdq-user-guide/api-guide/overview)
+
+### Notes on using [Postman](https://www.postman.com/)
+
+As noted please see our MPI PDQ Postman project for several additional search examples. This project already contains the required HTTP Header entries apart from the value for your specific developer portal subscription key. When you open the Postman project in Postman You will need to add your specific Ocp-Apim-Subscription-Key. It will appear in Postman under the Headers tab as <!--{% raw %}-->{{OcpApimSubscriptionKey}}<!--{% endraw %}-->. If you hover over this in Postman a "Set as variable" window will appear. From there you can click on "Set as new variable" and enter your header value.
+
+Another way to set an do this is to click the Environment quick look (eye button) in the top right of Postman and click Edit next to Globals. A large window will appear showing any saved variables and if you click on "Edit" in the top right of this window you can update or add a new variable and then save this change. Postman documentation for this is available [here](https://learning.postman.com/docs/sending-requests/variables/)
+
+Note Please use [Postman desktop](https://www.postman.com/downloads/) when viewing these requests. Postman web which opens in a browser will issue a CORS (cross-origin resource sharing) error when attempting to send requests from a web browser.
+
 
 
 
