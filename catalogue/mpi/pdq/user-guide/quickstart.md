@@ -286,7 +286,7 @@ We have included a number of similar searches in our publicly available Postman 
 [![MPI PDQ Postman project](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f54d6238f91e83aa9aaf)
 
 In addition we have included 2 edge cases in the Postman search examples. The details of what cases they cover specifically are 
-noted in the [MPI user guide overview](/pdq-user-guide/api-guide/overview)
+noted in the [MPI user guide overview](/api-guides/mpi-pdq/overview)
 
 ### Notes on using [Postman](https://www.postman.com/)
 
@@ -295,7 +295,6 @@ As noted please see our MPI PDQ Postman project for several additional search ex
 Another way to set an do this is to click the Environment quick look (eye button) in the top right of Postman and click Edit next to Globals. A large window will appear showing any saved variables and if you click on "Edit" in the top right of this window you can update or add a new variable and then save this change. Postman documentation for this is available [here](https://learning.postman.com/docs/sending-requests/variables/)
 
 Note Please use [Postman desktop](https://www.postman.com/downloads/) when viewing these requests. Postman web which opens in a browser will issue a CORS (cross-origin resource sharing) error when attempting to send requests from a web browser.
-
 
 
 
