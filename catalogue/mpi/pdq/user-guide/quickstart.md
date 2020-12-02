@@ -13,7 +13,7 @@ To POST any search requests successfully you will need to set the following API 
 
 | Field                     |  Value
 |---------------------------|:-------------------------------------------------------------|
-| Ocp-Apim-Subscription-Key |  <your subscription key>*                                    |
+| Ocp-Apim-Subscription-Key |  \<your subscription key\>*                                    |
 | SOAPAction                |  http://apps.wales.nhs.uk/mpi/InvokePatientDemographicsQuery |
 | Content-Type              |  text/xml                                                    |
 
@@ -284,7 +284,6 @@ Please see our MPI PDQ Postman project for several additional search examples. T
 
 In addition we have included 2 edge cases in the Postman search examples. The details of what cases they cover specifically are 
 noted in the [MPI user guide overview](/pdq-user-guide/api-guide/overview)
-
 
 
 
