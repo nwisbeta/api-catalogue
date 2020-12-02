@@ -3,7 +3,6 @@
 # For Debugging 
 # -------------------------------------------------------------------------------------
 # GITHUB_WORKSPACE=
-GITHUB_WORKSPACE=/mnt/c/development/git/bmcd77/api-catalogue/catalogue
 # -------------------------------------------------------------------------------------
 
 OUTDIR=user-guides
