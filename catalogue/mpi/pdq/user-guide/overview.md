@@ -34,14 +34,15 @@ A successfull response portion of a SOAP message for example will be enclosed wi
 
 Individual fields will be identified by their specific HL7 field designations. e.g:
 
-| HL7 Field | Description             |   
-|-----------|:-----------------------:| 
-| PID.3.1   | Patient ID Number       | 
-| PID.5.1   | Patient Surname         |  
-| PID.5.2   | Patient Forename        | 
-| PID.7     | Patient Date of Birth   | 
-| PID.8     | Patient Gender          | 
-| PID.11    | Patient address         | 
+ HL7 Field | Description                
+-----------|------------------------ 
+ PID.3.1   | Patient ID Number        
+ PID.5.1   | Patient Surname           
+ PID.5.2   | Patient Forename         
+ PID.7     | Patient Date of Birth    
+ PID.8     | Patient Gender           
+ PID.11    | Patient address        
+
 
 The definitions for the QPD portion of a SOAP Request or the [PID](https://hl7-definition.caristix.com/v2/HL7v2.4/Segments/PID) field definitions in the table above can be found on [Caristix HL7 Definitions](https://hl7-definition.caristix.com/v2/HL7v2.7/Segments/QPD).
 
@@ -88,12 +89,12 @@ Valid use case search criteria covered by our examples are:
 
 ### Examples included of edge cases users may encounter include
 
-* Edge Case 1: Response when searching for WATSON, John | 07/08/1952 | M | CF12 9AD | PAS(129): E976321
+* Edge Case 1: Response when searching for WATSON, John | 07/08/1952 | M | CF12 9AD | PAS(129): E976321 covers
    -     Multiple Health board IDs - multiple PID.3 segments with CX.5 = "PI" the same "assigning authority in CX.4/HD.1
    -     Without GP - PD1 segment of the message is missing
    -     Without NHS number - missing NHS segment
 
-* Edge Case 2: Response when searching for HUDSON, Martha | 21/03/1939 | F | CF13 9AD | NHS: 5543223455 | PAS(129): E231796
+* Edge Case 2: Response when searching for HUDSON, Martha | 21/03/1939 | F | CF13 9AD | NHS: 5543223455 | PAS(129): E231796 covers
    -     Deceased patient - returns a PID.29 (Patient Death Date and Time) against the patient
    -     Multiple matches - multiple RSP_K21.QUERY_RESPONSE segments
 
