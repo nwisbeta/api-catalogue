@@ -7,19 +7,19 @@ To follow along with this quickstart you'll need:
 
 There are a number of different combinations of fields that can be combined to search the MPI. A sample of these will be detailed with examples below. 
 
-## HTTP Header values
+### HTTP Header values
 
 To POST any search requests successfully you will need to set the following API Header values. There would be entered under the [Headers tab](https://learning.postman.com/docs/sending-requests/requests/#configuring-request-headers) in Postman or as a [custom HTTP header](https://www.soapui.org/docs/functional-testing/teststep-reference/http-request/headers/) in SOAPUI.
 
-| Field                     |  Value
-|---------------------------|:-------------------------------------------------------------|
-| Ocp-Apim-Subscription-Key |  \<your subscription key\>*                                    |
-| SOAPAction                |  http://apps.wales.nhs.uk/mpi/InvokePatientDemographicsQuery |
-| Content-Type              |  text/xml                                                    |
+ Field                     |  Value
+:--------------------------|:-------------------------------------------------------------
+ Ocp-Apim-Subscription-Key |  {your subscription key}                                
+ SOAPAction                |  http://apps.wales.nhs.uk/mpi/InvokePatientDemographicsQuery 
+ Content-Type              |  text/xml                                                    
 
-*\<your subscription key\>* is unique to you and is allocated when you sign up to the [NHS Wales Developer Portal](https://developer.nhs.wales/) and subscribe to sandbox api's under your profile (visible once you have signed in). If you use one of the tryit links on the portal for a sandbox api you will see that it is automatically included in each api call.
+{your subscription key}* is unique to you and is allocated when you sign up to the [NHS Wales Developer Portal](https://developer.nhs.wales/) and subscribe to sandbox api's under your profile (visible once you have signed in). If you use one of the tryit links on the portal for a sandbox api you will see that it is automatically included in each api call.
 
-## Search the MPI PDQ by NHS Number:
+### Search the MPI PDQ by NHS Number:
 
 Here is a patient demographic query search performed against the MPI search by NHS Number. The input fields are included between the `<PDQ>` tags below. The Nhs Number, 5555599226, is referred to here in the request:
 
@@ -276,7 +276,7 @@ Note the response portion of this request is included between the
 </soap:Envelope>
 ```
 
-## More Search Requests:
+### More Search Requests:
 
 We have included a number of similar searches in our publicly available Postman project. Please see Notes on using Postman below. In a If you are in a hurry 2 things are important:
 
@@ -295,8 +295,6 @@ As noted please see our MPI PDQ Postman project for several additional search ex
 Another way to set an do this is to click the Environment quick look (eye button) in the top right of Postman and click Edit next to Globals. A large window will appear showing any saved variables and if you click on "Edit" in the top right of this window you can update or add a new variable and then save this change. Postman documentation for this is available [here](https://learning.postman.com/docs/sending-requests/variables/)
 
 Note Please use [Postman desktop](https://www.postman.com/downloads/) when viewing these requests. Postman web which opens in a browser will issue a CORS (cross-origin resource sharing) error when attempting to send requests from a web browser.
-
-
 
 
 
