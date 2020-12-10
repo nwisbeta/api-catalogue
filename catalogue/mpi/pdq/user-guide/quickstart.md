@@ -13,7 +13,7 @@ To POST any search requests successfully you will need to set the following API 
 
  Field                     |  Value
 :--------------------------|:-------------------------------------------------------------
- Ocp-Apim-Subscription-Key |  &ltyour subscription key\>                                
+ Ocp-Apim-Subscription-Key |  {your subscription key}                                
  SOAPAction                |  http://apps.wales.nhs.uk/mpi/InvokePatientDemographicsQuery 
  Content-Type              |  text/xml                                                    
 
@@ -295,7 +295,6 @@ As noted please see our MPI PDQ Postman project for several additional search ex
 Another way to set an do this is to click the Environment quick look (eye button) in the top right of Postman and click Edit next to Globals. A large window will appear showing any saved variables and if you click on "Edit" in the top right of this window you can update or add a new variable and then save this change. Postman documentation for this is available [here](https://learning.postman.com/docs/sending-requests/variables/)
 
 Note Please use [Postman desktop](https://www.postman.com/downloads/) when viewing these requests. Postman web which opens in a browser will issue a CORS (cross-origin resource sharing) error when attempting to send requests from a web browser.
-
 
 
 
