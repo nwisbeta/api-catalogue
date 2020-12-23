@@ -9,7 +9,7 @@ paths:
   /$process-message:
     post:
       summary: Process-Message
-      description: "This is a FHIR endpoint that accepts a FHIR Message bundle. The bundle or type Message must have a MessageHeader resource as the first resouce in the bundle and should conform to the [official FHIR documentation](https://www.hl7.org/fhir/messageheader-operation-process-message.html) .\n\nThe message bundle must include the following FHIR Resources : An Organization, DiagnosticReport, Patient, Encounter, Observation, ServiceRequest, Specimen, Device, Media. You may want to view the sample FHIR structure in the 'try it' button on the developer portal. \n\nExamples are available in a Postman collection:\n\n[![Run in Postman] (TODO Add the Postman Link to complete this ...)"
+      description: "This is a FHIR endpoint that accepts a FHIR Message bundle. The bundle or type Message must have a MessageHeader resource as the first resouce in the bundle and should conform to the [official FHIR documentation](https://www.hl7.org/fhir/messageheader-operation-process-message.html) .\n\nThe bundle should contain at least one of each of the following FHIR Resources *Bundle * MessageHeader * Organization * DiagnosticReport * Patient * Encounter * Observation (1 or more) * ServiceRequest * Specimen * Device * Media. You may want to view the sample FHIR structure in the 'try it' button on the developer portal. \n\nExamples are available in a Postman collection:\n\n[![Run in Postman] (TODO Add the Postman Link to complete this ...)"
       operationId: post-process-message
       responses:
         "200":
