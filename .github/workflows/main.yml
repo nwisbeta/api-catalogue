@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ bmcd77/covid-test-results ]
     paths: 
       - 'catalogue/**'
       - '.github/actions/api-catalogue-processor/**'
