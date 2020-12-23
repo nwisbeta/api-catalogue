@@ -1,0 +1,10 @@
+title: FHIR Pathology Test Results
+description: Allow the submission of patient test results for pathology reports
+type: REST/FHIR
+owner: NWIS - Ecosystem Team
+status: experimental
+access: restricted
+overview: |
+  This API is to allow a third party company to submit FHIR Message Bundles containing patient, DiagnosticReport and Observation resources among others.
+  See the user guide for the full list. This should be considered experimental. Anybody can try out the demo/sandbox implementation and provide feedback.
+  It is currently only available in the sandbox environment and not in production.
