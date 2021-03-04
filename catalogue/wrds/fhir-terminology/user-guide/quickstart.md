@@ -387,57 +387,7 @@ and maps this to a target system, such as SNOMED CT
 ### **Url**      
 {url}ConceptMap/1697538221/\$translate?code=CABDO&system=http://nameoftermbase/fhir/CodeSystem/NICIP-20190601&target=http:/snomed.info/sct
 
-**Returns**
-``` json
-{
-   "parameter": [
-      {
-         "name": {
-            "@value": "result"
-         },
-         "valueBoolean": {
-            "@value": "true"
-         }
-      },
-      {
-         "name": {
-            "@value": "match"
-         },
-         "part": [
-            {
-               "name": {
-                  "@value": "equivalence"
-               }
-            },
-            {
-               "name": {
-                  "@value": "concept"
-               },
-               "valueCoding": {
-                  "system": {
-                     "@value": "http://snomed.info/sct"
-                  },
-                  "code": {
-                     "@value": "169070004"
-                  },
-                  "display": {
-                     "@value": "CT of abdomen"
-                  }
-               }
-            },
-            {
-               "name": {
-                  "@value": "source"
-               },
-               "valueString": {
-                  "@value": "urn:28b23846-a8c0-40fb-bad3-6453cc681ae7/cm"
-               }
-            }
-         ]
-      }
-   ]
-}
-```
+> Please note, ConceptMaps will be made available later/upon request.
 
 > *For further information regarding the FHIR specification, please
 > refer to:* [HL7 Conceptmap](https://www.hl7.org/fhir/conceptmap.html)
