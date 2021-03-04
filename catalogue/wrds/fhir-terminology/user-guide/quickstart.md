@@ -1,6 +1,6 @@
 # Quickstart
 
-## FHIR Terminology -- CodeSystem API Structure
+## FHIR Terminology - CodeSystem API Structure
 
 ### **Definition**
 
@@ -39,7 +39,7 @@ Resource Type:              | ValueSet/
 ### **Url**
 {url}ValueSet/\$expand?url=http://snomed.info/sct?fhir_vs=isa/138875005&filter=coeliac 
 
-## FHIR Terminology -- ConceptMap API Structure
+## FHIR Terminology - ConceptMap API Structure
 
 ### **Definition**
 This API uses the ConceptMap FHIR Resource, along with the **\$translate** operation to take a source code and will transform this in to the target system, where the appropriate Concept Map exists.
@@ -58,9 +58,9 @@ Version:              | 1697538221/
 ### **Url**      
 {url}ConceptMap/1697538221/\$translate?code=CABDO&system=http://nameoftermbase/fhir/CodeSystem/NICIP-20190601&target=http:/snomed.info/sct 
 
-## FHIR Terminology -- CodeSystem API
+## FHIR Terminology - CodeSystem API
 
-### **FHIR Code System -- Standard Properties**
+### **FHIR Code System - Standard Properties**
 
 The following properties are defined for all FHIR Code Systems:
 
@@ -290,7 +290,7 @@ Disorder of Liver 235856003
 Systems, please refer to: 
 [hl7.org codesystem](https://www.hl7.org/fhir/codesystem.html)
 
-## FHIR Terminology -- ValueSet API 
+## FHIR Terminology - ValueSet API 
 
 ### **Example SNOMED CT ValueSet API's**
 
@@ -376,7 +376,7 @@ Systems, please refer to:
 > *and*, *for further information regarding the FHIR specification,
 > please refer to:* [link](https://www.hl7.org/fhir/valueset.html)
 
-## FHIR Terminology -- ConceptMap API 
+## FHIR Terminology - ConceptMap API 
 
 ### **Example Value Set API's**
 
