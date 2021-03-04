@@ -296,8 +296,7 @@ Systems, please refer to:
 
 #### **Example One \| Expand Implicit ValueSet (with filter) \[GET\]**
 
-**Definition**: using the SNOMED CT Expression Constraint Language, a
-below, the child concepts of Substance are to be queried for insulin.
+**Definition**: using the SNOMED CT Expression Constraint Language, a filter can be used to search the content for a string. In the example below, the child concepts of Substance are to be queried for insulin.
 
 ### **Url**      
 {url}}ValueSet/\$expand?url=http://snomed.info/sct?fhir_vs=ecl/\<105590001&filter=insulin
